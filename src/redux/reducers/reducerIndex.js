@@ -1,9 +1,9 @@
 import tweetsReducer from "./tweetsReducer";
-import usersReducer from "./usersReducer";
+import userReducer from "./userReducer";
 import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
-  users: usersReducer,
+  users: userReducer,
   tweets: tweetsReducer,
 });
 

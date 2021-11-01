@@ -6,6 +6,12 @@ function tweetsReducer(tweets = [], action) {
     case "DELETE_TWEET":
       return tweets;
 
+    case "LIKE_TWEET":
+      return tweets;
+
+    case "UNLIKE_TWEET":
+      return tweets;
+
     default:
       return tweets;
   }
