@@ -1,5 +1,6 @@
 import React from "react";
 import LeftSideBar from "../components/LeftSideBar";
+import ModalEditUser from "../components/ModalEditUser";
 import RightSideBar from "../components/RightSideBar";
 
 function Profile() {
@@ -86,7 +87,8 @@ function Profile() {
               data-bs-toggle="modal"
               data-bs-target="#editUserModal"
             >
-              <span className="mx-auto">Set up profile</span>
+              {/* <span className="mx-auto">Set up profile</span> */}
+              <ModalEditUser/>
             </div>
           </div>
 
@@ -128,7 +130,7 @@ function Profile() {
                 data-bs-toggle="modal"
                 data-bs-target="#editUserModal"
               >
-                <span className="mx-auto">Set up profile</span>
+                {/* <span className="mx-auto">Set up profile</span> */}
               </div>
             </div>
 
