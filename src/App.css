@@ -604,3 +604,8 @@ body.modal-open .supreme-container {
 .pointer:hover {
   cursor: pointer;
 }
+
+.margin-neg-2 {
+  margin: -2px;
+  border-radius: 10px;
+}

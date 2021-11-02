@@ -1,5 +1,7 @@
 import React from "react";
 import welcomePicture from "../img/welcome-picture.png";
+import ModalLogin from "../components/ModalLogIn";
+import ModalRegister from "../components/ModalRegister";
 
 function Welcome() {
   return (
@@ -40,13 +42,8 @@ function Welcome() {
               <button className="sign-up-buttons functionallityNotWorking">
                 <i className="fab fa-apple"></i>Sign up with Apple
               </button>
-              <button
-                className="sign-up-buttons"
-                data-bs-toggle="modal"
-                data-bs-target="#registerModal"
-              >
-                Sign up with phone or email
-              </button>
+
+              <ModalRegister />
             </div>
             <div className="mt-4">
               <p className="text-muted" id="text-bellow-signup-buttons">
@@ -65,15 +62,7 @@ function Welcome() {
                 </span>
               </p>
               <p className="mt-4" id="already-have-an-account">
-                Already have an account?{" "}
-                <a
-                  className="sign-up-a-nohover"
-                  href="#"
-                  data-bs-toggle="modal"
-                  data-bs-target="#loginModal"
-                >
-                  Sign in
-                </a>
+                Already have an account? <ModalLogin />
               </p>
             </div>
           </div>
@@ -132,7 +121,6 @@ function Welcome() {
         </span>
         <p id="twitter-inc">&copy; {new Date().getFullYear()}</p>
       </footer>
-      <script src="js/registerValidation.js"></script>
     </div>
   );
 }
