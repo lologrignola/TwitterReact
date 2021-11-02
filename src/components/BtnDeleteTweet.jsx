@@ -1,7 +1,11 @@
 import React from "react";
 
 function BtnDeleteTweet() {
-  return <div></div>;
+  return (
+    <div>
+      <i className="fas fa-trash-alt text-muted"></i>
+    </div>
+  );
 }
 
 export default BtnDeleteTweet;
