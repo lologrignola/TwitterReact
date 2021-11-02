@@ -5,7 +5,7 @@ import ModalRegister from "../components/ModalRegister";
 
 function Welcome() {
   return (
-    <div style={{ backgroundColor: "white" }}>
+    <div style={{ backgroundColor: "white" }} id="welcome-container">
       <div className="row vw-100">
         <div id="welcome-img" class="col">
           <img src={welcomePicture} alt="" />

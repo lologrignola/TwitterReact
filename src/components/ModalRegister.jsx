@@ -49,17 +49,18 @@ function ModalRegister() {
                 Create a password
               </label>
               <input type="password" id="password" name="password" className="form-control mb-3" />
-              <div className="d-flex justify-content-between">
+              <hr />
+              <Modal.Footer>
+                {" "}
                 <button type="submit" class="btn btn-primary">
                   Sign up
                 </button>
                 <button type="button" class="btn btn-secondary" onClick={handleClose}>
                   Close
                 </button>
-              </div>
+              </Modal.Footer>
             </form>
           </Modal.Body>
-          <Modal.Footer></Modal.Footer>
         </div>
       </Modal>
     </>

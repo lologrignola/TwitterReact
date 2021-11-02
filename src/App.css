@@ -336,6 +336,10 @@ body.modal-open .supreme-container {
   color: rgb(116, 116, 116);
   text-decoration: underline;
 }
+#welcome-container {
+  height: 100vh;
+}
+
 #twitter-inc {
   font-size: 12px;
   margin-top: 10px;
