@@ -1,5 +1,5 @@
-import React from "react";
 import LeftSideBar from "../components/LeftSideBar";
+import ModalTweet from "../components/ModalTweet";
 import RightSideBar from "../components/RightSideBar";
 import Tweet from "../components/Tweet";
 
@@ -20,7 +20,7 @@ function TweetPage() {
                 <div className="col-8">
                   {/* <%- include ("./partials/navbar") %> */}
                   {/*  <!--main content down here--> */}
-
+                  <ModalTweet />
                   <Tweet />
                   {/*  <!--end main content--> */}
                 </div>
