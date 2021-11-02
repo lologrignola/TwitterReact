@@ -51,18 +51,18 @@ function Welcome() {
             <div className="mt-4">
               <p className="text-muted" id="text-bellow-signup-buttons">
                 By signing up, you agree to the{" "}
-                <span className="sign-up-a-hover functionallityNotWorking pointer" href="#">
+                <span className="sign-up-a-hover text-primary pointer" href="#">
                   Terms of Service
                 </span>{" "}
                 and{" "}
-                <a className="sign-up-a-hover functionallityNotWorking" href="#">
+                <span className="sign-up-a-hover text-primary pointer" href="#">
                   Privacy <br />
                   Policy
-                </a>
+                </span>
                 , including{" "}
-                <a className="sign-up-a-hover functionallityNotWorking" href="#">
+                <span className="sign-up-a-hover text-primary pointer" href="#">
                   Cookie Use.
-                </a>
+                </span>
               </p>
               <p className="mt-4" id="already-have-an-account">
                 Already have an account?{" "}
@@ -81,56 +81,56 @@ function Welcome() {
       </div>
       <hr id="welcome-hr" />
       <footer className="d-flex justify-content-evenly align-items-center flex-wrap px-5 py-2">
-        <a className="functionallityNotWorking a-footer-welcome mx-1" href="#">
+        <span className="a-footer-welcome mx-1 pointer" href="#">
           About
-        </a>
-        <a className="functionallityNotWorking a-footer-welcome mx-1" href="#">
+        </span>
+        <span className="a-footer-welcome mx-1 pointer" href="#">
           Help Center
-        </a>
-        <a className="functionallityNotWorking a-footer-welcome mx-1" href="#">
+        </span>
+        <span className="a-footer-welcome mx-1 pointer" href="#">
           Terms of service
-        </a>
-        <a className="functionallityNotWorking a-footer-welcome mx-1" href="#">
+        </span>
+        <span className="a-footer-welcome mx-1 pointer" href="#">
           Privacy Policy
-        </a>
-        <a className="functionallityNotWorking a-footer-welcome mx-1" href="#">
+        </span>
+        <span className="a-footer-welcome mx-1 pointer" href="#">
           {" "}
           Cookie Policy
-        </a>
-        <a className="functionallityNotWorking a-footer-welcome mx-1" href="#">
+        </span>
+        <span className="a-footer-welcome mx-1 pointer" href="#">
           Ads info
-        </a>
-        <a className="functionallityNotWorking a-footer-welcome mx-1" href="#">
+        </span>
+        <span className="a-footer-welcome mx-1 pointer" href="#">
           Blog
-        </a>
-        <a className="functionallityNotWorking a-footer-welcome mx-1" href="#">
+        </span>
+        <span className="a-footer-welcome mx-1 pointer" href="#">
           Status
-        </a>
-        <a className="functionallityNotWorking a-footer-welcome mx-1" href="#">
+        </span>
+        <span className="a-footer-welcome mx-1 pointer" href="#">
           Careers
-        </a>
-        <a className="functionallityNotWorking a-footer-welcome mx-1" href="#">
+        </span>
+        <span className="a-footer-welcome mx-1 pointer" href="#">
           Brand Resources
-        </a>
-        <a className="functionallityNotWorking a-footer-welcome mx-1" href="#">
+        </span>
+        <span className="a-footer-welcome mx-1 pointer" href="#">
           Advertising
-        </a>
-        <a className="functionallityNotWorking a-footer-welcome mx-1" href="#">
+        </span>
+        <span className="a-footer-welcome mx-1 pointer" href="#">
           Marketing
-        </a>
-        <a className="functionallityNotWorking a-footer-welcome mx-1" href="#">
+        </span>
+        <span className="a-footer-welcome mx-1 pointer" href="#">
           Twitter for Business
-        </a>
-        <a className="functionallityNotWorking a-footer-welcome mx-1" href="#">
+        </span>
+        <span className="a-footer-welcome mx-1 pointer" href="#">
           Developers
-        </a>
-        <a className="functionallityNotWorking a-footer-welcome mx-1" href="#">
+        </span>
+        <span className="a-footer-welcome mx-1 pointer" href="#">
           Directory
-        </a>
-        <a className="functionallityNotWorking a-footer-welcome mx-1" href="#">
+        </span>
+        <span className="a-footer-welcome mx-1 pointer" href="#">
           Settings
-        </a>
-        <p id="twitter-inc">&copy;</p>
+        </span>
+        <p id="twitter-inc">&copy; {new Date().getFullYear()}</p>
       </footer>
       <script src="js/registerValidation.js"></script>
     </div>
