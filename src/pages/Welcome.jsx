@@ -36,13 +36,12 @@ function Welcome() {
           </div>
           <div>
             <div className="d-flex flex-column">
-              <button className="sign-up-buttons functionallityNotWorking">
+              <button className="sign-up-buttons">
                 <i className="fab fa-google"></i>Sign up with Google
               </button>
-              <button className="sign-up-buttons functionallityNotWorking">
+              <button className="sign-up-buttons">
                 <i className="fab fa-apple"></i>Sign up with Apple
               </button>
-
               <ModalRegister />
             </div>
             <div className="mt-4">
