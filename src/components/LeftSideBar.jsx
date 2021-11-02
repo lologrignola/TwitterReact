@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SideButtons from "./SideButtons";
 
 function LeftSideBar() {
   return (
@@ -13,90 +14,14 @@ function LeftSideBar() {
           </div>
         </Link>
         <ul id="left-sidebar-list" className="nav flex-column mt-3">
-          <li className="nav-item mt-2">
-            <Link to="/" style={{ textDecoration: "inherit" }}>
-              <div role="button" className="links-leftSide">
-                <div className="row">
-                  <div className="col-2">
-                    <i className="icons-left fas fa-home"></i>
-                  </div>
-                  <div className="col-10 collapsable-sidebarleft">Inicio</div>
-                </div>
-              </div>
-            </Link>
-          </li>
-          <li className="nav-item mt-2">
-            <div className="links-leftSide functionallityNotWorking" role="button">
-              <div className="row">
-                <div className="col-2">
-                  <i className="icons-left fas fa-hashtag"></i>
-                </div>
-                <div className="col-10 collapsable-sidebarleft">Explorar</div>
-              </div>
-            </div>
-          </li>
-          <li className="nav-item mt-2">
-            <div role="button" className="links-leftSide functionallityNotWorking">
-              <div className="row">
-                <div className="col-2">
-                  <i className="icons-left fas fa-bell"></i>
-                </div>
-                <div className="col-10 collapsable-sidebarleft">Notificaciones</div>
-              </div>
-            </div>
-          </li>
-          <li className="nav-item mt-2">
-            <div role="button" className="links-leftSide functionallityNotWorking">
-              <div className="row">
-                <div className="col-2">
-                  <i className="icons-left fas fa-envelope"></i>
-                </div>
-                <div className="col-10 collapsable-sidebarleft">Mensajes</div>
-              </div>
-            </div>
-          </li>
-          <li className="nav-item mt-2">
-            <div role="button" className="links-leftSide functionallityNotWorking">
-              <div className="row">
-                <div className="col-2">
-                  <i className="icons-left far fa-bookmark"></i>
-                </div>
-                <div className="col-10 collapsable-sidebarleft">Guardados</div>
-              </div>
-            </div>
-          </li>
-          <li className="nav-item mt-2">
-            <div role="button" className="links-leftSide functionallityNotWorking">
-              <div className="row">
-                <div className="col-2">
-                  <i className="icons-left far fa-list-alt"></i>
-                </div>
-                <div className="col-10 collapsable-sidebarleft">Listas</div>
-              </div>
-            </div>
-          </li>
-          <li className="nav-item mt-2">
-            <Link to="/profile" style={{ textDecoration: "inherit" }}>
-              <div href="/profile" className="links-leftSide">
-                <div className="row">
-                  <div className="col-2">
-                    <i className="icons-left far fa-user"></i>
-                  </div>
-                  <div className="col-10 collapsable-sidebarleft">Perfil</div>
-                </div>
-              </div>
-            </Link>
-          </li>
-          <li className="nav-item mt-2">
-            <div role="button" className="links-leftSide functionallityNotWorking">
-              <div className="row">
-                <div className="col-12 col-lg-2">
-                  <i className="icons-left fas fa-ellipsis-h"></i>
-                </div>
-                <div className="col-10 collapsable-sidebarleft">Más Opciones</div>
-              </div>
-            </div>
-          </li>
+          <SideButtons text="Inicio" icon="icons-left fas fa-home" />
+          <SideButtons text="Explorar" icon="icons-left fas fa-hashtag" />
+          <SideButtons text="Notificaciones" icon="icons-left fas fa-bell" />
+          <SideButtons text="Mensajes" icon="icons-left fas fa-envelope" />
+          <SideButtons text="Guardados" icon="icons-left far fa-bookmark" />
+          <SideButtons text="Listas" icon="icons-left far fa-list-alt" />
+          <SideButtons text="Perfil" icon="icons-left far fa-user" />
+          <SideButtons text="Más Opciones" icon="icons-left fas fa-ellipsis-h" />
           <li className="nav-item mt-4">
             <div
               id="bigButtonTwittear"
