@@ -121,7 +121,7 @@ function RightSideBar() {
                         <img
                           className="rounded-circle"
                           width="55rem"
-                          src="<%=user.avatar %>"
+                          /* src="<%=user.avatar %>" */
                           alt="testUserAvatar"
                         />
                       </div>
