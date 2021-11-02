@@ -2,11 +2,14 @@ import { Link } from "react-router-dom";
 
 function LeftSideBar() {
   return (
-    <div style="height: 100vh" className="d-flex flex-column justify-content-between sticky-top">
+    <div
+      style={{ height: "100vh" }}
+      className="d-flex flex-column justify-content-between sticky-top"
+    >
       <div className="pt-3">
         <Link to="/home">
           <a href="" className="links-leftSide">
-            <i className="fab fa-twitter" style="font-size: 30px"></i>
+            <i className="fab fa-twitter" style={{ fontSize: "30px" }}></i>
           </a>
         </Link>
         <ul id="left-sidebar-list" className="nav flex-column mt-3">

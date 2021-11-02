@@ -3,7 +3,7 @@ import React from "react";
 function RightSideBar() {
   return (
     <>
-      <div style="background-color: black" className="sticky-top pb-3">
+      <div style={{ backgroundColor: "black" }} className="sticky-top pb-3">
         <div className="pt-3">
           <form action="/search-one" method="POST">
             <input
@@ -14,7 +14,7 @@ function RightSideBar() {
               aria-label="Username"
               aria-describedby="basic-addon1"
             />
-            <input type="submit" style="display: none" />
+            <input type="submit" style={{ display: "none" }} />
           </form>
         </div>
       </div>
@@ -140,7 +140,7 @@ function RightSideBar() {
                       method="POST"
                     >
                       <button
-                        style="background-color: white; color: black; width: 90px"
+                        style={{ backgroundColor: "white", color: "black", width: "90px" }}
                         type="submit"
                         className="
                     align-self-center
@@ -163,7 +163,7 @@ function RightSideBar() {
                 method="POST"
               >
                 <button
-                  style="background-color: white; color: black; width: 90px"
+                  style={{backgroundColor: "white", color: "black", width: "90px"}}
                   type="submit"
                   className="align-self-center btn rounded-pill btn-twittear me-3 mb-2"
                 >

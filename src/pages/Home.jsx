@@ -13,7 +13,7 @@ function Home() {
           {/* NAVBAR ACA ***********************************************************************  */}
           <form action="/tweetear" method="POST">
             <div className="top-input-tweet">
-              <div className="d-flex p-2" style="height: 100%">
+              <div className="d-flex p-2" style={{ height: "100%" }}>
                 <span className="TweetAuthor-avatar">
                   <div className="Avatar ms-2 mt-2">
                     <img
@@ -24,10 +24,10 @@ function Home() {
                     />
                   </div>
                 </span>
-                <div className="d-flex flex-column" style="width: 100%">
-                  <div className="ps-3 mt-4" style="width: 100%">
+                <div className="d-flex flex-column" style={{ width: "100%" }}>
+                  <div className="ps-3 mt-4" style={{ width: "100%" }}>
                     <input
-                      style="color: white"
+                      style={{ color: "white" }}
                       type="text"
                       name="tweetText"
                       className="form-control input-tweet-up inputNoborder"
