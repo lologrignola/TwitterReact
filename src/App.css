@@ -15,7 +15,7 @@ body {
 #modal-negro {
   background-color: rgb(20, 20, 20);
   padding: 0 2rem 0 2rem;
-  border: 3px solid rgb(20, 20, 20);
+  margin-right: -2px;
 }
 
 .links-leftSide {
