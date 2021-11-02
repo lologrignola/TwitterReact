@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function TopNavbar() {
+function TopNavbar({ text }) {
   return (
     <div id="navbar-top-container" className="d-flex justify-content-between py-3 px-3">
-      <h3>Tweet</h3>
+      <h3>{text}</h3>
       <Link className="functionallityNotWorking" to="#">
         <div id="Top-tweets-container" className="rounded-circle" title="Top Tweets">
           <svg
