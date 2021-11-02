@@ -50,22 +50,22 @@ function Welcome() {
             </div>
             <div className="mt-4">
               <p className="text-muted" id="text-bellow-signup-buttons">
-                By signing up, you agree to the
-                <a className="sign-up-a-hover functionallityNotWorking" href="#">
+                By signing up, you agree to the{" "}
+                <span className="sign-up-a-hover functionallityNotWorking pointer" href="#">
                   Terms of Service
-                </a>{" "}
-                and
+                </span>{" "}
+                and{" "}
                 <a className="sign-up-a-hover functionallityNotWorking" href="#">
                   Privacy <br />
                   Policy
                 </a>
-                , including
+                , including{" "}
                 <a className="sign-up-a-hover functionallityNotWorking" href="#">
                   Cookie Use.
                 </a>
               </p>
               <p className="mt-4" id="already-have-an-account">
-                Already have an account?
+                Already have an account?{" "}
                 <a
                   className="sign-up-a-nohover"
                   href="#"

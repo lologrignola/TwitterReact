@@ -600,3 +600,7 @@ body.modal-open .supreme-container {
   border: none;
   box-shadow: none !important;
 }
+
+.pointer:hover {
+  cursor: pointer;
+}
