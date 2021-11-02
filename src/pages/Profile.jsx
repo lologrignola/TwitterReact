@@ -63,28 +63,28 @@ function Profile() {
 
               <div className="d-flex">
                 <div style={{marginRight: '20px'}}>
-                  <a href="#" className="text-decoration-none">
+                  <div className="text-decoration-none">
                     <span>5</span>
                     <span>Following</span>
-                  </a>
+                  </div>
                 </div>
                 <div>
-                  <a href="#" className="text-decoration-none">
+                  <div className="text-decoration-none">
                     <span>5</span>
                     <span>Followers</span>
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <a
+            <div
               className="rounded-pill btn-profile px-3 lh-4 sign-up-a-nohover"
               style={{height: "2rem"}}
               data-bs-toggle="modal"
               data-bs-target="#editUserModal"
             >
               <span className="mx-auto">Set up profile</span>
-            </a>
+            </div>
           </div>
 
           {/* <!-- Parte de abajo  --> */}
@@ -93,30 +93,30 @@ function Profile() {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0 nab navbar_profile">
                 <li className="nav-item">
                   <div>
-                    <a href="#">
+                    <div href="#">
                       <div className="text-decoration-none">Tweets</div>
-                    </a>
+                    </div>
                   </div>
                 </li>
                 <li className="nav-item">
                   <div>
-                    <a href="#">
+                    <div href="#">
                       <div className="text-decoration-none">Tweets & replies</div>
-                    </a>
+                    </div>
                   </div>
                 </li>
-                <li className="nav-item" className="text-decoration-none">
+                <li className="nav-item" style={{textDecoration: 'none' }}>
                   <div>
-                    <a href="#">
+                    <div href="#">
                       <div>Media</div>
-                    </a>
+                    </div>
                   </div>
                 </li>
                 <li className="nav-item">
                   <div>
-                    <a href="#">
+                    <div href="#">
                       <div>Likes</div>
-                    </a>
+                    </div>
                   </div>
                 </li>
               </ul>
@@ -142,7 +142,7 @@ function Profile() {
                   </div>
                 </a>
                 <% } %> */}
-                <a
+                <div
                   href="#"
                   className="
                     list-group-item list-group-item-action
@@ -155,8 +155,8 @@ function Profile() {
                   <div className="ms-2 w-100 h-100">
                     <h7 className="mb-0">Show more</h7>
                   </div>
-                </a>
-                <a
+                </div>
+                <div
                   href="#"
                   className="list-group-item list-group-item-action mt-0 d-flex flex-row border-end"
                 >
@@ -164,7 +164,7 @@ function Profile() {
                     <h5 className="mb-0">Topics to follow</h5>
                     <p>Tweets about the Topics you follow show up in your Home timeline</p>
                   </div>
-                </a>
+                </div>
                 <div className="container w-100"></div>
               </div>
             </div>
