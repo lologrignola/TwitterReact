@@ -1,6 +1,7 @@
 import LeftSideBar from "../components/LeftSideBar";
 import ModalTweet from "../components/ModalTweet";
 import RightSideBar from "../components/RightSideBar";
+import TopNavbar from "../components/TopNavbar";
 import Tweet from "../components/Tweet";
 
 function TweetPage() {
@@ -18,6 +19,7 @@ function TweetPage() {
             <div className="col-10 gx-3">
               <div className="row">
                 <div className="col-8">
+                  <TopNavbar />
                   {/* <%- include ("./partials/navbar") %> */}
                   {/*  <!--main content down here--> */}
                   <ModalTweet />
