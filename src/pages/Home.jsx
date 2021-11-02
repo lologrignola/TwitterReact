@@ -19,7 +19,8 @@ function Home() {
                     <img
                       className="rounded-circle"
                       width="55rem"
-                      src="<%= userAvatar %>"
+                      height="55rem"
+                      src="https://i.pinimg.com/originals/0d/36/e7/0d36e7a476b06333d9fe9960572b66b9.jpg"
                       alt="testUserAvatar"
                     />
                   </div>
