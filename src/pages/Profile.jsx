@@ -172,23 +172,48 @@ function Profile() {
               <div className="container m-0 mb-0 ms-0 w-100 p-0 who-to-follow">
                 <h4 className="row container text-dark">Who to follow</h4>
                 <div className="list-group w-100 m-0">
-                  {/* <% for(user of randomUsers) { %>
-                <a
-                  href="#"
+                <div
                   className="list-group-item list-group-item-action ms-0 d-flex flex-row border-0"
                 >
                   <div className="rounded-circle me-3">
-                    <img src="img/img.jpg" alt="ovacion" width="50px" className="rounded-circle" />
+                    {/* <img src="img/img.jpg" alt="ovacion" width="50px" className="rounded-circle" /> */}
                   </div>
                   <div>
                     <div className="w-100">
-                      <h5 className="mb-0"><%= user.fullname %></h5>
-                      <small className="text-muted">@<%=user.username%></small>
+                      <h5 className="mb-0">fullname</h5>
+                      <small className="text-muted">username</small>
                     </div>
-                    <p className="mb-1"><%=user.bio %></p>
+                    <p className="mb-1">Lorem ipsum dolor sit amet consectetur, Praesentium hic fugit incidunt, eum eos tempore labore vel aliquam nm anim</p>
                   </div>
-                </a>
-                <% } %> */}
+                </div>
+                <div
+                  className="list-group-item list-group-item-action ms-0 d-flex flex-row border-0"
+                >
+                  <div className="rounded-circle me-3">
+                    {/* <img src="img/img.jpg" alt="ovacion" width="50px" className="rounded-circle" /> */}
+                  </div>
+                  <div>
+                    <div className="w-100">
+                      <h5 className="mb-0">fullname</h5>
+                      <small className="text-muted">username</small>
+                    </div>
+                    <p className="mb-1">Lorem ipsum dolor sit amet consectetur, Praesentium hic fugit incidunt, eum eos tempore labore vel aliquam nm anim</p>
+                  </div>
+                </div>
+                <div
+                  className="list-group-item list-group-item-action ms-0 d-flex flex-row border-0"
+                >
+                  <div className="rounded-circle me-3">
+                    {/* <img src="img/img.jpg" alt="ovacion" width="50px" className="rounded-circle" /> */}
+                  </div>
+                  <div>
+                    <div className="w-100">
+                      <h5 className="mb-0">fullname</h5>
+                      <small className="text-muted">username</small>
+                    </div>
+                    <p className="mb-1">Lorem ipsum dolor sit amet consectetur, Praesentium hic fugit incidunt, eum eos tempore labore vel aliquam nm anim</p>
+                  </div>
+                </div>
                 <div
                   href="#"
                   className="
