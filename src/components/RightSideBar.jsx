@@ -1,7 +1,10 @@
 import React from "react";
 
 function RightSideBar() {
-  return (<div style="background-color: black" className="sticky-top pb-3">
+  return (
+  <>
+  
+  <div style="background-color: black" className="sticky-top pb-3">
   <div className="pt-3">
     <form action="/search-one" method="POST">
       <input
@@ -194,6 +197,7 @@ function RightSideBar() {
     </div>
   </div>
 </div>
+  </>
 );
 }
 
