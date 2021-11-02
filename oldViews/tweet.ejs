@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("./partials/meta") %>
+  </head>
+  <body>
+    <div class="supreme-container">
+      <div class="container" style="width: 100%">
+        <div class="row">
+          <!--Left sidebar-->
+          <div class="col-2"><%- include ("./partials/sidebarLeft") %></div>
+
+          <!--Navbar + main content-->
+          <div class="col-10 gx-3">
+            <div class="row">
+              <div class="col-8">
+                <%- include ("./partials/navbar") %>
+                <!--main content down here-->
+
+                <div class="tw-block-parent p-4 mt-4">
+                  <div class="timeline-TweetList-tweet">
+                    <div class="timeline-Tweet">
+                      <div class="timeline-Tweet-brand">
+                        <div class="Icon Icon--twitter"></div>
+                      </div>
+                      <!--tweet author-->
+                      <div class="timeline-Tweet-author">
+                        <div class="TweetAuthor">
+                          <a class="TweetAuthor-link" href="#channel">
+                            <div class="d-inline-block">
+                              <span class="TweetAuthor-avatar">
+                                <div class="Avatar d-inline-block">
+                                  <img
+                                    class="rounded-circle me-2 mb-4"
+                                    width="60rem"
+                                    src="<%= tweet.author.avatar %>"
+                                    alt="testUserAvatar"
+                                  />
+                                </div>
+                              </span>
+                            </div>
+                          </a>
+                          <div class="d-inline-block">
+                            <a href="/user/<%= tweet.author.id %> ">
+                              <div class="TweetAuthor-name look-like-link">
+                                <strong><%= tweet.author.fullname %></strong>
+                              </div>
+
+                              <div class="TweetAuthor-screenName">
+                                @<%= tweet.author.username %>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <!--tweet content-->
+                      <div class="timeline-Tweet-text">
+                        <p class="breakWord"><%= tweet.content %></p>
+                      </div>
+                      <!--tweet metadata// timeStamp && Twitter Web App(posted from)-->
+                      <div class="timeline-Tweet-metadata mt-3">
+                        <a class="timeline-Tweet-timestamp look-like-link" href="#"
+                          ><%= createdAt %></a
+                        >
+                        <span> · </span>
+                        <a
+                          class="look-like-link"
+                          href="https://help.twitter.com/using-twitter/how-to-tweet#source-labels"
+                          >Twitter Web App</a
+                        >
+                      </div>
+                      <hr />
+                      <!--tweet actions-->
+                      <div class="timeline-Tweet-actions list-unstyled">
+                        <form id="like" action="/tweet/<%= tweet.id %> " method="post"></form>
+                        <span class="timeline-Tweet-action">
+                          <a
+                            class="Icon Icon--heart"
+                            onclick="document.getElementById('like').submit(); return false;"
+                          >
+                            <% if (tweet.likes.includes(userId)) { %>
+                            <a href="/tweetDisiked/<%=tweet._id%> "
+                              ><i class="fas fa-heart likeHeartRed"></i
+                            ></a>
+                            <% }else{ %>
+                            <a href="/tweetLiked/<%=tweet._id%> "
+                              ><i class="fas fa-heart likeHeart"></i
+                            ></a>
+                            <% } %>
+                          </a>
+                        </span>
+                        <span><%= tweet.likes.length %></span>
+                        <% if (locals.unauthDelete) { %>
+                        <div class="alert alert-danger" role="alert">
+                          <%= locals.unauthDelete[0] %>
+                        </div>
+                        <% } %> <% if (userId === tweetId) { %>
+                        <span
+                          ><a class="ms-4" href="/deleteTweet/<%= tweet._id %>"
+                            ><i class="fas fa-trash-alt"></i></a
+                        ></span>
+                        <% } %>
+                      </div>
+                      <!--comments-->
+                    </div>
+                  </div>
+                </div>
+                <!--end main content-->
+              </div>
+              <!--Right sidebar-->
+              <div class="col-4 d-none d-lg-block"><%- include ("./partials/sidebarRight") %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--modals// start-->
+
+    <%- include ("./partials/twittearModal") %>
+
+    <!--modals // end-->
+    <%- include ("./partials/scripts") %>
+  </body>
+</html>

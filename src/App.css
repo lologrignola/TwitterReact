@@ -1,38 +1,602 @@
-.App {
-  text-align: center;
+body {
+  background-color: black;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.fa-heart {
+  color: tomato;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.top-input-tweet {
+  height: 8em;
+}
+.modal-content,
+.modal-footer {
+  background-color: rgb(20, 20, 20);
+  padding: 0 2rem 0 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.links-leftSide {
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.links-leftSide:hover {
+  text-decoration: none;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 1070px) {
+  .collapsable-sidebarleft {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 1070px) {
+  .icons-left {
+    margin-top: 20px;
+    font-size: 20px;
+    align-self: flex-end;
   }
+}
+
+#smallButtonTweettear {
+  display: none;
+}
+
+@media (max-width: 1070px) {
+  #smallButtonTweettear {
+    display: block;
+    margin-left: -17px;
+  }
+}
+
+#bigLogout {
+  display: block;
+}
+@media (max-width: 1070px) {
+  #bigLogout {
+    display: none;
+  }
+}
+
+#smallLogout {
+  display: none;
+}
+@media (max-width: 1070px) {
+  #smallLogout {
+    display: block;
+    color: #dc3545;
+    font-size: 3rem;
+  }
+}
+
+#bigButtonTwittear {
+  display: block;
+}
+
+@media (max-width: 1070px) {
+  #bigButtonTwittear {
+    display: none;
+  }
+}
+
+#smallButtonTwittear .form-control {
+  background-color: #202327;
+  border: none;
+}
+
+@media (max-width: 589px) {
+  #left-sidebar-list {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  #rightSidebarContainer {
+    display: none !important;
+  }
+}
+
+.tendencias {
+  background-color: #202327;
+  text-decoration: none;
+}
+
+.tendencias-a {
+  color: white;
+  text-decoration: none;
+}
+.tendencias-a:hover {
+  color: white;
+}
+
+.tendencias-hover:hover {
+  background-color: #333333;
+}
+
+.inside-tendencias {
+  padding: 1rem;
+}
+
+.btnTwittear {
+  background-color: #6c4de6;
+  height: 3rem;
+  width: 75%;
+}
+
+.btnTwittear a {
+  text-decoration: none;
+  color: white;
+}
+
+.arroba {
+  color: grey;
+}
+.tt-uru {
+  font-size: 0.8rem;
+  color: grey;
+}
+.left-nav-text {
+  font-size: 0.8rem;
+  color: grey;
+}
+p {
+  margin: 0;
+}
+.showMore {
+  color: #1d9bf0;
+}
+.btnSeguir {
+  background-color: white;
+  color: black;
+  height: 2rem;
+  font-weight: 600;
+}
+.fa-circle {
+  font-size: 3em;
+}
+.userName {
+  color: grey;
+  font-size: 0.9rem;
+}
+.under-navbar {
+  color: grey;
+  font-size: 0.7rem;
+}
+.input-tweet-up {
+  background-color: black;
+  outline: none;
+  border: 0px solid;
+}
+.input-tweet-up:focus {
+  background-color: black;
+  border: 0px solid;
+  border: none;
+  outline: none;
+}
+.input-tweet-up:active {
+  background-color: black;
+  border: 0px solid;
+  border: none;
+  outline: none;
+}
+
+.btn-twittear {
+  background-color: #1d9bf0;
+  color: white;
+}
+.likeHeart {
+  font-size: 1.2rem;
+  color: grey;
+}
+
+.likeHeartRed {
+  font-size: 1.2rem;
+  color: red;
+}
+
+.singleTweet {
+  border: 0.5px solid #2f3336;
+}
+.top-input-tweet {
+  border: 0.1rem solid #2f3336;
+}
+.look-like-link:hover {
+  text-decoration: underline;
+  color: rgb(195, 214, 230);
+}
+
+.TweetAuthor-screenName {
+  font-size: 0.7rem;
+  color: rgb(184, 191, 197);
+}
+
+body.modal-open .supreme-container {
+  filter: blur(5px);
+}
+/* Welcome view CSS */
+
+#welcome-img {
+  display: block;
+}
+@media (max-width: 1245px) {
+  #welcome-img {
+    display: none;
+  }
+}
+
+@media (max-width: 1245px) {
+  #happening-now-col {
+    padding-left: 10vw;
+  }
+}
+
+#welcome-hr {
+  display: none;
+}
+@media (max-width: 1245px) {
+  #welcome-hr {
+    display: block;
+    color: gray;
+    margin-bottom: -10px;
+    margin-top: 30px;
+  }
+}
+
+#welcome-logo {
+  fill: #1d9bf0;
+}
+#welcome-logo-white {
+  fill: white;
+}
+
+#happening-now {
+  font-size: 4rem;
+  font-family: sans-serif;
+  color: black;
+}
+#join-today {
+  font-size: 2rem;
+  color: black;
+}
+
+.sign-up-buttons {
+  width: 300px;
+  margin-top: 20px;
+  background-color: white;
+  border: 1px solid rgb(216, 216, 216);
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 2px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 32px;
+}
+.sign-up-buttons:hover {
+  background-color: rgb(236, 236, 236);
+}
+.sign-up-buttons:active {
+  background-color: rgb(172, 172, 172);
+}
+
+.fa-google {
+  margin-right: 10px;
+}
+.fa-apple {
+  margin-right: 10px;
+}
+
+#text-bellow-signup-buttons {
+  font-size: 0.8rem;
+}
+
+#already-have-an-account {
+  color: black;
+}
+
+.sign-up-a-hover {
+  text-decoration: none;
+}
+.sign-up-a-hover:hover {
+  text-decoration: underline;
+}
+
+.sign-up-a-nohover {
+  text-decoration: none;
+}
+
+.tweet-content-container {
+  max-width: 40rem;
+  word-wrap: unset;
+  word-break: break-all;
+}
+
+.modal-header {
+  justify-content: start;
+  padding-left: 0;
+}
+
+.modal-header .btn-close {
+  margin-left: 0;
+}
+
+.a-footer-welcome {
+  font-size: 12px;
+  margin-top: 10px;
+  text-decoration: none;
+  color: rgb(116, 116, 116);
+}
+.a-footer-welcome:hover {
+  color: rgb(116, 116, 116);
+  text-decoration: underline;
+}
+#twitter-inc {
+  font-size: 12px;
+  margin-top: 10px;
+  color: rgb(116, 116, 116);
+}
+
+.tw-block-parent a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+#twittear {
+  background-color: #141414;
+  color: rgb(148, 150, 151);
+  border: none;
+  outline: none;
+  max-width: 22rem;
+}
+
+/* make textarea grow // start*/
+
+.grow-wrap {
+  /* easy way to plop the elements on top of each other and have them both sized based on the tallest one's height */
+  display: grid;
+}
+.grow-wrap::after {
+  /* Note the weird space! Needed to preventy jumpy behavior */
+  content: attr(data-replicated-value) " ";
+
+  /* This is how textarea text behaves */
+  white-space: pre-wrap;
+
+  /* Hidden from view, clicks, and screen readers */
+  visibility: hidden;
+}
+.grow-wrap > textarea {
+  /* You could leave this, but after a user resizes, then it ruins the auto sizing */
+  resize: none;
+
+  /* Firefox shows scrollbar on growth, you can hide like this. */
+  overflow: hidden;
+}
+.grow-wrap > textarea,
+.grow-wrap::after {
+  /* Identical styling required!! */
+
+  padding: 0.5rem;
+  font: inherit;
+
+  /* Place on top of each other */
+  grid-area: 1 / 1 / 2 / 2;
+}
+/*make textare grow // end*/
+
+/* Profile */
+.bg-image {
+  height: 199px;
+  background-color: rgb(207, 217, 222);
+}
+
+.profile_pic {
+  background-color: black;
+  width: 8rem;
+  height: 8rem;
+  position: absolute;
+  top: 200px;
+}
+
+.profile_main {
+  background-color: white;
+}
+
+.profile_desc {
+  height: 170px;
+  background-color: red;
+  padding-top: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: #ffffff;
+}
+
+.profile_info {
+  margin-top: 58px;
+  background-color: white;
+  font-style: normal;
+}
+
+.profile_info > p:nth-child(1) {
+  font-weight: 800;
+  font-size: 20px;
+  color: #0f1419;
+}
+
+.profile_info > p:nth-child(2),
+.profile_info > p:nth-child(3) {
+  font-weight: 400;
+  font-size: 15px;
+  color: #536471;
+}
+
+.profile_info > div > div > a > span:nth-child(1),
+.profile_info > div > div > a > span:nth-child(2) {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  color: #0f1419;
+}
+
+.profile_info > div > div > a > span:nth-child(2) {
+  font-weight: 400;
+  color: #536471;
+}
+
+.btn-profile {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 700;
+  color: #0f1419;
+  size: 15px;
+  font-style: normal;
+  background-color: white;
+  border: 1px solid rgb(207, 217, 222);
+  padding-bottom: 20px;
+  padding-top: 3px;
+  cursor: pointer;
+}
+
+.btn-profile:hover {
+  background-color: #e6e7e7;
+}
+
+.navbar_profile {
+  background-color: white;
+}
+
+.navbar_profile > li > div > a {
+  text-decoration: none !important;
+  font-style: normal !important;
+  font-weight: 500;
+  font-size: 15px;
+  color: #536471 !important;
+  cursor: default !important;
+}
+
+.navbar_profile > li > div > a > div {
+  padding-right: 52px;
+  min-width: 56px;
+  padding-left: 52px;
+  height: 50px;
+  line-height: 50px;
+  text-decoration: none;
+  text-decoration: none !important;
+}
+
+.navbar_profile li:hover {
+  background-color: #e6e7e7;
+}
+
+.who-to-follow > h4 {
+  font-style: normal;
+  font-weight: 800;
+  size: 24px;
+  color: #0f1419;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.who-to-follow small {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: #536471;
+}
+
+.who-to-follow > div > a:nth-child(4) {
+  color: #1d9bf0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15;
+}
+
+.tw-block-parent {
+  border: 0.1rem solid #2f3336;
+}
+
+.modal-footer {
+  padding: 2rem 0 2rem 0;
+}
+
+#Top-tweets-container {
+  height: 31px;
+  width: 31px;
+}
+
+#top-tweets-logo {
+  margin-left: 6px;
+  margin-top: 2px;
+}
+
+#Top-tweets-container:hover {
+  background-color: gray;
+}
+
+#navbar-top-container {
+  border: 1px solid rgb(47, 51, 54);
+}
+#navbar-top-container-profile {
+  border: 1px solid white;
+  color: black;
+}
+#colorInvert {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.functionallityNotWorking {
+  position: relative;
+}
+.functionallityNotWorking:active:after {
+  content: "Not working";
+  color: black;
+  text-decoration: none;
+  font-size: 10px;
+  padding: 5px;
+  top: 5px;
+  right: 10%;
+  background: #ffa1a1;
+}
+
+.nav-item {
+  height: 50px;
+}
+
+#stickyTopDiv {
+  position: sticky;
+  top: 0;
+}
+
+@media (max-width: 1200px) {
+  #btn-seguir-siguiendo {
+    margin-right: -30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .search-responsive {
+    display: none;
+  }
+}
+@media (max-width: 467px) {
+  .search-responsive-smaller {
+    display: none;
+  }
+}
+
+.breakWord {
+  word-break: break-word;
+}
+
+.inputNoborder {
+  border-style: solid;
+  border: none;
+  box-shadow: none !important;
 }

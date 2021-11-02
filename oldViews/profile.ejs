@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("./partials/meta") %>
+  </head>
+  <body>
+    <div class="container vh-100 vw-100 p-0 m-0 mx-auto">
+      <div class="row w-100">
+        <!--Left sidebar-->
+        <div class="col col-lg-2 me-0"><%- include ("./partials/sidebarLeft") %></div>
+        <!--Navbar + main content-->
+        <div id="colorInvert" class="col col-lg-6 min-vh-100 profile_main mx-auto px-0 ms-0">
+          <%- include ("./partials/navbarProfile") %>
+          <!--main content down here-->
+          <div class="w-100 h-20 bg-image m-0 d-flex align-items-end">
+            <div id="colorInvert" class="profile_pic rounded-circle p-1 ms-3">
+              <img
+                class="rounded-circle"
+                src="<%=userProfile.avatar%> "
+                alt=""
+                style="width: 100%; height: 100%"
+              />
+            </div>
+          </div>
+          <div class="profile_desc col-lg-12 d-flex justify-content-between">
+            <div class="profile_info">
+              <p class="w-100 mb-0"><%= userProfile.fullname %></p>
+              <p class="w-100 mb-0"><%= userProfile.username %></p>
+              <p class="w-100 mb-0">
+                <span style="height: 1.25em"
+                  ><svg
+                    style="height: 1.25em"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    class="
+                      r-14j79pv
+                      r-4qtqp9
+                      r-yyyyoo
+                      r-1xvli5t
+                      r-1d4mawv
+                      r-dnmrzs
+                      r-bnwqim
+                      r-1plcrui
+                      r-lrvibr
+                    "
+                  >
+                    <g>
+                      <path
+                        d="M19.708 2H4.292C3.028 2 2 3.028 2 4.292v15.416C2 20.972 3.028 22 4.292 22h15.416C20.972 22 22 20.972 22 19.708V4.292C22 3.028 20.972 2 19.708 2zm.792 17.708c0 .437-.355.792-.792.792H4.292c-.437 0-.792-.355-.792-.792V6.418c0-.437.354-.79.79-.792h15.42c.436 0 .79.355.79.79V19.71z"
+                      ></path>
+                      <circle cx="7.032" cy="8.75" r="1.285"></circle>
+                      <circle cx="7.032" cy="13.156" r="1.285"></circle>
+                      <circle cx="16.968" cy="8.75" r="1.285"></circle>
+                      <circle cx="16.968" cy="13.156" r="1.285"></circle>
+                      <circle cx="12" cy="8.75" r="1.285"></circle>
+                      <circle cx="12" cy="13.156" r="1.285"></circle>
+                      <circle cx="7.032" cy="17.486" r="1.285"></circle>
+                      <circle cx="12" cy="17.486" r="1.285"></circle>
+                    </g>
+                  </svg>
+                </span>
+                Joined October 2021
+              </p>
+              <p class="w-100 mb-0" style="color: black"><%=userProfile.bio%></p>
+
+              <div class="d-flex">
+                <div style="margin-right: 20px">
+                  <a href="#" class="text-decoration-none">
+                    <span><%= userProfile.following.length %> </span>
+                    <span>Following</span>
+                  </a>
+                </div>
+                <div>
+                  <a href="#" class="text-decoration-none">
+                    <span><%= userProfile.followers.length %></span>
+                    <span>Followers</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <a
+              class="rounded-pill btn-profile px-3 lh-4 sign-up-a-nohover"
+              style="height: 2rem"
+              data-bs-toggle="modal"
+              data-bs-target="#editUserModal"
+            >
+              <span class="mx-auto">Set up profile</span>
+            </a>
+          </div>
+
+          <!-- Parte de abajo  -->
+          <div>
+            <nav class="navbar navbar-expand-lg navbar-light p-0 mt-1">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 nab navbar_profile">
+                <li class="nav-item">
+                  <div>
+                    <a href="#">
+                      <div class="text-decoration-none">Tweets</div>
+                    </a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <div>
+                    <a href="#">
+                      <div class="text-decoration-none">Tweets & replies</div>
+                    </a>
+                  </div>
+                </li>
+                <li class="nav-item" class="text-decoration-none">
+                  <div>
+                    <a href="#">
+                      <div>Media</div>
+                    </a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <div>
+                    <a href="#">
+                      <div>Likes</div>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+
+            <div class="container m-0 mb-0 ms-0 w-100 p-0 who-to-follow">
+              <h4 class="row container text-dark">Who to follow</h4>
+              <div class="list-group w-100 m-0">
+                <% for(user of randomUsers) { %>
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action ms-0 d-flex flex-row border-0"
+                >
+                  <div class="rounded-circle me-3">
+                    <img src="img/img.jpg" alt="ovacion" width="50px" class="rounded-circle" />
+                  </div>
+                  <div>
+                    <div class="w-100">
+                      <h5 class="mb-0"><%= user.fullname %></h5>
+                      <small class="text-muted">@<%=user.username%></small>
+                    </div>
+                    <p class="mb-1"><%=user.bio %></p>
+                  </div>
+                </a>
+                <% } %>
+                <a
+                  href="#"
+                  class="
+                    list-group-item list-group-item-action
+                    mt-0
+                    d-flex
+                    flex-row
+                    border-0 border-end
+                  "
+                >
+                  <div class="ms-2 w-100 h-100">
+                    <h7 class="mb-0">Show more</h7>
+                  </div>
+                </a>
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action mt-0 d-flex flex-row border-end"
+                >
+                  <div class="ms-2 w-100 h-100">
+                    <h5 class="mb-0">Topics to follow</h5>
+                    <p>Tweets about the Topics you follow show up in your Home timeline</p>
+                  </div>
+                </a>
+                <div class="container w-100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Right sidebar-->
+        <div id="rightSidebarContainer" class="col col-lg-4">
+          <%- include ("./partials/sidebarRight") %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modals-->
+    <!--twittear-->
+    <%- include ("./partials/twittearModal") %>
+
+    <!--edit user-->
+    <%- include ("./partials/editUserModal") %>
+    <!--scripts-->
+    <%- include ("./partials/scripts") %>
+  </body>
+</html>
+
+<!--end for profile-->

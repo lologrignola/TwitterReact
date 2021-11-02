@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("./partials/meta") %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <!--Left sidebar-->
+        <div class="col-2"><%- include ("./partials/sidebarLeft") %></div>
+        <!--Navbar + main content-->
+        <div class="col-10 col-lg-6">
+          <%- include ("./partials/navbar") %>
+          <!--main content down here-->
+          <form action="/search-one" method="POST">
+            <div class="top-input-tweet">
+              <div class="d-flex p-2" style="height: 100%">
+                <span class="TweetAuthor-avatar">
+                  <div class="Avatar ms-2 mt-2">
+                    <img
+                      class="rounded-circle"
+                      width="55rem"
+                      src="<%= userAvatar %>"
+                      alt="testUserAvatar"
+                    />
+                  </div>
+                </span>
+                <div class="ms-3 mt-4" style="width: 40em">
+                  <input
+                    style="color: white"
+                    type="text"
+                    name="username"
+                    class="form-control input-tweet-up"
+                    placeholder="Ingresa el Username de la persona que quieras seguir"
+                    aria-label="Recipient's username"
+                    aria-describedby="button-addon2"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="align-self-end btn rounded-pill btn-twittear me-3 mb-2"
+                >
+                  Buscar
+                </button>
+              </div>
+            </div>
+          </form>
+          <% for (let user of allUsers) { %>
+          <div class="singleTweet d-flex justify-content-between">
+            <div class="d-flex p-2">
+              <span class="TweetAuthor-avatar search-responsive">
+                <div class="Avatar ms-2 mt-2">
+                  <img
+                    class="rounded-circle"
+                    width="55rem"
+                    src="<%= user.avatar %>"
+                    alt="testUserAvatar"
+                  />
+                </div>
+              </span>
+              <div class="d-flex flex-column">
+                <div class="flex-row w-100 ms-3 mt-2" style="height: 2em">
+                  <p class="d-inline-flex userFullName search-responsive-smaller text-white">
+                    <a href="/user/<%= user.id %> " class="text-decoration-none text-white">
+                    <%= user.fullname %>
+                    </a>
+                  </p>
+                    <a href="/user/<%= user.id %> " class="text-decoration-none">
+                      <p class="d-inline-flex arroba">@<%= user.username %></p>
+                    </a>
+                </div>
+                <div class="ms-3 d-flex">
+                  <p class="pe-4 tweet-content-container search-responsive-smaller">
+                    <%-user.bio%>
+                  </p>
+                </div>
+                <div class="d-flex ms-3 mt-3 mb-3"></div>
+              </div>
+            </div>
+            <% if (ownUserFollowings.includes(user.id)) { %>
+            <form class="align-self-center" action="/unFollow/<%-user._id%>" method="POST">
+              <button
+                style="background-color: rgb(204, 204, 204); color: black; width: 90px"
+                type="submit"
+                class="align-self-center btn rounded-pill btn-twittear me-3 mb-2"
+              >
+                Siguiendo
+              </button>
+            </form>
+            <% } else { %>
+            <form class="align-self-center" action="/follow/<%-user._id%>" method="POST">
+              <button
+                style="background-color: white; color: black; width: 90px"
+                type="submit"
+                class="align-self-center btn rounded-pill btn-twittear me-3 mb-2"
+              >
+                Seguir
+              </button>
+            </form>
+            <% } %>
+          </div>
+          <% } %>
+        </div>
+        <!--Right sidebar-->
+        <div id="rightSidebarContainer" class="col-4">
+          <%- include("./partials/sidebarRight") %>
+        </div>
+      </div>
+    </div>
+    <!-- Modals-->
+    <%- include ("./partials/twittearModal") %>
+    <!--scripts-->
+    <%- include ("./partials/scripts") %>
+  </body>
+</html>

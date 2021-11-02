@@ -1,16 +1,17 @@
-import React from "react";
-import LeftSideBar from "../components/LeftSideBar";
-import RightSideBar from "../components/RightSideBar";
-
-function Home() {
-  return (
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("./partials/meta") %>
+  </head>
+  <body>
     <div class="container">
       <div class="row">
-        <div class="col-2">
-          <LeftSideBar />
-        </div>
+        <!--Left sidebar-->
+        <div class="col-2"><%- include ("./partials/sidebarLeft") %></div>
+        <!--Navbar + main content-->
         <div class="col-10 col-lg-6">
-          {/* NAVBAR ACA ***********************************************************************  */}
+          <%- include ("./partials/navbar") %>
+          <!--main content down here-->
           <form action="/tweetear" method="POST">
             <div class="top-input-tweet">
               <div class="d-flex p-2" style="height: 100%">
@@ -50,12 +51,15 @@ function Home() {
           <div id="tweetsContainer"></div>
           <input type="hidden" value="<%= userId %>" id="userIdDiv" />
         </div>
+        <!--Right sidebar-->
         <div id="rightSidebarContainer" class="col-4">
-          <RightSideBar />
+          <%- include("./partials/sidebarRight") %>
         </div>
       </div>
     </div>
-  );
-}
-
-export default Home;
+    <!-- Modals-->
+    <%- include ("./partials/twittearModal") %>
+    <!--scripts-->
+    <%- include ("./partials/scripts") %>
+  </body>
+</html>

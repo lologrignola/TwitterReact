@@ -1,0 +1,193 @@
+<div style="background-color: black" class="sticky-top pb-3">
+  <div class="pt-3">
+    <form action="/search-one" method="POST">
+      <input
+        type="text"
+        class="form-control rounded-pill"
+        name="username"
+        placeholder="Buscar en Twitter"
+        aria-label="Username"
+        aria-describedby="basic-addon1"
+      />
+      <input type="submit" style="display: none" />
+    </form>
+  </div>
+</div>
+
+<div class="tendencias rounded">
+  <div class="inside-tendencias">
+    <div class="row">
+      <div class="col-10">Tendencias para ti</div>
+      <div class="col-2">
+        <a class="tendencias-a functionallityNotWorking" href="#"><i class="fas fa-cog"></i></a>
+      </div>
+    </div>
+    <a class="tendencias-a functionallityNotWorking" href="#"
+      ><div class="tendencias-hover mt-2 p-2">
+        <div class="row tt-uru">
+          <div class="col-10">Tendencia en Uruguay</div>
+          <div class="col-2"><i class="fas fa-ellipsis-h"></i></div>
+        </div>
+        <p class="tendencias-a">Tabarez</p>
+        <p class="left-nav-text">34,7K Tweets</p>
+      </div>
+    </a>
+    <a class="tendencias-a functionallityNotWorking" href="#"
+      ><div class="tendencias-hover mt-2 p-2">
+        <div class="row tt-uru">
+          <div class="col-10">Tendencia en Uruguay</div>
+          <div class="col-2"><i class="fas fa-ellipsis-h"></i></div>
+        </div>
+        <p class="tendencias-a">AUF</p>
+        <p class="left-nav-text">31,6K Tweets</p>
+      </div>
+    </a>
+    <a class="tendencias-a functionallityNotWorking" href="#"
+      ><div class="tendencias-hover mt-2 p-2">
+        <div class="row tt-uru">
+          <div class="col-10">Tendencia en Uruguay</div>
+          <div class="col-2"><i class="fas fa-ellipsis-h"></i></div>
+        </div>
+        <p class="tendencias-a">DT de Uruguay</p>
+        <p class="left-nav-text">26,3K Tweets</p>
+      </div>
+    </a>
+    <a class="tendencias-a functionallityNotWorking" href="#"
+      ><div class="tendencias-hover mt-2 p-2">
+        <div class="row tt-uru">
+          <div class="col-10">Tendencia en Uruguay</div>
+          <div class="col-2"><i class="fas fa-ellipsis-h"></i></div>
+        </div>
+        <p class="tendencias-a">Diego Aguirre</p>
+        <p class="left-nav-text">21,9K Tweets</p>
+      </div>
+    </a>
+    <a class="tendencias-a functionallityNotWorking" href="#"
+      ><div class="tendencias-hover mt-2 p-2">
+        <div class="row tt-uru">
+          <div class="col-10">Tendencia en Uruguay</div>
+          <div class="col-2"><i class="fas fa-ellipsis-h"></i></div>
+        </div>
+        <p class="tendencias-a">Complejo Celeste</p>
+        <p class="left-nav-text">15,2K Tweets</p>
+      </div>
+    </a>
+    <a href="" class="links-leftSide functionallityNotWorking"
+      ><p class="showMore mt-4">Mostrar más</p></a
+    >
+  </div>
+</div>
+<div id="stickyTopDiv">
+  <div class="mt-3 tendencias rounded">
+    <div class="inside-tendencias">
+      <div class="d-flex justify-content-between">
+        <div class="mt-2">A quién seguir</div>
+        <form action="/search" method="GET">
+          <button
+            type="submit"
+            class="align-self-end btn rounded-pill btn-twittear me-3 mb-2"
+            data-bs-toggle="modal"
+            data-bs-target="#searchToFollowModal"
+          >
+            Buscador
+          </button>
+        </form>
+      </div>
+      <hr />
+      <% for(user of randomUsers) { %>
+      <div class="mt-3">
+        <a class="tendencias-a" href="">
+          <div class="row g-0 justify-content-between tendencias-hover p-2">
+            <div class="col-3 d-lg-none d-xl-block">
+              <span class="TweetAuthor-avatar">
+                <div class="Avatar d-inline-block">
+                  <img
+                    class="rounded-circle"
+                    width="55rem"
+                    src="<%=user.avatar %>"
+                    alt="testUserAvatar"
+                  />
+                </div>
+              </span>
+            </div>
+            <div class="col-6 d-flex flex-column">
+              <p><%=user.fullname %></p>
+              <p class="userName">@<%=user.username %></p>
+            </div>
+            <div class="col-6 col-xl-3 align-self-center">
+              <% if (ownUserFollowings.includes(user.id)) { %>
+              <form
+                id="btn-seguir-siguiendo"
+                class="align-self-center d-flex justify-content-end"
+                action="/unFollow/<%-user._id%>"
+                method="POST"
+              >
+                <button
+                  style="background-color: white; color: black; width: 90px"
+                  type="submit"
+                  class="
+                    align-self-center
+                    btn
+                    rounded-pill
+                    btn-twittear
+                    me-3
+                    mb-2
+                    justify-content-end
+                  "
+                >
+                  Siguiendo
+                </button>
+              </form>
+              <% } else { %>
+              <form
+                id="btn-seguir-siguiendo"
+                class="align-self-center d-flex justify-content-end"
+                action="/follow/<%-user._id%>"
+                method="POST"
+              >
+                <button
+                  style="background-color: white; color: black; width: 90px"
+                  type="submit"
+                  class="align-self-center btn rounded-pill btn-twittear me-3 mb-2"
+                >
+                  Seguir
+                </button>
+              </form>
+              <% } %>
+            </div>
+          </div>
+        </a>
+      </div>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="under-navbar mt-4">
+    <div class="row">
+      <div class="col">
+        <a class="a-footer-welcome functionallityNotWorking" href="#">Condiciones de Servicio</a>
+      </div>
+      <div class="col">
+        <a class="a-footer-welcome functionallityNotWorking" href="#">Politica de Privacidad</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <a class="a-footer-welcome functionallityNotWorking" href="#">Politica de Cookies</a>
+      </div>
+      <div class="col">
+        <a class="a-footer-welcome functionallityNotWorking" href="#">Info de anuncios</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-3">
+        <a class="a-footer-welcome functionallityNotWorking" href="#">Mas opciones</a>
+      </div>
+      <div class="col mb-3">
+        <p id="a-footer-welcome functionallityNotWorking">
+          &copy; <%=new Date().getFullYear()%> Twitter, Inc.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
