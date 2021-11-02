@@ -1,6 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Tweet() {
+  const handleOnClick = () => {
+    console.log("hola");
+  };
   return (
     <div className="tw-block-parent p-4 mt-4">
       <div className="timeline-TweetList-tweet">
@@ -11,7 +15,7 @@ function Tweet() {
           {/* <!--tweet author--> */}
           <div className="timeline-Tweet-author">
             <div className="TweetAuthor">
-              <a className="TweetAuthor-link" href="#channel">
+              <Link className="TweetAuthor-link" to="#channel">
                 <div className="d-inline-block">
                   <span className="TweetAuthor-avatar">
                     <div className="Avatar d-inline-block">
@@ -24,15 +28,15 @@ function Tweet() {
                     </div>
                   </span>
                 </div>
-              </a>
+              </Link>
               <div className="d-inline-block">
-                <a href="/user/616d64b9e259d15fa2dcdfa9 ">
+                <Link to="/user/616d64b9e259d15fa2dcdfa9 ">
                   <div className="TweetAuthor-name look-like-link">
                     <strong>Claudia</strong>
                   </div>
 
                   <div className="TweetAuthor-screenName">@Ramona_Salcedo72@hotmail.com</div>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -45,35 +49,35 @@ function Tweet() {
           </div>
           {/* <!--tweet metadata// timeStamp && Twitter Web App(posted from)--> */}
           <div className="timeline-Tweet-metadata mt-3">
-            <a className="timeline-Tweet-timestamp look-like-link" href="#">
+            <Link className="timeline-Tweet-timestamp look-like-link" to="#">
               29/10/2021
-            </a>
+            </Link>
             <span> · </span>
-            <a
+            <Link
               className="look-like-link"
-              href="https://help.twitter.com/using-twitter/how-to-tweet#source-labels"
+              to="https://help.twitter.com/using-twitter/how-to-tweet#source-labels"
             >
               Twitter Web App
-            </a>
+            </Link>
           </div>
           <hr />
           {/* <!--tweet actions--> */}
           <div className="timeline-Tweet-actions list-unstyled">
             <form id="like" action="/tweet/<%= tweet.id %> " method="post"></form>
             <span className="timeline-Tweet-action">
-              <a className="Icon Icon--heart" onClick={() => handleOnClick()}>
+              <Link className="Icon Icon--heart" onClick={() => handleOnClick()}>
                 {
                   /* tweet.likes.includes(userId) */ true ? (
-                    <a href="/tweetDisiked/tweet._id ">
+                    <Link to="/tweetDisiked/tweet._id ">
                       <i className="fas fa-heart likeHeartRed"></i>
-                    </a>
+                    </Link>
                   ) : (
-                    <a href="/tweetLiked/tweet._id ">
+                    <Link to="/tweetLiked/tweet._id ">
                       <i className="fas fa-heart likeHeart"></i>
-                    </a>
+                    </Link>
                   )
                 }
-              </a>
+              </Link>
             </span>
             <span>{/* <%= tweet.likes.length %> */}</span>
             {
@@ -86,9 +90,9 @@ function Tweet() {
             {
               /* (userId === tweetId)*/ true && (
                 <span>
-                  <a className="ms-4" href="/deleteTweet/ tweet._id">
+                  <Link className="ms-4" to="/deleteTweet/ tweet._id">
                     <i className="fas fa-trash-alt"></i>
-                  </a>
+                  </Link>
                 </span>
               )
             }
@@ -99,8 +103,8 @@ function Tweet() {
                          }  */}{" "}
             {/* if (userId === tweetId) {
                         <span
-                          ><a className="ms-4" href="/deleteTweet/ tweet._id"
-                            ><i className="fas fa-trash-alt"></i></a
+                          ><Link className="ms-4" to="/deleteTweet/ tweet._id"
+                            ><i className="fas fa-trash-alt"></i></
                         ></span>
                          }  */}
           </div>

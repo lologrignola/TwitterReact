@@ -1,8 +1,9 @@
 import React from "react";
 import LeftSideBar from "../components/LeftSideBar";
 import RightSideBar from "../components/RightSideBar";
+import Tweet from "../components/Tweet";
 
-function Tweet() {
+function TweetPage() {
   const handleOnClick = () => {
     console.log("hola");
   };
@@ -41,4 +42,4 @@ function Tweet() {
   );
 }
 
-export default Tweet;
+export default TweetPage;
