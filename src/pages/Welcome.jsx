@@ -2,6 +2,7 @@ import React from "react";
 import welcomePicture from "../img/welcome-picture.png";
 import ModalLogin from "../components/ModalLogIn";
 import ModalRegister from "../components/ModalRegister";
+import BtnDeleteTweet from "../components/BtnDeleteTweet";
 
 function Welcome() {
   return (
