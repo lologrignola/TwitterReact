@@ -15,13 +15,37 @@ function LeftSideBar() {
         </Link>
         <ul id="left-sidebar-list" className="nav flex-column mt-3">
           <SideButtons text="Inicio" link="/" icon="icons-left fas fa-home" />
-          <SideButtons text="Explorar" icon="icons-left fas fa-hashtag" />
-          <SideButtons text="Notificaciones" icon="icons-left fas fa-bell" />
-          <SideButtons text="Mensajes" icon="icons-left fas fa-envelope" />
-          <SideButtons text="Guardados" icon="icons-left far fa-bookmark" />
-          <SideButtons text="Listas" icon="icons-left far fa-list-alt" />
+          <SideButtons
+            text="Explorar"
+            link={window.location.pathname}
+            icon="icons-left fas fa-hashtag"
+          />
+          <SideButtons
+            text="Notificaciones"
+            link={window.location.pathname}
+            icon="icons-left fas fa-bell"
+          />
+          <SideButtons
+            text="Mensajes"
+            link={window.location.pathname}
+            icon="icons-left fas fa-envelope"
+          />
+          <SideButtons
+            text="Guardados"
+            link={window.location.pathname}
+            icon="icons-left far fa-bookmark"
+          />
+          <SideButtons
+            text="Listas"
+            link={window.location.pathname}
+            icon="icons-left far fa-list-alt"
+          />
           <SideButtons text="Perfil" link="/profile" icon="icons-left far fa-user" />
-          <SideButtons text="Más Opciones" icon="icons-left fas fa-ellipsis-h" />
+          <SideButtons
+            text="Más Opciones"
+            link={window.location.pathname}
+            icon="icons-left fas fa-ellipsis-h"
+          />
           <li className="nav-item mt-4">
             <div
               id="bigButtonTwittear"
