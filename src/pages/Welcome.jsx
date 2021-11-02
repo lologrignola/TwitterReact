@@ -1,11 +1,12 @@
 import React from "react";
+import welcomePicture from "../img/welcome-picture.png";
 
 function Welcome() {
   return (
     <div style={{ backgroundColor: "white" }}>
       <div className="row vw-100">
         <div id="welcome-img" class="col">
-          <img src="/img/welcome-picture.png" alt="" />
+          <img src={welcomePicture} alt="" />
         </div>
         <div id="happening-now-col" class="col">
           <div className="py-5">
