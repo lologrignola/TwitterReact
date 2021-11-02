@@ -40,26 +40,39 @@ function ModalRegister() {
               <label style={{ color: "black" }} className="form-label" htmlFor="name">
                 Full Name
               </label>
-              <input type="text" id="name" name="name" className="form-control" />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                className="form-control"
+                placeholder="John Doe"
+              />
               <label style={{ color: "black" }} className="form-label mt-3" htmlFor="email">
                 Enter your email
               </label>
-              <input type="email" id="email" name="email" className="form-control" />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                className="form-control"
+                placeholder="john.doe@example.com"
+              />
               <label style={{ color: "black" }} className="form-label  mt-3" htmlFor="password">
                 Create a password
               </label>
               <input type="password" id="password" name="password" className="form-control mb-3" />
-              <div className="d-flex justify-content-between">
+              <hr />
+              <Modal.Footer>
+                {" "}
                 <button type="submit" class="btn btn-primary">
                   Sign up
                 </button>
                 <button type="button" class="btn btn-secondary" onClick={handleClose}>
                   Close
                 </button>
-              </div>
+              </Modal.Footer>
             </form>
           </Modal.Body>
-          <Modal.Footer></Modal.Footer>
         </div>
       </Modal>
     </>

@@ -1,4 +1,5 @@
 import React from "react";
+import RightSideText from "./RightSideText";
 
 function RightSideBar() {
   return (
@@ -24,74 +25,19 @@ function RightSideBar() {
           <div className="row">
             <div className="col-10">Tendencias para ti</div>
             <div className="col-2">
-              <a className="tendencias-a functionallityNotWorking" href="#">
+              <div role="button" className="tendencias-a functionallityNotWorking" href="#">
                 <i className="fas fa-cog"></i>
-              </a>
+              </div>
             </div>
           </div>
-          <a className="tendencias-a functionallityNotWorking" href="#">
-            <div className="tendencias-hover mt-2 p-2">
-              <div className="row tt-uru">
-                <div className="col-10">Tendencia en Uruguay</div>
-                <div className="col-2">
-                  <i className="fas fa-ellipsis-h"></i>
-                </div>
-              </div>
-              <p className="tendencias-a">Tabarez</p>
-              <p className="left-nav-text">34,7K Tweets</p>
-            </div>
-          </a>
-          <a className="tendencias-a functionallityNotWorking" href="#">
-            <div className="tendencias-hover mt-2 p-2">
-              <div className="row tt-uru">
-                <div className="col-10">Tendencia en Uruguay</div>
-                <div className="col-2">
-                  <i className="fas fa-ellipsis-h"></i>
-                </div>
-              </div>
-              <p className="tendencias-a">AUF</p>
-              <p className="left-nav-text">31,6K Tweets</p>
-            </div>
-          </a>
-          <a className="tendencias-a functionallityNotWorking" href="#">
-            <div className="tendencias-hover mt-2 p-2">
-              <div className="row tt-uru">
-                <div className="col-10">Tendencia en Uruguay</div>
-                <div className="col-2">
-                  <i className="fas fa-ellipsis-h"></i>
-                </div>
-              </div>
-              <p className="tendencias-a">DT de Uruguay</p>
-              <p className="left-nav-text">26,3K Tweets</p>
-            </div>
-          </a>
-          <a className="tendencias-a functionallityNotWorking" href="#">
-            <div className="tendencias-hover mt-2 p-2">
-              <div className="row tt-uru">
-                <div className="col-10">Tendencia en Uruguay</div>
-                <div className="col-2">
-                  <i className="fas fa-ellipsis-h"></i>
-                </div>
-              </div>
-              <p className="tendencias-a">Diego Aguirre</p>
-              <p className="left-nav-text">21,9K Tweets</p>
-            </div>
-          </a>
-          <a className="tendencias-a functionallityNotWorking" href="#">
-            <div className="tendencias-hover mt-2 p-2">
-              <div className="row tt-uru">
-                <div className="col-10">Tendencia en Uruguay</div>
-                <div className="col-2">
-                  <i className="fas fa-ellipsis-h"></i>
-                </div>
-              </div>
-              <p className="tendencias-a">Complejo Celeste</p>
-              <p className="left-nav-text">15,2K Tweets</p>
-            </div>
-          </a>
-          <a href="" className="links-leftSide functionallityNotWorking">
+          <RightSideText text="Tabarez" />
+          <RightSideText text="AUF" />
+          <RightSideText text="DT de Uruguay" />
+          <RightSideText text="Diego Aguirre" />
+          <RightSideText text="Complejo Celeste" />
+          <div role="button" href="" className="links-leftSide functionallityNotWorking">
             <p className="showMore mt-4">Mostrar más</p>
-          </a>
+          </div>
         </div>
       </div>
       <div id="stickyTopDiv">
@@ -113,7 +59,7 @@ function RightSideBar() {
             <hr />
             {/*  <% for(user of randomUsers) { %> */}
             <div className="mt-3">
-              <a className="tendencias-a" href="">
+              <div role="button" className="tendencias-a" href="">
                 <div className="row g-0 justify-content-between tendencias-hover p-2">
                   <div className="col-3 d-lg-none d-xl-block">
                     <span className="TweetAuthor-avatar">
@@ -172,41 +118,45 @@ function RightSideBar() {
               </form> */}
                   </div>
                 </div>
-              </a>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="under-navbar mt-4">
+        <div className="under-navbar mt-2">
           <div className="row">
             <div className="col">
-              <a className="a-footer-welcome functionallityNotWorking" href="#">
+              <div role="button" className="a-footer-welcome functionallityNotWorking m-0" href="#">
                 Condiciones de Servicio
-              </a>
+              </div>
             </div>
             <div className="col">
-              <a className="a-footer-welcome functionallityNotWorking" href="#">
+              <div role="button" className="a-footer-welcome functionallityNotWorking m-0" href="#">
                 Politica de Privacidad
-              </a>
+              </div>
             </div>
           </div>
           <div className="row">
             <div className="col">
-              <a className="a-footer-welcome functionallityNotWorking" href="#">
+              <div role="button" className="a-footer-welcome functionallityNotWorking m-0" href="#">
                 Politica de Cookies
-              </a>
+              </div>
             </div>
             <div className="col">
-              <a className="a-footer-welcome functionallityNotWorking" href="#">
+              <div role="button" className="a-footer-welcome functionallityNotWorking m-0" href="#">
                 Info de anuncios
-              </a>
+              </div>
             </div>
           </div>
           <div className="row">
             <div className="col mb-3">
-              <a className="a-footer-welcome functionallityNotWorking" href="#">
+              <div
+                role="button"
+                className="a-footer-welcome functionallityNotWorking mt-0"
+                href="#"
+              >
                 Mas opciones
-              </a>
+              </div>
             </div>
             <div className="col mb-3">
               <p id="a-footer-welcome functionallityNotWorking">Twitter, Inc.</p>

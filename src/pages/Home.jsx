@@ -1,6 +1,7 @@
 import React from "react";
 import LeftSideBar from "../components/LeftSideBar";
 import RightSideBar from "../components/RightSideBar";
+import TopNavbar from "../components/TopNavbar";
 
 function Home() {
   return (
@@ -10,7 +11,7 @@ function Home() {
           <LeftSideBar />
         </div>
         <div className="col-10 col-lg-6">
-          {/* NAVBAR ACA ***********************************************************************  */}
+          <TopNavbar text="Home" />
           <form action="/tweetear" method="POST">
             <div className="top-input-tweet">
               <div className="d-flex p-2" style={{ height: "100%" }}>

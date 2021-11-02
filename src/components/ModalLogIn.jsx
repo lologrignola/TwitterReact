@@ -40,22 +40,28 @@ function ModalLogin() {
               <label style={{ color: "black" }} className="form-label" htmlFor="email">
                 Enter your Username Or Email
               </label>
-              <input type="text" id="email" name="email" className="form-control" />
+              <input
+                type="text"
+                id="email"
+                name="email"
+                className="form-control"
+                placeholder="john.doe@example.com"
+              />
               <label style={{ color: "black" }} className="form-label mt-3" htmlFor="password">
                 Password
               </label>
               <input type="password" id="password" name="password" className="form-control mb-3" />
-              <div className="d-flex justify-content-between">
+              <Modal.Footer>
+                {" "}
                 <button type="submit" class="btn btn-primary">
                   Sign in
                 </button>
                 <button type="button" class="btn btn-secondary" onClick={handleClose}>
                   Close
                 </button>
-              </div>
+              </Modal.Footer>
             </form>
           </Modal.Body>
-          <Modal.Footer></Modal.Footer>
         </div>
       </Modal>
     </>
