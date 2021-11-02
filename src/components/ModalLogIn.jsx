@@ -40,7 +40,13 @@ function ModalLogin() {
               <label style={{ color: "black" }} className="form-label" htmlFor="email">
                 Enter your Username Or Email
               </label>
-              <input type="text" id="email" name="email" className="form-control" />
+              <input
+                type="text"
+                id="email"
+                name="email"
+                className="form-control"
+                placeholder="john.doe@example.com"
+              />
               <label style={{ color: "black" }} className="form-label mt-3" htmlFor="password">
                 Password
               </label>
