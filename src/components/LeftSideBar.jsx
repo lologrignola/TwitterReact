@@ -8,97 +8,97 @@ function LeftSideBar() {
     >
       <div className="pt-3">
         <Link to="/" style={{ color: "inherit", textDecoration: "inherit" }}>
-          <btn role="button" className="links-leftSide">
+          <div role="button" className="links-leftSide">
             <i className="fab fa-twitter" style={{ fontSize: "30px" }}></i>
-          </btn>
+          </div>
         </Link>
         <ul id="left-sidebar-list" className="nav flex-column mt-3">
           <li className="nav-item mt-2">
             <Link to="/" style={{ textDecoration: "inherit" }}>
-              <btn role="button" className="links-leftSide">
+              <div role="button" className="links-leftSide">
                 <div className="row">
                   <div className="col-2">
                     <i className="icons-left fas fa-home"></i>
                   </div>
                   <div className="col-10 collapsable-sidebarleft">Inicio</div>
                 </div>
-              </btn>
+              </div>
             </Link>
           </li>
           <li className="nav-item mt-2">
-            <btn className="links-leftSide functionallityNotWorking" role="button">
+            <div className="links-leftSide functionallityNotWorking" role="button">
               <div className="row">
                 <div className="col-2">
                   <i className="icons-left fas fa-hashtag"></i>
                 </div>
                 <div className="col-10 collapsable-sidebarleft">Explorar</div>
               </div>
-            </btn>
+            </div>
           </li>
           <li className="nav-item mt-2">
-            <btn role="button" className="links-leftSide functionallityNotWorking">
+            <div role="button" className="links-leftSide functionallityNotWorking">
               <div className="row">
                 <div className="col-2">
                   <i className="icons-left fas fa-bell"></i>
                 </div>
                 <div className="col-10 collapsable-sidebarleft">Notificaciones</div>
               </div>
-            </btn>
+            </div>
           </li>
           <li className="nav-item mt-2">
-            <btn role="button" className="links-leftSide functionallityNotWorking">
+            <div role="button" className="links-leftSide functionallityNotWorking">
               <div className="row">
                 <div className="col-2">
                   <i className="icons-left fas fa-envelope"></i>
                 </div>
                 <div className="col-10 collapsable-sidebarleft">Mensajes</div>
               </div>
-            </btn>
+            </div>
           </li>
           <li className="nav-item mt-2">
-            <btn role="button" className="links-leftSide functionallityNotWorking">
+            <div role="button" className="links-leftSide functionallityNotWorking">
               <div className="row">
                 <div className="col-2">
                   <i className="icons-left far fa-bookmark"></i>
                 </div>
                 <div className="col-10 collapsable-sidebarleft">Guardados</div>
               </div>
-            </btn>
+            </div>
           </li>
           <li className="nav-item mt-2">
-            <btn role="button" className="links-leftSide functionallityNotWorking">
+            <div role="button" className="links-leftSide functionallityNotWorking">
               <div className="row">
                 <div className="col-2">
                   <i className="icons-left far fa-list-alt"></i>
                 </div>
                 <div className="col-10 collapsable-sidebarleft">Listas</div>
               </div>
-            </btn>
+            </div>
           </li>
           <li className="nav-item mt-2">
             <Link to="/profile" style={{ textDecoration: "inherit" }}>
-              <btn href="/profile" className="links-leftSide">
+              <div href="/profile" className="links-leftSide">
                 <div className="row">
                   <div className="col-2">
                     <i className="icons-left far fa-user"></i>
                   </div>
                   <div className="col-10 collapsable-sidebarleft">Perfil</div>
                 </div>
-              </btn>
+              </div>
             </Link>
           </li>
           <li className="nav-item mt-2">
-            <btn role="button" className="links-leftSide functionallityNotWorking">
+            <div role="button" className="links-leftSide functionallityNotWorking">
               <div className="row">
                 <div className="col-12 col-lg-2">
                   <i className="icons-left fas fa-ellipsis-h"></i>
                 </div>
                 <div className="col-10 collapsable-sidebarleft">Más Opciones</div>
               </div>
-            </btn>
+            </div>
           </li>
           <li className="nav-item mt-4">
-            <btn
+            <div
               id="bigButtonTwittear"
               role="button"
               className="fs-5"
@@ -111,8 +111,8 @@ function LeftSideBar() {
               >
                 Tweettear
               </button>
-            </btn>
-            <btn
+            </div>
+            <div
               id="smallButtonTweettear"
               role="button"
               className="fs-5"
@@ -137,19 +137,19 @@ function LeftSideBar() {
                   </g>
                 </svg>
               </button>
-            </btn>
+            </div>
           </li>
         </ul>
       </div>
       <div className="mb-3">
-        <btn id="bigLogout" href="/logout">
+        <div id="bigLogout" href="/logout">
           <button type="button" className="btn btn-danger rounded-pill">
             Logout
           </button>
-        </btn>
-        <btn id="smallLogout" href="/logout">
+        </div>
+        <div id="smallLogout" href="/logout">
           <i className="fas fa-times-circle"></i>
-        </btn>
+        </div>
       </div>
     </div>
   );

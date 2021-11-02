@@ -19,7 +19,7 @@ function Profile() {
               <div id="colorInvert" className="profile_pic rounded-circle p-1 ms-3">
                 <img
                   className="rounded-circle"
-                  src="<%=userProfile.avatar%> "
+                  src="https://i.pinimg.com/originals/0d/36/e7/0d36e7a476b06333d9fe9960572b66b9.jpg"
                   alt=""
                   style={{ width: "100%", height: "100%" }}
                 />
