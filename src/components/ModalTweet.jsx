@@ -4,17 +4,16 @@ import { useState } from "react";
 
 function ModalTweet() {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
 
   return (
     <>
       <Button variant="primary" onClick={() => setShow(true)}>
         Launch demo modal
       </Button>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={() => setShow(false)}>
         <div id="modal-negro">
           <Modal.Header className="d-flex justify-content-between">
-            <Button variant="" onClick={handleClose}>
+            <Button variant="" onClick={() => setShow(false)}>
               <i className="fas fa-times text-white"></i>
             </Button>
             <div className="d-flex">
@@ -48,7 +47,7 @@ function ModalTweet() {
             </Modal.Body>
 
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button variant="secondary" onClick={() => setShow(false)}>
                 Close
               </Button>
               <Button variant="primary">Tweetear</Button>
