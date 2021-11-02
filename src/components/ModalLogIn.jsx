@@ -2,11 +2,30 @@ import React from "react";
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import axios from "axios";
 
 function ModalLogin() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [usernameOrEmail, setUsernameOrEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async (ev) => {
+    ev.preventDefault();
+    console.log(usernameOrEmail);
+    try {
+      const response = await axios.post("http://localhost:10000/api/login", {
+        data: { usernameOrEmail, password },
+        headers: { "Content-Type": "application/json" },
+      });
+      console.log("respuesta:", response);
+    } catch (error) {
+      //handle error
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -36,21 +55,30 @@ function ModalLogin() {
             </Button>
           </Modal.Header>
           <Modal.Body>
-            <form action="">
-              <label style={{ color: "black" }} className="form-label" htmlFor="email">
+            <form onSubmit={(ev) => handleLogin(ev)}>
+              <label style={{ color: "black" }} className="form-label" htmlFor="usernameOrEmail">
                 Enter your Username Or Email
               </label>
               <input
                 type="text"
-                id="email"
-                name="email"
+                id="usernameOrEmail"
+                name="usernameOrEmail"
+                value={usernameOrEmail}
                 className="form-control"
                 placeholder="john.doe@example.com"
+                onChange={(ev) => setUsernameOrEmail(ev.target.value)}
               />
               <label style={{ color: "black" }} className="form-label mt-3" htmlFor="password">
                 Password
               </label>
-              <input type="password" id="password" name="password" className="form-control mb-3" />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={password}
+                onChange={(ev) => setPassword(ev.target.value)}
+                className="form-control mb-3"
+              />
               <Modal.Footer>
                 {" "}
                 <button type="submit" class="btn btn-primary">
