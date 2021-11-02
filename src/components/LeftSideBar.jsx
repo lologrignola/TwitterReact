@@ -35,11 +35,7 @@ function LeftSideBar() {
             link={window.location.pathname}
             icon="icons-left far fa-bookmark"
           />
-          <SideButtons
-            text="Listas"
-            link={window.location.pathname}
-            icon="icons-left far fa-list-alt"
-          />
+          <SideButtons text="About Us" link="/about-us" icon="icons-left far fa-list-alt" />
           <SideButtons text="Perfil" link="/profile" icon="icons-left far fa-user" />
           <SideButtons
             text="Más Opciones"
