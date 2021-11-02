@@ -12,10 +12,10 @@ body {
 .top-input-tweet {
   height: 8em;
 }
-.modal-content,
-.modal-footer {
+#modal-negro {
   background-color: rgb(20, 20, 20);
   padding: 0 2rem 0 2rem;
+  margin-right: -2px;
 }
 
 .links-leftSide {
