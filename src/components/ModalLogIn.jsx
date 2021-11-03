@@ -17,14 +17,14 @@ function ModalLogin() {
 
   const handleLogin = async (ev) => {
     ev.preventDefault();
-    console.log(usernameOrEmail);
     try {
       const response = await axios.post("http://localhost:10000/api/login", {
         data: { usernameOrEmail, password },
-        headers: { "Content-Type": "application/json" } /**Authorization: "bearer " + token */,
+        headers: { "Content-Type": "application/json" },
       });
 
       if (response.data) {
+        console.log(response);
         dispatch({ type: "ADD_TOKEN", payload: response.data });
         history.push("/");
       }

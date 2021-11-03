@@ -16,7 +16,7 @@ function App() {
         <PublicRoute restricted={true} component={Welcome} path="/welcome" />
         <PrivateRoute component={Home} path="/" exact />
         <PrivateRoute component={Profile} path="/profile" />
-        <PrivateRoute component={TweetPage} path="/tweet" />
+        <PrivateRoute component={TweetPage} path="/tweet/:id" />
         <PublicRoute restricted={false} component={AboutUs} path="/about-us" exact />
         <PrivateRoute component={SearchUser} path="/search" exact />
       </Switch>

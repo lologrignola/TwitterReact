@@ -1,10 +1,15 @@
+import { useParams } from "react-router";
 import LeftSideBar from "../components/LeftSideBar";
 import ModalTweet from "../components/ModalTweet";
 import RightSideBar from "../components/RightSideBar";
 import TopNavbar from "../components/TopNavbar";
 import Tweet from "../components/Tweet";
+import { useSelector } from "react-redux";
 
 function TweetPage() {
+  const params = useParams();
+  const tweet = useSelector((state) => state.tweets.find((tweet) => params.id === tweet._id));
+
   return (
     <>
       <div className="supreme-container">
@@ -20,10 +25,8 @@ function TweetPage() {
               <div className="row">
                 <div className="col-8">
                   <TopNavbar />
-                  {/* <%- include ("./partials/navbar") %> */}
                   {/*  <!--main content down here--> */}
-                  <ModalTweet />
-                  <Tweet />
+                  <Tweet tweet={tweet} />
                   {/*  <!--end main content--> */}
                 </div>
                 {/*  <!--Right sidebar--> */}
@@ -35,12 +38,6 @@ function TweetPage() {
           </div>
         </div>
       </div>
-      {/* <!--modals// start-->
-
-    <%- include ("./partials/twittearModal") %>
-
-    <!--modals // end-->
-    <%- include ("./partials/scripts") %> */}
     </>
   );
 }

@@ -1,9 +1,29 @@
-import React from "react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import LeftSideBar from "../components/LeftSideBar";
 import RightSideBar from "../components/RightSideBar";
 import TopNavbar from "../components/TopNavbar";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import Tweet from "../components/Tweet";
 
 function Home() {
+  const token = useSelector((state) => state.user.token);
+  const tweets = useSelector((state) => state.tweets);
+  const dispatch = useDispatch();
+
+  useEffect(async () => {
+    try {
+      const response = await axios.get("http://localhost:10000/api/tweets", {
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+      });
+      console.log(response.data.data);
+      dispatch({ type: "ADD_TWEETS", payload: response.data.data });
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
   return (
     <div className="container">
       <div className="row">
@@ -49,8 +69,11 @@ function Home() {
               </div>
             </div>
           </form>
-          <div id="tweetsContainer"></div>
-          <input type="hidden" value="<%= userId %>" id="userIdDiv" />
+          <div id="tweetsContainer">
+            {tweets.map((tweet) => (
+              <Tweet tweet={tweet} />
+            ))}
+          </div>
         </div>
         <div id="rightSidebarContainer" className="col-4">
           <RightSideBar />

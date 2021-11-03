@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-function Tweet() {
-  const handleOnClick = () => {
-    console.log("hola");
-  };
+function Tweet({ tweet }) {
+  const user = useSelector((state) => state.user);
+  const createdAt = Date(tweet.createdAt);
+  const handleOnClick = () => {};
   return (
-    <div className="tw-block-parent p-4 mt-4">
+    <div className="tw-block-parent p-4">
       <div className="timeline-TweetList-tweet">
         <div className="timeline-Tweet">
           <div className="timeline-Tweet-brand">
@@ -22,7 +23,7 @@ function Tweet() {
                       <img
                         className="rounded-circle me-2 mb-4"
                         width="60rem"
-                        src="https://avatars.dicebear.com/api/identicon/.svg"
+                        src={tweet.author.avatar}
                         alt="testUserAvatar"
                       />
                     </div>
@@ -30,27 +31,26 @@ function Tweet() {
                 </div>
               </Link>
               <div className="d-inline-block">
-                <Link to="/user/616d64b9e259d15fa2dcdfa9 ">
+                <Link to={`/user/${tweet.author._id}`}>
                   <div className="TweetAuthor-name look-like-link">
-                    <strong>Claudia</strong>
+                    <strong>{tweet.author.fullname}</strong>
                   </div>
 
-                  <div className="TweetAuthor-screenName">@Ramona_Salcedo72@hotmail.com</div>
+                  <div className="TweetAuthor-screenName">@{tweet.author.username}</div>
                 </Link>
               </div>
             </div>
           </div>
           {/* <!--tweet content--> */}
-          <div className="timeline-Tweet-text">
-            <p className="breakWord">
-              Est quaerat voluptatem officia eos qui et impedit corporis. Consequatur eligendi
-              rerum. Consequatur ut repellat. Sint rerum neque impedit ut est at pariatur.
-            </p>
-          </div>
+          <Link className="TweetAuthor-link" to={`/tweet/${tweet._id}`}>
+            <div className="timeline-Tweet-text">
+              <p className="breakWord">{tweet.content}</p>
+            </div>
+          </Link>
           {/* <!--tweet metadata// timeStamp && Twitter Web App(posted from)--> */}
           <div className="timeline-Tweet-metadata mt-3">
             <Link className="timeline-Tweet-timestamp look-like-link" to="#">
-              29/10/2021
+              {createdAt}
             </Link>
             <span> · </span>
             <Link
@@ -79,7 +79,7 @@ function Tweet() {
                 }
               </Link>
             </span>
-            <span>{/* <%= tweet.likes.length %> */}</span>
+            <span className="ms-2">{tweet.likes.length}</span>
             {
               /* (locals.unauthDelete) */ false && (
                 <div className="alert alert-danger" role="alert">
@@ -87,15 +87,13 @@ function Tweet() {
                 </div>
               )
             }
-            {
-              /* (userId === tweetId)*/ true && (
-                <span>
-                  <Link className="ms-4" to="/deleteTweet/ tweet._id">
-                    <i className="fas fa-trash-alt"></i>
-                  </Link>
-                </span>
-              )
-            }
+            {tweet.author._id === user.id && (
+              <span>
+                <Link className="ms-4" to="/deleteTweet/ tweet._id">
+                  <i className="fas fa-trash-alt"></i>
+                </Link>
+              </span>
+            )}
             {/* { if (locals.unauthDelete) { 
                         <div className="alert alert-danger" role="alert">
                            locals.unauthDelete[0] 
