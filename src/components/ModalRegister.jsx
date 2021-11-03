@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
-import { Button } from "react-bootstrap";
 
 function ModalRegister() {
   const [show, setShow] = useState(false);
@@ -31,9 +30,9 @@ function ModalRegister() {
               </svg>
               <Modal.Title style={{ color: "black" }}>Sign Up</Modal.Title>
             </div>
-            <Button variant="" onClick={handleClose}>
-              <i class="fas fa-times"></i>
-            </Button>
+            <div onClick={handleClose}>
+              <i className="fas fa-times text-black pointer p-2"></i>
+            </div>
           </Modal.Header>
           <Modal.Body>
             <form action="">

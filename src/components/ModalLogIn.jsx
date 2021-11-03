@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
-import { Button } from "react-bootstrap";
 import axios from "axios";
 
 function ModalLogin() {
@@ -50,9 +49,9 @@ function ModalLogin() {
               </svg>
               <Modal.Title style={{ color: "black" }}>Sign In</Modal.Title>
             </div>
-            <Button variant="" onClick={handleClose}>
-              <i class="fas fa-times"></i>
-            </Button>
+            <div onClick={handleClose}>
+              <i className="fas fa-times text-black pointer p-2"></i>
+            </div>
           </Modal.Header>
           <Modal.Body>
             <form onSubmit={(ev) => handleLogin(ev)}>
