@@ -14,11 +14,12 @@ function userReducer(user = {}, action) {
 
     case "UNFOLLOW_USER":
       return user;
+
     case "ADD_TOKEN":
       return { ...user, token: action.payload };
 
-    case "DELETE_TOKEN":
-      return "";
+    case "REMOVE_TOKEN":
+      return {};
 
     default:
       return user;

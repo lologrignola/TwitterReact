@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import SideButtons from "./SideButtons";
+import { useDispatch } from "react-redux";
 
 function LeftSideBar() {
+  const dispatch = useDispatch();
   return (
     <div
       style={{ height: "100vh" }}
@@ -87,13 +89,20 @@ function LeftSideBar() {
         </ul>
       </div>
       <div className="mb-3">
-        <div id="bigLogout" href="/logout">
-          <button type="button" className="btn btn-danger rounded-pill">
+        <div id="bigLogout">
+          <button
+            type="button"
+            className="btn btn-danger rounded-pill"
+            onClick={() => dispatch({ type: "REMOVE_TOKEN" })}
+          >
             Logout
           </button>
         </div>
-        <div id="smallLogout" href="/logout">
-          <i className="fas fa-times-circle"></i>
+        <div id="smallLogout">
+          <i
+            className="fas fa-times-circle pointer"
+            onClick={() => dispatch({ type: "REMOVE_TOKEN" })}
+          ></i>
         </div>
       </div>
     </div>

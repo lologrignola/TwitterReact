@@ -19,7 +19,7 @@ function ModalRegister() {
     ev.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:10000/api/signin", {
+      const response = await axios.post("http://localhost:10000/api/sign-in", {
         data: { email, password, fullname },
         headers: { "Content-Type": "application/json" } /**Authorization: "bearer " + token */,
       });
