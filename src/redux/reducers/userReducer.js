@@ -1,4 +1,4 @@
-function userReducer(user = [], action) {
+function userReducer(user = {}, action) {
   switch (action.type) {
     case "ADD_USER":
       return user;
@@ -14,6 +14,11 @@ function userReducer(user = [], action) {
 
     case "UNFOLLOW_USER":
       return user;
+    case "ADD_TOKEN":
+      return { ...user, token: action.payload };
+
+    case "DELETE_TOKEN":
+      return "";
 
     default:
       return user;

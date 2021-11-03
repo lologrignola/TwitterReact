@@ -1,11 +1,38 @@
+import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 
 function ModalRegister() {
+  const dispatch = useDispatch();
+  const [fullname, setFullname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const history = useHistory();
+
+  const handleRegister = async (ev) => {
+    ev.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:10000/api/signin", {
+        data: { email, password, fullname },
+        headers: { "Content-Type": "application/json" } /**Authorization: "bearer " + token */,
+      });
+      console.log(response.data);
+      if (response.data) {
+        dispatch({ type: "ADD_TOKEN", payload: response.data });
+        history.push("/");
+      }
+    } catch (error) {
+      //handle error
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -35,7 +62,7 @@ function ModalRegister() {
             </div>
           </Modal.Header>
           <Modal.Body>
-            <form action="">
+            <form onSubmit={(ev) => handleRegister(ev)}>
               <label style={{ color: "black" }} className="form-label" htmlFor="name">
                 Full Name
               </label>
@@ -43,6 +70,8 @@ function ModalRegister() {
                 type="text"
                 id="name"
                 name="name"
+                value={fullname}
+                onChange={(ev) => setFullname(ev.target.value)}
                 className="form-control"
                 placeholder="John Doe"
               />
@@ -50,6 +79,8 @@ function ModalRegister() {
                 Enter your email
               </label>
               <input
+                value={email}
+                onChange={(ev) => setEmail(ev.target.value)}
                 type="email"
                 id="email"
                 name="email"
@@ -59,7 +90,14 @@ function ModalRegister() {
               <label style={{ color: "black" }} className="form-label  mt-3" htmlFor="password">
                 Create a password
               </label>
-              <input type="password" id="password" name="password" className="form-control mb-3" />
+              <input
+                value={password}
+                onChange={(ev) => setPassword(ev.target.value)}
+                type="password"
+                id="password"
+                name="password"
+                className="form-control mb-3"
+              />
               <hr />
               <Modal.Footer>
                 {" "}
