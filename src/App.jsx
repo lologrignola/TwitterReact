@@ -6,17 +6,19 @@ import Welcome from "./pages/Welcome";
 import TweetPage from "./pages/TweetPage";
 import AboutUs from "./pages/AboutUs";
 import SearchUser from "./pages/SearchUser";
+import PublicRoute from "./components/PublicRoute";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/welcome" component={Welcome} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/tweet" component={TweetPage} />
-        <Route path="/about-us" component={AboutUs} />
-        <Route path="/search" component={SearchUser} />
+        <PublicRoute restricted={true} component={Welcome} path="/welcome" />
+        <PrivateRoute component={Home} path="/" exact />
+        <PrivateRoute component={Profile} path="/profile" />
+        <PrivateRoute component={TweetPage} path="/tweet" />
+        <PublicRoute restricted={false} component={AboutUs} path="/about-us" exact />
+        <PrivateRoute component={SearchUser} path="/search" exact />
       </Switch>
     </BrowserRouter>
   );
