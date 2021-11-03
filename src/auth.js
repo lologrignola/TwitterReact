@@ -1,17 +1,27 @@
-const TOKEN_KEY = "jwt";
+import { useSelector } from "react-redux";
 
-export const login = () => {
-  localStorage.setItem(TOKEN_KEY, "TestLogin");
-};
+import React from "react";
 
-export const logout = () => {
-  localStorage.removeItem(TOKEN_KEY);
-};
+function auth(action, value) {
+  const login = () => {
+    localStorage.setItem(value, "TestLogin");
+  };
 
-export const isLogin = () => {
-  if (localStorage.getItem(TOKEN_KEY)) {
-    return true;
-  }
+  const logout = () => {
+    localStorage.removeItem(value);
+  };
 
-  return false;
-};
+  const isLogin = () => {
+    if (localStorage.getItem(value)) {
+      return true;
+    }
+
+    return false;
+  };
+
+  if (action === "login") login(value);
+  if (action === "logout") logout(value);
+  if (action === "isLogin") isLogin(value);
+}
+
+export default auth;

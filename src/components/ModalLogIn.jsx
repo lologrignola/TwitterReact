@@ -2,11 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 
 function ModalLogin() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const dispatch = useDispatch();
 
   const [usernameOrEmail, setUsernameOrEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +21,7 @@ function ModalLogin() {
         data: { usernameOrEmail, password },
         headers: { "Content-Type": "application/json" },
       });
-      console.log("respuesta:", response);
+      dispatch({ type: "ADD_TOKEN", payload: response.data });
     } catch (error) {
       //handle error
       console.log(error);
