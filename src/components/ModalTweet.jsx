@@ -1,9 +1,40 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import { useState } from "react";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 
 function ModalTweet() {
+  const token = useSelector((state) => state.user.token);
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [show, setShow] = useState(false);
+  const [tweetContent, setTweetContent] = useState("");
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+    try {
+      console.log("ENTREEEEE");
+      const response = await axios({
+        method: "post",
+        url: `${process.env.REACT_APP_URL_BACKEND}/tweets`,
+        data: {
+          tweetContent,
+        },
+
+        headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+      });
+      console.log("RESPUESTA ", response.data);
+      if (response.data) {
+        dispatch({ type: "ADD_NEW_TWEET", payload: response.data.data });
+        setShow(false);
+        history.push("/");
+      }
+    } catch (error) {
+      //handle error
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -53,7 +84,7 @@ function ModalTweet() {
               </svg>
             </div>
           </Modal.Header>
-          <form action="/tweetear">
+          <form>
             <Modal.Body>
               <div class="grow-wrap">
                 <textarea
@@ -63,7 +94,8 @@ function ModalTweet() {
                   rows="5"
                   maxlength="140"
                   placeholder="Qué estas pensando?"
-                  onInput="this.parentNode.dataset.replicatedValue = this.value"
+                  value={tweetContent}
+                  onInput={(ev) => setTweetContent(ev.target.value)}
                 ></textarea>
               </div>
             </Modal.Body>
@@ -72,7 +104,9 @@ function ModalTweet() {
               <Button variant="secondary" onClick={() => setShow(false)}>
                 Close
               </Button>
-              <Button variant="primary">Tweetear</Button>
+              <Button type="button" onClick={(ev) => handleSubmit(ev)}>
+                Tweetear
+              </Button>
             </Modal.Footer>
           </form>
         </div>

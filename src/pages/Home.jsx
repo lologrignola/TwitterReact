@@ -14,7 +14,7 @@ function Home() {
 
   useEffect(async () => {
     try {
-      const response = await axios.get("http://localhost:10000/api/tweets", {
+      const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/tweets`, {
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
       });
       console.log(response.data.data);
