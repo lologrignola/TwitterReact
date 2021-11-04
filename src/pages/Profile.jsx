@@ -11,16 +11,19 @@ import RightSideBar from "../components/RightSideBar";
 function Profile() {
   const token = useSelector((state) => state.user.token);
   const [randomUsers, setRandomUsers] = useState([]);
-  useEffect(async () => {
-    try {
-      const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/users/random-users`, {
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-      });
-      console.log(response);
-      setRandomUsers([...response.data]);
-    } catch (error) {
-      console.log(error);
+  useEffect(() => {
+    const fetchRandomUsers = async() =>{
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/users/random-users`, {
+          headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        });
+        console.log(response);
+        setRandomUsers([...response.data]);
+      } catch (error) {
+        console.log(error);
+      }
     }
+    fetchRandomUsers();
   }, []);
   return (
     <div>

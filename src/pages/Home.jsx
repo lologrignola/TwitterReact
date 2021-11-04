@@ -42,6 +42,7 @@ function Home() {
   const [dataLength, setdataLength] = useState(0);
 
   useEffect(() => {
+
     const fetchData = async () => {
       try {
         const response = await axios.get(
