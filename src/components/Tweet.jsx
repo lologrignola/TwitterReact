@@ -4,7 +4,13 @@ import { useSelector } from "react-redux";
 
 function Tweet({ tweet }) {
   const user = useSelector((state) => state.user);
-  const createdAt = Date(tweet.createdAt);
+  console.log(tweet);
+  const fechaMalFormato = Date.parse(tweet.createdAt);
+  console.log(fechaMalFormato);
+  const fechaNueva = new Date(fechaMalFormato);
+  console.log(fechaNueva);
+  const createdAt = `${fechaNueva.getDate()}-${fechaNueva.getMonth()}-${fechaNueva.getFullYear()}`;
+
   const handleOnClick = () => {};
   return (
     <div className="tw-block-parent p-4">
@@ -50,7 +56,7 @@ function Tweet({ tweet }) {
           {/* <!--tweet metadata// timeStamp && Twitter Web App(posted from)--> */}
           <div className="timeline-Tweet-metadata mt-3">
             <Link className="timeline-Tweet-timestamp look-like-link" to="#">
-              {createdAt}
+              Created: {createdAt}
             </Link>
             <span> · </span>
             <Link
