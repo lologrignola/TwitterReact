@@ -59,7 +59,7 @@ function LikeButton({ likes, tweetId }) {
   };
 
   return (
-    <div>
+    <div className="me-2">
       {liked === true ? (
         <i
           className="fas fa-heart likeHeartRed pointer"

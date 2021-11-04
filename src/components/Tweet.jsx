@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ButtonFlwUnf from "./BtnFlwUnf";
 import LikeButton from "./LikeButton";
+import BtnDeleteTweet from "./BtnDeleteTweet";
 
 function Tweet({ tweet }) {
   const user = useSelector((state) => state.user);
@@ -71,22 +72,16 @@ function Tweet({ tweet }) {
           {/* <!--tweet actions--> */}
           <div className="timeline-Tweet-actions list-unstyled">
             <form id="like" action="/tweet/<%= tweet.id %> " method="post"></form>
-            <span className="timeline-Tweet-action d-flex">
-              <LikeButton likes={tweet.likes} tweetId={tweet._id} />
-              <span className="ms-2">{tweet.likes.length}</span>
+            <span className="timeline-Tweet-action d-flex justify-content-between">
+              <span className="ms-3 d-flex">
+                {" "}
+                <LikeButton likes={tweet.likes} tweetId={tweet._id} />
+                {tweet.likes.length}
+              </span>
 
-              {
-                /* (locals.unauthDelete) */ false && (
-                  <div className="alert alert-danger" role="alert">
-                    locals.unauthDelete[0]
-                  </div>
-                )
-              }
               {tweet.author._id === user.id && (
                 <span>
-                  <Link className="ms-4" to="/deleteTweet/ tweet._id">
-                    <i className="fas fa-trash-alt"></i>
-                  </Link>
+                  <BtnDeleteTweet tweetId={tweet._id} />
                 </span>
               )}
             </span>

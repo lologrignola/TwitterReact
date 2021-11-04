@@ -30,7 +30,7 @@ function ButtonFlwUnf({ userId }) {
         data: { userId },
         headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
       });
-      console.log("RESPUESTA ", userId);
+
       if (response.data) {
         dispatch({ type: "ADD_NEW_FOLLOWING", payload: userId });
       }
@@ -48,7 +48,7 @@ function ButtonFlwUnf({ userId }) {
         data: { userId },
         headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
       });
-      console.log("RESPUESTA ", response.data);
+
       if (response.data) {
         dispatch({ type: "DELETE_FOLLOWING", payload: userId });
       }
