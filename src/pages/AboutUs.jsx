@@ -4,9 +4,9 @@ function AboutUs() {
   return (
     <div>
       <div className="text-center pb-5 pt-5">
-        <h1>¿Quienes somos?</h1>
+        <h1>Who we are</h1>
         <p className="fs-5 pt-2">
-          Somos un grupo de programadores especializados en el desarrollo web Frontend y Backend
+          We are a group specialized in Frontend & Backend web development
         </p>
       </div>
 

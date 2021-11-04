@@ -44,7 +44,7 @@ function SearchUser() {
                   type="submit"
                   className="align-self-end btn rounded-pill btn-twittear me-3 mb-2"
                 >
-                  Buscar
+                  Search
                 </button>
               </div>
             </div>

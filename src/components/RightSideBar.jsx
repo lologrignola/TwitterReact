@@ -39,7 +39,7 @@ function RightSideBar() {
       <div className="tendencias rounded">
         <div className="inside-tendencias">
           <div className="row">
-            <div className="col-10">Tendencias para ti</div>
+            <div className="col-10">Trends for you</div>
             <div className="col-2">
               <div role="button" className="tendencias-a functionallityNotWorking" href="#">
                 <i className="fas fa-cog"></i>
@@ -52,7 +52,7 @@ function RightSideBar() {
           <RightSideText text="Diego Aguirre" />
           <RightSideText text="Complejo Celeste" />
           <div role="button" href="" className="links-leftSide functionallityNotWorking">
-            <p className="showMore mt-4">Mostrar más</p>
+            <p className="showMore mt-4">Show more</p>
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@ function RightSideBar() {
         <div className="mt-3 tendencias rounded">
           <div className="inside-tendencias">
             <div className="d-flex justify-content-between">
-              <div className="mt-2">A quién seguir</div>
+              <div className="mt-2">Who to follow</div>
               <form action="/search" method="GET">
                 <button
                   type="submit"
@@ -68,7 +68,7 @@ function RightSideBar() {
                   data-bs-toggle="modal"
                   data-bs-target="#searchToFollowModal"
                 >
-                  Buscador
+                  Search
                 </button>
               </form>
             </div>
@@ -108,24 +108,24 @@ function RightSideBar() {
           <div className="row">
             <div className="col">
               <div role="button" className="a-footer-welcome functionallityNotWorking m-0" href="#">
-                Condiciones de Servicio
+                Terms of Service
               </div>
             </div>
             <div className="col">
               <div role="button" className="a-footer-welcome functionallityNotWorking m-0" href="#">
-                Politica de Privacidad
+                Privacy Policy
               </div>
             </div>
           </div>
           <div className="row">
             <div className="col">
               <div role="button" className="a-footer-welcome functionallityNotWorking m-0" href="#">
-                Politica de Cookies
+                Cookie Policy
               </div>
             </div>
             <div className="col">
               <div role="button" className="a-footer-welcome functionallityNotWorking m-0" href="#">
-                Info de anuncios
+                Ads Info
               </div>
             </div>
           </div>
@@ -136,7 +136,7 @@ function RightSideBar() {
                 className="a-footer-welcome functionallityNotWorking mt-0"
                 href="#"
               >
-                Mas opciones
+                More...
               </div>
             </div>
             <div className="col mb-3">

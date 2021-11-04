@@ -6,7 +6,7 @@ function RightSideText({ text }) {
     <div role="button" className="tendencias-a functionallityNotWorking" href="#">
       <div className="tendencias-hover mt-2 p-2">
         <div className="row tt-uru">
-          <div className="col-10">Tendencia en Uruguay</div>
+          <div className="col-10">Trending in Uruguay</div>
           <div className="col-2">
             <i className="fas fa-ellipsis-h"></i>
           </div>

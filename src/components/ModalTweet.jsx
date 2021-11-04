@@ -104,7 +104,7 @@ function ModalTweet() {
                 Close
               </Button>
               <Button type="button" onClick={(ev) => handleSubmit(ev)}>
-                Tweetear
+                Tweet
               </Button>
             </Modal.Footer>
           </form>

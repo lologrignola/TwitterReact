@@ -78,7 +78,7 @@ function ButtonFlwUnf({ userId }) {
                   handleFollowDB(ev);
                 }}
               >
-                Seguir
+                Follow
               </button>
             </form>
           ) : (
@@ -92,7 +92,7 @@ function ButtonFlwUnf({ userId }) {
                   handleUnFollowDB(ev);
                 }}
               >
-                Siguiendo
+                Following
               </button>
             </form>
           )}
