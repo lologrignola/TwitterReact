@@ -1,7 +1,23 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import RightSideText from "./RightSideText";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import ButtonFlwUnf from "./BtnFlwUnf";
 
 function RightSideBar() {
+  const token = useSelector((state) => state.user.token);
+  const [randomUsers, setRandomUsers] = useState([]);
+  useEffect(async () => {
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/users/random-users`, {
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+      });
+      console.log(response);
+      setRandomUsers([...response.data]);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
   return (
     <>
       <div style={{ backgroundColor: "black" }} className="sticky-top pb-3">
@@ -58,68 +74,33 @@ function RightSideBar() {
             </div>
             <hr />
             {/*  <% for(user of randomUsers) { %> */}
-            <div className="mt-3">
-              <div role="button" className="tendencias-a" href="">
-                <div className="row g-0 justify-content-between tendencias-hover p-2">
-                  <div className="col-3 d-lg-none d-xl-block">
-                    <span className="TweetAuthor-avatar">
-                      <div className="Avatar d-inline-block">
-                        <img
-                          className="rounded-circle"
-                          width="55rem"
-                          /* src="<%=user.avatar %>" */
-                          alt="testUserAvatar"
-                        />
-                      </div>
-                    </span>
-                  </div>
-                  <div className="col-6 d-flex flex-column">
-                    <p>{/* <%=user.fullname %> */}</p>
-                    <p className="userName">{/* @<%=user.username %> */}</p>
-                  </div>
-                  <div className="col-6 col-xl-3 align-self-center">
-                    {/*  IF ELSE CON LOS FORMS DE ABAJO CON ( ownUserFollowings.includes(user.id ) ADENTRO  */}
-                    <form
-                      id="btn-seguir-siguiendo"
-                      className="align-self-center d-flex justify-content-end"
-                      action="/unFollow/<%-user._id%>"
-                      method="POST"
-                    >
-                      <button
-                        style={{ backgroundColor: "white", color: "black", width: "90px" }}
-                        type="submit"
-                        className="
-                    align-self-center
-                    btn
-                    rounded-pill
-                    btn-twittear
-                    me-3
-                    mb-2
-                    justify-content-end
-                  "
-                      >
-                        Siguiendo
-                      </button>
-                    </form>
-
-                    {/* <form
-                id="btn-seguir-siguiendo"
-                className="align-self-center d-flex justify-content-end"
-                action="/follow/<%-user._id%>"
-                method="POST"
-              >
-                <button
-                  style={{backgroundColor: "white", color: "black", width: "90px"}}
-                  type="submit"
-                  className="align-self-center btn rounded-pill btn-twittear me-3 mb-2"
-                >
-                  Seguir
-                </button>
-              </form> */}
+            {randomUsers.map((randomUser) => (
+              <div className="mt-3">
+                <div role="button" className="tendencias-a" href="">
+                  <div className="row g-0 justify-content-between tendencias-hover p-2">
+                    <div className="col-3 d-lg-none d-xl-block">
+                      <span className="TweetAuthor-avatar">
+                        <div className="Avatar d-inline-block">
+                          <img
+                            className="rounded-circle"
+                            width="55rem"
+                            src={randomUser.avatar}
+                            alt="testUserAvatar"
+                          />
+                        </div>
+                      </span>
+                    </div>
+                    <div className="col-6 d-flex flex-column">
+                      <p>{randomUser.fullname}</p>
+                      <p className="userName">@{randomUser.username}</p>
+                    </div>
+                    <div className="col-6 col-xl-3 align-self-center">
+                      <ButtonFlwUnf userId={randomUser._id} />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
 
