@@ -14,7 +14,6 @@ function ModalTweet() {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     try {
-      console.log("ENTREEEEE");
       const response = await axios({
         method: "post",
         url: `${process.env.REACT_APP_URL_BACKEND}/tweets`,

@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import ButtonFlwUnf from "./BtnFlwUnf";
 
 function Tweet({ tweet }) {
   const user = useSelector((state) => state.user);
-  console.log(tweet);
   const fechaMalFormato = Date.parse(tweet.createdAt);
   const fechaNueva = new Date(fechaMalFormato);
   const createdAt = `${fechaNueva.getDate()}-${
@@ -48,6 +48,7 @@ function Tweet({ tweet }) {
             </div>
           </div>
           {/* <!--tweet content--> */}
+          <ButtonFlwUnf userId={tweet.author._id} />
           <Link className="TweetAuthor-link" to={`/tweet/${tweet._id}`}>
             <div className="timeline-Tweet-text">
               <p className="breakWord">{tweet.content}</p>

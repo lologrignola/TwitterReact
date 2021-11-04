@@ -16,7 +16,12 @@ function userReducer(user = {}, action) {
       return user;
 
     case "ADD_TOKEN":
-      return { ...user, token: action.payload.token, id: action.payload.id };
+      return {
+        ...user,
+        token: action.payload.token,
+        id: action.payload.id,
+        following: action.payload.following,
+      };
 
     case "REMOVE_TOKEN":
       return {};

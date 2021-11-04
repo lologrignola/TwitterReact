@@ -1,41 +1,92 @@
 import React from "react";
 import { useState } from "react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import axios from "axios";
 
 /* Botón follow / unfollow */
 
-function ButtonFlwUnf() {
+function ButtonFlwUnf({ userId }) {
+  const token = useSelector((state) => state.user.token);
+  const userFollowing = useSelector((state) => state.user.following);
   const [follow, setFollow] = useState(false);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (userFollowing.includes(userId)) {
+      setFollow(true);
+    } else {
+      setFollow(false);
+    }
+  }, []);
 
-  const handleUnfollow = (ev) => {
-    setFollow(false);
+  const handleFollowDB = async (ev) => {
     ev.preventDefault();
+    try {
+      const response = await axios({
+        method: "patch",
+        url: `${process.env.REACT_APP_URL_BACKEND}/users/follow`,
+        data: { userId },
+        headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+      });
+      console.log("RESPUESTA ", response.data);
+      if (response.data) {
+        dispatch({ type: "ADD_NEW_TWEET", payload: response.data.data });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleUnFollowDB = async (ev) => {
+    ev.preventDefault();
+    try {
+      const response = await axios({
+        method: "patch",
+        url: `${process.env.REACT_APP_URL_BACKEND}/users/unfollow`,
+        data: { userId },
+        headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+      });
+      console.log("RESPUESTA ", response.data);
+      if (response.data) {
+        dispatch({ type: "ADD_NEW_TWEET", payload: response.data.data });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleFollow = (ev) => {
-    setFollow(true);
+    setFollow(!follow);
     ev.preventDefault();
   };
 
   return (
     <div>
       {follow === false ? (
-        <form class="align-self-center" action="#" method="POST">
+        <form class="align-self-center">
           <button
             style={{ backgroundColor: "rgb(204, 204, 204)", color: "black", width: "90px" }}
             type="submit"
             class="align-self-center btn rounded-pill btn-twittear me-3 mb-2"
-            onClick={handleFollow}
+            onClick={(ev) => {
+              handleFollow(ev);
+              handleFollowDB(ev);
+            }}
           >
             Seguir
           </button>
         </form>
       ) : (
-        <form class="align-self-center" action="#" method="POST">
+        <form class="align-self-center">
           <button
             style={{ backgroundColor: "rgb(204, 204, 204)", color: "black", width: "90px" }}
             type="submit"
             class="align-self-center btn rounded-pill btn-twittear me-3 mb-2"
-            onClick={handleUnfollow}
+            onClick={(ev) => {
+              handleFollow(ev);
+              handleUnFollowDB(ev);
+            }}
           >
             Siguiendo
           </button>
