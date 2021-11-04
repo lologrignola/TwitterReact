@@ -13,13 +13,13 @@ function ModalRegister() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const history = useHistory();
+  let history = useHistory();
 
   const handleRegister = async (ev) => {
     ev.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:10000/api/sign-in", {
+      const response = await axios.post(`${process.env.REACT_APP_URL_BACKEND}/sign-in`, {
         data: { email, password, fullname },
         headers: { "Content-Type": "application/json" } /**Authorization: "bearer " + token */,
       });

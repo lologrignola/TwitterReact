@@ -18,7 +18,7 @@ function ModalLogin() {
   const handleLogin = async (ev) => {
     ev.preventDefault();
     try {
-      const response = await axios.post("http://localhost:10000/api/login", {
+      const response = await axios.post(`${process.env.REACT_APP_URL_BACKEND}/login`, {
         data: { usernameOrEmail, password },
         headers: { "Content-Type": "application/json" },
       });

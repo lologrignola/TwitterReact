@@ -24,7 +24,7 @@ function TweetPage() {
             <div className="col-10 gx-3">
               <div className="row">
                 <div className="col-8">
-                  <TopNavbar />
+                  <TopNavbar text="Tweet" />
                   {/*  <!--main content down here--> */}
                   <Tweet tweet={tweet} />
                   {/*  <!--end main content--> */}

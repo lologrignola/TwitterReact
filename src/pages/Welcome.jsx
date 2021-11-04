@@ -10,7 +10,7 @@ function Welcome() {
         <div id="welcome-img" class="col">
           <img src={welcomePicture} alt="" />
         </div>
-        <div id="happening-now-col" class="col">
+        <div id="happening-now-col" class="col bg-white">
           <div className="py-5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -102,8 +102,8 @@ function Welcome() {
           </div>
         </div>
       </div>
-      <hr id="welcome-hr" />
-      <footer className="d-flex justify-content-evenly align-items-center flex-wrap px-5 py-2">
+      <hr id="welcome-hr" className="bg-white text-white" />
+      <footer className="d-flex justify-content-evenly align-items-center bg-white flex-wrap px-5 py-2">
         <span className="a-footer-welcome mx-1 pointer" href="#">
           About
         </span>

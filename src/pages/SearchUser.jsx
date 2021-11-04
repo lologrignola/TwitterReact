@@ -14,7 +14,7 @@ function SearchUser() {
         </div>
         {/*  <!--Navbar + main content--> */}
         <div className="col-10 col-lg-6">
-          <TopNavbar />
+          <TopNavbar text="Search" />
           {/* <!--main content down here--> */}
           <form action="/search-one" method="POST">
             <div className="top-input-tweet">
