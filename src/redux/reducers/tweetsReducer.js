@@ -4,7 +4,7 @@ function tweetsReducer(tweets = [], action) {
       return [...action.payload];
 
     case "DELETE_TWEET":
-      return tweets;
+      return tweets.filter((tweet) => tweet._id !== action.payload);
 
     case "ADD_NEW_LIKED":
       return tweets.map((tweet) => {
@@ -23,14 +23,6 @@ function tweetsReducer(tweets = [], action) {
           likes: tweet.likes.filter((like) => like !== action.payload.userId),
         };
       });
-    /* 
-      return lists.map((list) => {
-        if (list.id !== action.payload.listId) return list;
-        return {
-          ...list,
-          items: list.items.filter((item) => item.name !== action.payload.itemName),
-        };
-      }); */
 
     case "ADD_NEW_TWEET":
       return [...action.payload, ...tweets];
