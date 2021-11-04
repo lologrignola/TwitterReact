@@ -42,7 +42,7 @@ function ModalTweet() {
           type="submit"
           className="align-self-end btn rounded-pill btn-twittear py-2 px-4 me-3 mb-2"
         >
-          Tweettear
+          Tweet
         </button>
       </div>
       <div id="smallButtonTweettear" role="button" className="fs-5" onClick={() => setShow(true)}>
@@ -92,7 +92,7 @@ function ModalTweet() {
                   cols="70"
                   rows="5"
                   maxlength="140"
-                  placeholder="Qué estas pensando?"
+                  placeholder="What's happening?"
                   value={tweetContent}
                   onInput={(ev) => setTweetContent(ev.target.value)}
                 ></textarea>

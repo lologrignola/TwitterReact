@@ -83,7 +83,7 @@ function Home() {
                       type="text"
                       name="tweetText"
                       className="form-control input-tweet-up inputNoborder"
-                      placeholder="Qué estas pensando?"
+                      placeholder="What's happening?"
                       maxlength="140"
                       aria-label="Recipient's username"
                       aria-describedby="button-addon2"
@@ -95,7 +95,7 @@ function Home() {
                     type="submit"
                     className="align-self-end btn rounded-pill btn-twittear me-2 mb-2 mt-2"
                   >
-                    Tweettear
+                    Tweet
                   </button>
                 </div>
               </div>

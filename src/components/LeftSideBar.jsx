@@ -17,31 +17,31 @@ function LeftSideBar() {
           </div>
         </Link>
         <ul id="left-sidebar-list" className="nav flex-column mt-3">
-          <SideButtons text="Inicio" link="/" icon="icons-left fas fa-home" />
+          <SideButtons text="Home" link="/" icon="icons-left fas fa-home" />
           <SideButtons
-            text="Explorar"
+            text="Explore"
             link={window.location.pathname}
             icon="icons-left fas fa-hashtag"
           />
           <SideButtons
-            text="Notificaciones"
+            text="Notifications"
             link={window.location.pathname}
             icon="icons-left fas fa-bell"
           />
           <SideButtons
-            text="Mensajes"
+            text="Messages"
             link={window.location.pathname}
             icon="icons-left fas fa-envelope"
           />
           <SideButtons
-            text="Guardados"
+            text="Bookmarks"
             link={window.location.pathname}
             icon="icons-left far fa-bookmark"
           />
           <SideButtons text="About Us" link="/about-us" icon="icons-left far fa-list-alt" />
           <SideButtons text="Perfil" link="/profile" icon="icons-left far fa-user" />
           <SideButtons
-            text="Más Opciones"
+            text="More"
             link={window.location.pathname}
             icon="icons-left fas fa-ellipsis-h"
           />
