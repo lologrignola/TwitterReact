@@ -49,7 +49,7 @@ function Tweet({ tweet }) {
             </div>
           </div>
           {/* <!--tweet content--> */}
-          <ButtonFlwUnf userId={tweet.author._id} />
+
           <Link className="TweetAuthor-link" to={`/tweet/${tweet._id}`}>
             <div className="timeline-Tweet-text">
               <p className="breakWord">{tweet.content}</p>
