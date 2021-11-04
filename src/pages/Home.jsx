@@ -17,7 +17,6 @@ function Home() {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     try {
-      console.log("ENTREEEEE");
       const response = await axios({
         method: "post",
         url: `${process.env.REACT_APP_URL_BACKEND}/tweets`,
@@ -27,7 +26,6 @@ function Home() {
 
         headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
       });
-      console.log("RESPUESTA ", response.data);
       if (response.data) {
         dispatch({ type: "ADD_NEW_TWEET", payload: response.data.data });
 
@@ -45,7 +43,6 @@ function Home() {
         const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/tweets`, {
           headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         });
-        console.log(response.data.data);
         dispatch({ type: "ADD_TWEETS", payload: response.data.data });
       } catch (error) {
         console.log(error);
