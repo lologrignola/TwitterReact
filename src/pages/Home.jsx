@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import LeftSideBar from "../components/LeftSideBar";
 import RightSideBar from "../components/RightSideBar";
@@ -6,11 +6,38 @@ import TopNavbar from "../components/TopNavbar";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import Tweet from "../components/Tweet";
+import { useHistory } from "react-router";
 
 function Home() {
+  const [tweetContent, setTweetContent] = useState("");
   const token = useSelector((state) => state.user.token);
   const tweets = useSelector((state) => state.tweets);
   const dispatch = useDispatch();
+  const history = useHistory();
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+    try {
+      console.log("ENTREEEEE");
+      const response = await axios({
+        method: "post",
+        url: `${process.env.REACT_APP_URL_BACKEND}/tweets`,
+        data: {
+          tweetContent,
+        },
+
+        headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+      });
+      console.log("RESPUESTA ", response.data);
+      if (response.data) {
+        dispatch({ type: "ADD_NEW_TWEET", payload: response.data.data });
+
+        /*     history.push("/"); */
+      }
+    } catch (error) {
+      //handle error
+      console.log(error);
+    }
+  };
 
   useEffect(async () => {
     try {
@@ -32,7 +59,7 @@ function Home() {
         </div>
         <div className="col-10 col-lg-6">
           <TopNavbar text="Home" />
-          <form action="/tweetear" method="POST">
+          <form action="/tweetear" onSubmit={(ev) => handleSubmit(ev)} method="POST">
             <div className="top-input-tweet">
               <div className="d-flex p-2" style={{ height: "100%" }}>
                 <span className="TweetAuthor-avatar">
@@ -57,6 +84,8 @@ function Home() {
                       maxlength="140"
                       aria-label="Recipient's username"
                       aria-describedby="button-addon2"
+                      value={tweetContent}
+                      onChange={(ev) => setTweetContent(ev.target.value)}
                     />
                   </div>
                   <button
