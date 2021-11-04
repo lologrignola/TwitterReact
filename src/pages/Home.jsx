@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import Tweet from "../components/Tweet";
 import { useHistory } from "react-router";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function Home() {
   const [tweetContent, setTweetContent] = useState("");
@@ -37,21 +38,34 @@ function Home() {
     }
   };
 
+  const [page, setPage] = useState(1);
+  const [dataLength, setdataLength] = useState(0);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/tweets`, {
-          headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-        });
-        dispatch({ type: "ADD_TWEETS", payload: response.data.data });
+        const response = await axios.get(
+          `${process.env.REACT_APP_URL_BACKEND}/tweets/${page}`,{
+            headers: { "Content-Type": "application/json", Authorization: "Bearer " + token }
+          },
+        );
+        console.log("DATA");
+        console.log(response);
+        setdataLength(dataLength + response.data.length);
+        dispatch({ type: "ADD_MORE_TWEETS", payload: response.data });
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
-  }, []);
+  }, [page]);
 
   return (
+    <InfiniteScroll
+      dataLength={dataLength}
+      next={()=>setPage((prev) => prev + 1)}
+      hasMore={true}
+    >
     <div className="container">
       <div className="row">
         <div className="col-2">
@@ -109,6 +123,7 @@ function Home() {
         </div>
       </div>
     </div>
+    </InfiniteScroll>
   );
 }
 
