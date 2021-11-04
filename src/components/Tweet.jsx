@@ -6,10 +6,12 @@ function Tweet({ tweet }) {
   const user = useSelector((state) => state.user);
   console.log(tweet);
   const fechaMalFormato = Date.parse(tweet.createdAt);
-  console.log(fechaMalFormato);
+
   const fechaNueva = new Date(fechaMalFormato);
   console.log(fechaNueva);
-  const createdAt = `${fechaNueva.getDate()}-${fechaNueva.getMonth()}-${fechaNueva.getFullYear()}`;
+  const createdAt = `${fechaNueva.getDate()}-${
+    fechaNueva.getMonth() + 1
+  }-${fechaNueva.getFullYear()}`;
 
   const handleOnClick = () => {};
   return (
