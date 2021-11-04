@@ -6,11 +6,31 @@ function tweetsReducer(tweets = [], action) {
     case "DELETE_TWEET":
       return tweets;
 
-    case "LIKE_TWEET":
-      return tweets;
+    case "ADD_NEW_LIKED":
+      return tweets.map((tweet) => {
+        if (tweet._id !== action.payload.tweetId) return tweet;
+        return {
+          ...tweet,
+          likes: [...tweet.likes, action.payload.userId],
+        };
+      });
 
-    case "UNLIKE_TWEET":
-      return tweets;
+    case "DELETE_LIKED":
+      return tweets.map((tweet) => {
+        if (tweet._id !== action.payload.tweetId) return tweet;
+        return {
+          ...tweet,
+          likes: tweet.likes.filter((like) => like !== action.payload.userId),
+        };
+      });
+    /* 
+      return lists.map((list) => {
+        if (list.id !== action.payload.listId) return list;
+        return {
+          ...list,
+          items: list.items.filter((item) => item.name !== action.payload.itemName),
+        };
+      }); */
 
     case "ADD_NEW_TWEET":
       return [...action.payload, ...tweets];
