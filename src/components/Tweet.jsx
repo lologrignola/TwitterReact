@@ -5,8 +5,7 @@ import ButtonFlwUnf from "./BtnFlwUnf";
 
 function Tweet({ tweet }) {
   const user = useSelector((state) => state.user);
-  const fechaMalFormato = Date.parse(tweet.createdAt);
-  const fechaNueva = new Date(fechaMalFormato);
+  const fechaNueva = new Date(Date.parse(tweet.createdAt));
   const createdAt = `${fechaNueva.getDate()}-${
     fechaNueva.getMonth() + 1
   }-${fechaNueva.getFullYear()}`;

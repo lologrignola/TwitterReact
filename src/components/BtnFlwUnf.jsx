@@ -8,6 +8,7 @@ import axios from "axios";
 /* Botón follow / unfollow */
 
 function ButtonFlwUnf({ userId }) {
+  const user = useSelector((state) => state.user);
   const token = useSelector((state) => state.user.token);
   const userFollowing = useSelector((state) => state.user.following);
   const [follow, setFollow] = useState(false);
@@ -63,37 +64,41 @@ function ButtonFlwUnf({ userId }) {
   };
 
   return (
-    <div>
-      {follow === false ? (
-        <form class="align-self-center">
-          <button
-            style={{ backgroundColor: "rgb(204, 204, 204)", color: "black", width: "90px" }}
-            type="submit"
-            class="align-self-center btn rounded-pill btn-twittear me-3 mb-2"
-            onClick={(ev) => {
-              handleFollow(ev);
-              handleFollowDB(ev);
-            }}
-          >
-            Seguir
-          </button>
-        </form>
-      ) : (
-        <form class="align-self-center">
-          <button
-            style={{ backgroundColor: "rgb(204, 204, 204)", color: "black", width: "90px" }}
-            type="submit"
-            class="align-self-center btn rounded-pill btn-twittear me-3 mb-2"
-            onClick={(ev) => {
-              handleFollow(ev);
-              handleUnFollowDB(ev);
-            }}
-          >
-            Siguiendo
-          </button>
-        </form>
+    <>
+      {user.id !== userId && (
+        <div>
+          {follow === false ? (
+            <form class="align-self-center">
+              <button
+                style={{ backgroundColor: "rgb(204, 204, 204)", color: "black", width: "90px" }}
+                type="submit"
+                class="align-self-center btn rounded-pill btn-twittear me-3 mb-2"
+                onClick={(ev) => {
+                  handleFollow(ev);
+                  handleFollowDB(ev);
+                }}
+              >
+                Seguir
+              </button>
+            </form>
+          ) : (
+            <form class="align-self-center">
+              <button
+                style={{ backgroundColor: "rgb(204, 204, 204)", color: "black", width: "90px" }}
+                type="submit"
+                class="align-self-center btn rounded-pill btn-twittear me-3 mb-2"
+                onClick={(ev) => {
+                  handleFollow(ev);
+                  handleUnFollowDB(ev);
+                }}
+              >
+                Siguiendo
+              </button>
+            </form>
+          )}
+        </div>
       )}
-    </div>
+    </>
   );
 }
 
