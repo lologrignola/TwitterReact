@@ -18,6 +18,9 @@ function tweetsReducer(tweets = [], action) {
     case "REMOVE_TOKEN":
       return [];
 
+    case "ADD_MORE_TWEETS":
+      return [...tweets, ...action.payload];
+
     default:
       return tweets;
   }
