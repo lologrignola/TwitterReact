@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ButtonFlwUnf from "./BtnFlwUnf";
+import LikeButton from "./LikeButton";
 
 function Tweet({ tweet }) {
   const user = useSelector((state) => state.user);
@@ -70,36 +71,25 @@ function Tweet({ tweet }) {
           {/* <!--tweet actions--> */}
           <div className="timeline-Tweet-actions list-unstyled">
             <form id="like" action="/tweet/<%= tweet.id %> " method="post"></form>
-            <span className="timeline-Tweet-action">
-              <Link className="Icon Icon--heart" onClick={() => handleOnClick()}>
-                {
-                  /* tweet.likes.includes(userId) */ true ? (
-                    <Link to="/tweetDisiked/tweet._id ">
-                      <i className="fas fa-heart likeHeartRed"></i>
-                    </Link>
-                  ) : (
-                    <Link to="/tweetLiked/tweet._id ">
-                      <i className="fas fa-heart likeHeart"></i>
-                    </Link>
-                  )
-                }
-              </Link>
+            <span className="timeline-Tweet-action d-flex">
+              <LikeButton likes={tweet.likes} tweetId={tweet._id} />
+              <span className="ms-2">{tweet.likes.length}</span>
+
+              {
+                /* (locals.unauthDelete) */ false && (
+                  <div className="alert alert-danger" role="alert">
+                    locals.unauthDelete[0]
+                  </div>
+                )
+              }
+              {tweet.author._id === user.id && (
+                <span>
+                  <Link className="ms-4" to="/deleteTweet/ tweet._id">
+                    <i className="fas fa-trash-alt"></i>
+                  </Link>
+                </span>
+              )}
             </span>
-            <span className="ms-2">{tweet.likes.length}</span>
-            {
-              /* (locals.unauthDelete) */ false && (
-                <div className="alert alert-danger" role="alert">
-                  locals.unauthDelete[0]
-                </div>
-              )
-            }
-            {tweet.author._id === user.id && (
-              <span>
-                <Link className="ms-4" to="/deleteTweet/ tweet._id">
-                  <i className="fas fa-trash-alt"></i>
-                </Link>
-              </span>
-            )}
             {/* { if (locals.unauthDelete) { 
                         <div className="alert alert-danger" role="alert">
                            locals.unauthDelete[0] 
