@@ -105,7 +105,10 @@ function Profile() {
                 <h4 className="row container">Who to follow</h4>
                 <div className="list-group w-100 m-0 ">
                   {randomUsers.map((randomUser) => (
-                    <div className="list-group-item list-group-item-action ms-0 d-flex flex-row border-0 justify-content-between ">
+                    <div
+                      key={randomUser._id}
+                      className="list-group-item list-group-item-action ms-0 d-flex flex-row border-0 justify-content-between "
+                    >
                       <div className="d-flex">
                         {" "}
                         <div className="rounded-circle me-3">
