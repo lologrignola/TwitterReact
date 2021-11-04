@@ -7,10 +7,10 @@ function Welcome() {
   return (
     <div style={{ backgroundColor: "white" }} id="welcome-container">
       <div className="row vw-100">
-        <div id="welcome-img" class="col">
+        <div id="welcome-img" className="col">
           <img src={welcomePicture} alt="" />
         </div>
-        <div id="happening-now-col" class="col bg-white">
+        <div id="happening-now-col" className="col text-center">
           <div className="py-5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@ function Welcome() {
             </h3>
           </div>
           <div>
-            <div className="d-flex flex-column">
+            <div className="d-flex flex-column align-items-center">
               <button className="sign-up-buttons">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -102,59 +102,61 @@ function Welcome() {
           </div>
         </div>
       </div>
-      <hr id="welcome-hr" className="bg-white text-white" />
-      <footer className="d-flex justify-content-evenly align-items-center bg-white flex-wrap px-5 py-2">
-        <span className="a-footer-welcome mx-1 pointer" href="#">
-          About
-        </span>
-        <span className="a-footer-welcome mx-1 pointer" href="#">
-          Help Center
-        </span>
-        <span className="a-footer-welcome mx-1 pointer" href="#">
-          Terms of service
-        </span>
-        <span className="a-footer-welcome mx-1 pointer" href="#">
-          Privacy Policy
-        </span>
-        <span className="a-footer-welcome mx-1 pointer" href="#">
-          {" "}
-          Cookie Policy
-        </span>
-        <span className="a-footer-welcome mx-1 pointer" href="#">
-          Ads info
-        </span>
-        <span className="a-footer-welcome mx-1 pointer" href="#">
-          Blog
-        </span>
-        <span className="a-footer-welcome mx-1 pointer" href="#">
-          Status
-        </span>
-        <span className="a-footer-welcome mx-1 pointer" href="#">
-          Careers
-        </span>
-        <span className="a-footer-welcome mx-1 pointer" href="#">
-          Brand Resources
-        </span>
-        <span className="a-footer-welcome mx-1 pointer" href="#">
-          Advertising
-        </span>
-        <span className="a-footer-welcome mx-1 pointer" href="#">
-          Marketing
-        </span>
-        <span className="a-footer-welcome mx-1 pointer" href="#">
-          Twitter for Business
-        </span>
-        <span className="a-footer-welcome mx-1 pointer" href="#">
-          Developers
-        </span>
-        <span className="a-footer-welcome mx-1 pointer" href="#">
-          Directory
-        </span>
-        <span className="a-footer-welcome mx-1 pointer" href="#">
-          Settings
-        </span>
-        <p id="twitter-inc">&copy; {new Date().getFullYear()} Twitter, Inc.</p>
-      </footer>
+      <div className="welFooter">
+        <hr id="welcome-hr" />
+        <footer className="d-flex justify-content-evenly align-items-center flex-wrap px-5 py-2">
+          <span className="a-footer-welcome mx-1 pointer" href="#">
+            About
+          </span>
+          <span className="a-footer-welcome mx-1 pointer" href="#">
+            Help Center
+          </span>
+          <span className="a-footer-welcome mx-1 pointer" href="#">
+            Terms of service
+          </span>
+          <span className="a-footer-welcome mx-1 pointer" href="#">
+            Privacy Policy
+          </span>
+          <span className="a-footer-welcome mx-1 pointer" href="#">
+            {" "}
+            Cookie Policy
+          </span>
+          <span className="a-footer-welcome mx-1 pointer" href="#">
+            Ads info
+          </span>
+          <span className="a-footer-welcome mx-1 pointer" href="#">
+            Blog
+          </span>
+          <span className="a-footer-welcome mx-1 pointer" href="#">
+            Status
+          </span>
+          <span className="a-footer-welcome mx-1 pointer" href="#">
+            Careers
+          </span>
+          <span className="a-footer-welcome mx-1 pointer" href="#">
+            Brand Resources
+          </span>
+          <span className="a-footer-welcome mx-1 pointer" href="#">
+            Advertising
+          </span>
+          <span className="a-footer-welcome mx-1 pointer" href="#">
+            Marketing
+          </span>
+          <span className="a-footer-welcome mx-1 pointer" href="#">
+            Twitter for Business
+          </span>
+          <span className="a-footer-welcome mx-1 pointer" href="#">
+            Developers
+          </span>
+          <span className="a-footer-welcome mx-1 pointer" href="#">
+            Directory
+          </span>
+          <span className="a-footer-welcome mx-1 pointer" href="#">
+            Settings
+          </span>
+          <p id="twitter-inc">&copy; {new Date().getFullYear()} Twitter, Inc.</p>
+        </footer>
+      </div>
     </div>
   );
 }
