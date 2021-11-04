@@ -10,6 +10,12 @@ import RightSideBar from "../components/RightSideBar";
 
 function Profile() {
   const token = useSelector((state) => state.user.token);
+  const userId = useSelector((state) => state.user.id);
+
+  const months = ['January', 'February','March','April','May','June','July','August','September','October','November','December'];
+
+  const [user, setUser] = useState({});
+
   const [randomUsers, setRandomUsers] = useState([]);
   useEffect(() => {
     const fetchRandomUsers = async() =>{
@@ -17,14 +23,32 @@ function Profile() {
         const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/users/random-users`, {
           headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         });
-        console.log(response);
+
+        const user = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/user/${userId}`, {
+          headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        });
+
+        console.log(user.data);
+
+        const date = new Date(user.data.createdAt);
+        const month = months[date.getMonth() - 1];
+        const year = date.getFullYear();
+
+        user.data.createdAt = `Joined ${month} ${year}`;
+        setUser(user.data);
+
         setRandomUsers([...response.data]);
       } catch (error) {
         console.log(error);
       }
     }
     fetchRandomUsers();
-  }, []);
+  }, [token]);
+
+
+  console.log(user.followers);
+  console.log(user.following);
+
   return (
     <div>
       <div className="container vh-100 vw-100 p-0 m-0 mx-auto" style={{ color: "white" }}>
@@ -41,7 +65,7 @@ function Profile() {
               <div id="" className="profile_pic bg-black rounded-circle p-1 ms-3">
                 <img
                   className="rounded-circle"
-                  src="https://i.pinimg.com/originals/0d/36/e7/0d36e7a476b06333d9fe9960572b66b9.jpg"
+                  src={`${user.avatar}`}
                   alt=""
                   style={{ width: "100%", height: "100%" }}
                 />
@@ -52,21 +76,21 @@ function Profile() {
               style={{ color: "white" }}
             >
               <div className="profile_info">
-                <p className="w-100 mb-0">fullname</p>
-                <p className="w-100 mb-0 twitterGrey">username</p>
-                <p className="w-100 mb-0 twitterGrey">Joined October 2021</p>
+                <p className="w-100 mb-0">{user.fullname}</p>
+                <p className="w-100 mb-0 twitterGrey">{user.username}</p>
+                <p className="w-100 mb-0 twitterGrey">{user.createdAt}</p>
                 <p className="w-100 mb-0" style={{ color: "black" }}></p>
 
                 <div className="d-flex">
                   <div style={{ marginRight: "20px" }}>
                     <div className="text-decoration-none twitterGrey">
-                      <span>5</span>
+                      <span>{user.following && user.following.length}</span>
                       <span> Following</span>
                     </div>
                   </div>
                   <div>
                     <div className="text-decoration-none twitterGrey">
-                      <span>5</span>
+                      <span>{user.followers && user.followers.length}</span>
                       <span> Followers</span>
                     </div>
                   </div>
