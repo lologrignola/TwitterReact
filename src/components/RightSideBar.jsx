@@ -75,7 +75,7 @@ function RightSideBar() {
             <hr />
             {/*  <% for(user of randomUsers) { %> */}
             {randomUsers.map((randomUser) => (
-              <div className="mt-3">
+              <div key={randomUser._id} className="mt-3">
                 <div role="button" className="tendencias-a" href="">
                   <div className="row g-0 justify-content-between tendencias-hover p-2">
                     <div className="col-3 d-lg-none d-xl-block">
