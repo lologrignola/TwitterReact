@@ -6,9 +6,7 @@ function Tweet({ tweet }) {
   const user = useSelector((state) => state.user);
   console.log(tweet);
   const fechaMalFormato = Date.parse(tweet.createdAt);
-
   const fechaNueva = new Date(fechaMalFormato);
-  console.log(fechaNueva);
   const createdAt = `${fechaNueva.getDate()}-${
     fechaNueva.getMonth() + 1
   }-${fechaNueva.getFullYear()}`;
@@ -58,7 +56,7 @@ function Tweet({ tweet }) {
           {/* <!--tweet metadata// timeStamp && Twitter Web App(posted from)--> */}
           <div className="timeline-Tweet-metadata mt-3">
             <Link className="timeline-Tweet-timestamp look-like-link" to="#">
-              Created: {createdAt}
+              {createdAt}
             </Link>
             <span> · </span>
             <Link
