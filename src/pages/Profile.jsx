@@ -1,9 +1,27 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useStore } from "react-redux";
+import ButtonFlwUnf from "../components/BtnFlwUnf";
 import LeftSideBar from "../components/LeftSideBar";
 import ModalEditUser from "../components/ModalEditUser";
 import RightSideBar from "../components/RightSideBar";
 
 function Profile() {
+  const token = useSelector((state) => state.user.token);
+  const [randomUsers, setRandomUsers] = useState([]);
+  useEffect(async () => {
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/users/random-users`, {
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+      });
+      console.log(response);
+      setRandomUsers([...response.data]);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
   return (
     <div>
       <div className="container vh-100 vw-100 p-0 m-0 mx-auto" style={{ color: "white" }}>
@@ -86,51 +104,30 @@ function Profile() {
               <div className="container m-0 mb-0 ms-0 w-100 p-0 who-to-follow">
                 <h4 className="row container">Who to follow</h4>
                 <div className="list-group w-100 m-0 ">
-                  <div className="list-group-item list-group-item-action ms-0 d-flex flex-row border-0 ">
-                    <div className="rounded-circle me-3">
-                      {/* <img src="img/img.jpg" alt="ovacion" width="50px" className="rounded-circle" /> */}
-                    </div>
-                    <div>
-                      <div className="w-100">
-                        <h5 className="mb-0">fullname</h5>
-                        <small className="">username</small>
+                  {randomUsers.map((randomUser) => (
+                    <div className="list-group-item list-group-item-action ms-0 d-flex flex-row border-0 justify-content-between ">
+                      <div className="d-flex">
+                        {" "}
+                        <div className="rounded-circle me-3">
+                          <img
+                            src={randomUser.avatar}
+                            alt={`foto de ${randomUser.fullname}`}
+                            width="50px"
+                            className="rounded-circle"
+                          />
+                        </div>
+                        <div>
+                          <div className="w-100">
+                            <h5 className="mb-0">{randomUser.fullname}</h5>
+                            <small className="">{randomUser.username}</small>
+                          </div>
+                          <p className="mb-1">{randomUser.bio}</p>
+                        </div>
                       </div>
-                      <p className="mb-1">
-                        Lorem ipsum dolor sit amet consectetur, Praesentium hic fugit incidunt, eum
-                        eos tempore labore vel aliquam nm anim
-                      </p>
+                      <ButtonFlwUnf userId={randomUser._id} />
                     </div>
-                  </div>
-                  <div className="list-group-item list-group-item-action ms-0 d-flex flex-row border-0">
-                    <div className="rounded-circle me-3">
-                      {/* <img src="img/img.jpg" alt="ovacion" width="50px" className="rounded-circle" /> */}
-                    </div>
-                    <div>
-                      <div className="w-100">
-                        <h5 className="mb-0">fullname</h5>
-                        <small className="">username</small>
-                      </div>
-                      <p className="mb-1">
-                        Lorem ipsum dolor sit amet consectetur, Praesentium hic fugit incidunt, eum
-                        eos tempore labore vel aliquam nm anim
-                      </p>
-                    </div>
-                  </div>
-                  <div className="list-group-item list-group-item-action ms-0 d-flex flex-row border-0">
-                    <div className="rounded-circle me-3">
-                      {/* <img src="img/img.jpg" alt="ovacion" width="50px" className="rounded-circle" /> */}
-                    </div>
-                    <div>
-                      <div className="w-100">
-                        <h5 className="mb-0">fullname</h5>
-                        <small className="">username</small>
-                      </div>
-                      <p className="mb-1">
-                        Lorem ipsum dolor sit amet consectetur, Praesentium hic fugit incidunt, eum
-                        eos tempore labore vel aliquam nm anim
-                      </p>
-                    </div>
-                  </div>
+                  ))}
+
                   <div
                     href="#"
                     className="
