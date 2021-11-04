@@ -12,6 +12,7 @@ function ButtonFlwUnf({ userId }) {
   const userFollowing = useSelector((state) => state.user.following);
   const [follow, setFollow] = useState(false);
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (userFollowing.includes(userId)) {
       setFollow(true);
@@ -29,9 +30,9 @@ function ButtonFlwUnf({ userId }) {
         data: { userId },
         headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
       });
-      console.log("RESPUESTA ", response.data);
+      console.log("RESPUESTA ", userId);
       if (response.data) {
-        dispatch({ type: "ADD_NEW_TWEET", payload: response.data.data });
+        dispatch({ type: "ADD_NEW_FOLLOWING", payload: userId });
       }
     } catch (error) {
       console.log(error);
@@ -49,7 +50,7 @@ function ButtonFlwUnf({ userId }) {
       });
       console.log("RESPUESTA ", response.data);
       if (response.data) {
-        dispatch({ type: "ADD_NEW_TWEET", payload: response.data.data });
+        dispatch({ type: "DELETE_FOLLOWING", payload: userId });
       }
     } catch (error) {
       console.log(error);

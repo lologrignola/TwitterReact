@@ -39,16 +39,19 @@ function Home() {
     }
   };
 
-  useEffect(async () => {
-    try {
-      const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/tweets`, {
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-      });
-      console.log(response.data.data);
-      dispatch({ type: "ADD_TWEETS", payload: response.data.data });
-    } catch (error) {
-      console.log(error);
-    }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/tweets`, {
+          headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        });
+        console.log(response.data.data);
+        dispatch({ type: "ADD_TWEETS", payload: response.data.data });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
   }, []);
 
   return (

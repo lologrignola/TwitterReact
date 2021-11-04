@@ -3,11 +3,11 @@ function userReducer(user = {}, action) {
     case "ADD_USER":
       return user;
 
-    case "DELETE_USER":
-      return user;
+    case "ADD_NEW_FOLLOWING":
+      return { ...user, following: [...user.following, action.payload] };
 
-    case "EDIT_USER":
-      return user;
+    case "DELETE_FOLLOWING":
+      return { ...user, following: user.following.filter((user) => user !== action.payload) };
 
     case "FOLLOW_USER":
       return user;

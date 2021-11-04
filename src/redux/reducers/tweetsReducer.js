@@ -11,6 +11,7 @@ function tweetsReducer(tweets = [], action) {
 
     case "UNLIKE_TWEET":
       return tweets;
+
     case "ADD_NEW_TWEET":
       return [...action.payload, ...tweets];
 
