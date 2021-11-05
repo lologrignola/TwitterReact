@@ -9,6 +9,7 @@ import SearchUser from "./pages/SearchUser";
 import PublicRoute from "./components/PublicRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import ScrollToTop from "./components/ScrollToTop";
+import ProfileUsers from "./pages/ProfileUsers";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       <Switch>
         <PublicRoute restricted={true} component={Welcome} path="/welcome" />
         <PrivateRoute component={Home} path="/" exact />
-        <PrivateRoute component={Profile} path="/profile" />
+        <PrivateRoute component={Profile} exact path="/profile" />
+        <PrivateRoute component={ProfileUsers} path="/profile/:id" />
         <PrivateRoute component={TweetPage} path="/tweet/:id" />
         <PublicRoute restricted={false} component={AboutUs} path="/about-us" exact />
         <PrivateRoute component={SearchUser} path="/search" exact />

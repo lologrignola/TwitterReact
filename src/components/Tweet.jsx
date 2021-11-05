@@ -37,13 +37,23 @@ function Tweet({ tweet }) {
                 </div>
               </Link>
               <div className="d-inline-block">
-                <Link to={`/user/${tweet.author._id}`}>
-                  <div className="TweetAuthor-name look-like-link">
-                    <strong>{tweet.author.fullname}</strong>
-                  </div>
+                {tweet.author._id === user.id ? (
+                  <Link to={`/profile`}>
+                    <div className="TweetAuthor-name look-like-link">
+                      <strong>{tweet.author.fullname}</strong>
+                    </div>
 
-                  <div className="TweetAuthor-screenName">@{tweet.author.username}</div>
-                </Link>
+                    <div className="TweetAuthor-screenName">@{tweet.author.username}</div>
+                  </Link>
+                ) : (
+                  <Link to={`/profile/${tweet.author._id}`}>
+                    <div className="TweetAuthor-name look-like-link">
+                      <strong>{tweet.author.fullname}</strong>
+                    </div>
+
+                    <div className="TweetAuthor-screenName">@{tweet.author.username}</div>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
