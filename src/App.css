@@ -423,7 +423,7 @@ body.modal-open .supreme-container {
 
 /* Profile */
 .bg-image {
-  height: 199px;
+  height: 84px;
   background-color: rgb(207, 217, 222);
 }
 
@@ -432,7 +432,7 @@ body.modal-open .supreme-container {
   width: 8rem;
   height: 8rem;
   position: absolute;
-  top: 140px;
+  top: 93px;
 }
 
 .profile_desc {
@@ -620,4 +620,11 @@ body.modal-open .supreme-container {
   #div-button-random-users {
     margin-right: -50px;
   }
+}
+
+.border-grey {
+  border: 1px rgba(102, 101, 101, 0.781) solid;
+}
+.border-grey-bottom {
+  border-bottom: 1px rgba(102, 101, 101, 0.781) solid;
 }

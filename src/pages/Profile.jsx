@@ -73,58 +73,61 @@ function Profile() {
 
           <div
             id=""
-            className="col bg-black col-lg-6 min-vh-100 profile_main mx-auto ms-0"
+            className="col border-grey px-0 bg-black col-lg-6 min-vh-100 profile_main mx-auto ms-0"
             style={{ color: "white" }}
           >
             <TopNavbar text="Profile" />
-            <div className="w-100 h-20 bg-image bg-black m-0 d-flex align-items-end">
-              <div id="" className="profile_pic bg-black rounded-circle p-1 ms-3">
-                {user.avatar == null ? (
-                  <Spinner animation="grow" variant="light" />
-                ) : (
-                  <img
-                    className="rounded-circle"
-                    src={`${user.avatar}`}
-                    alt=""
-                    style={{ width: "100%", height: "100%" }}
-                  />
-                )}
+            <div className="border-grey-bottom pb-2">
+              {" "}
+              <div className="w-100 h-20 bg-image bg-black m-0 d-flex align-items-end">
+                <div id="" className="profile_pic bg-black rounded-circle p-1 ms-3">
+                  {user.avatar == null ? (
+                    <Spinner animation="grow" variant="light" />
+                  ) : (
+                    <img
+                      className="rounded-circle"
+                      src={`${user.avatar}`}
+                      alt=""
+                      style={{ width: "100%", height: "100%" }}
+                    />
+                  )}
+                </div>
               </div>
-            </div>
-            <div
-              className="profile_desc col-lg-12 d-flex justify-content-between"
-              style={{ color: "white" }}
-            >
-              <div className="profile_info">
-                <p className="w-100 mb-0">{user.fullname}</p>
-                <p className="w-100 mb-0 twitterGrey">{user.username}</p>
-                <p className="w-100 mb-0 twitterGrey">{user.createdAt}</p>
-                <p className="w-100 mb-0" style={{ color: "black" }}></p>
+              <div
+                className="profile_desc col-lg-12 d-flex justify-content-between"
+                style={{ color: "white" }}
+              >
+                <div className="profile_info">
+                  <p className="w-100 mb-0">{user.fullname}</p>
+                  <p className="w-100 mb-0 twitterGrey">{user.username}</p>
+                  <p className="w-100 mb-0 twitterGrey">{user.createdAt}</p>
+                  <p className="w-100 mb-0" style={{ color: "black" }}></p>
 
-                <div className="d-flex">
-                  <div style={{ marginRight: "20px" }}>
-                    <div className="text-decoration-none twitterGrey">
-                      <span>{user.following && user.following.length}</span>
-                      <span> Following</span>
+                  <div className="d-flex">
+                    <div style={{ marginRight: "20px" }}>
+                      <div className="text-decoration-none twitterGrey">
+                        <span>{user.following && user.following.length}</span>
+                        <span> Following</span>
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <div className="text-decoration-none twitterGrey">
-                      <span>{user.followers && user.followers.length}</span>
-                      <span> Followers</span>
+                    <div>
+                      <div className="text-decoration-none twitterGrey">
+                        <span>{user.followers && user.followers.length}</span>
+                        <span> Followers</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div
-                className="rounded-pill btn-profile px-3 lh-4 sign-up-a-nohover"
-                style={{ height: "2rem" }}
-                data-bs-toggle="modal"
-                data-bs-target="#editUserModal"
-              >
-                {/* <span className="mx-auto">Set up profile</span> */}
-                <ModalEditUser setShow={setShow} show={show} user={user} />
+                <div
+                  className="rounded-pill btn-profile px-3 lh-4 sign-up-a-nohover"
+                  style={{ height: "2rem" }}
+                  data-bs-toggle="modal"
+                  data-bs-target="#editUserModal"
+                >
+                  {/* <span className="mx-auto">Set up profile</span> */}
+                  <ModalEditUser setShow={setShow} show={show} user={user} />
+                </div>
               </div>
             </div>
 
@@ -174,8 +177,17 @@ function Profile() {
                         </div>
                         <div>
                           <div className="w-100">
-                            <h5 className="mb-0">{randomUser.fullname}</h5>
-                            <small className="">{randomUser.username}</small>
+                            <Link
+                              className="links-rightSidebar"
+                              to={
+                                randomUser._id === user.id
+                                  ? "/profile"
+                                  : `/profile/${randomUser._id}`
+                              }
+                            >
+                              <h5 className="mb-0">{randomUser.fullname}</h5>
+                              <small className="">{randomUser.username}</small>
+                            </Link>
                           </div>
                           <p className="mb-1">{randomUser.bio}</p>
                         </div>
