@@ -62,7 +62,7 @@ function RightSideBar() {
             {/*  <% for(user of randomUsers) { %> */}
             {randomUsers.map((randomUser) => (
               <div key={randomUser._id} className="mt-3">
-                <div role="button" className="tendencias-a" href="">
+                <div role="button" className="tendencias-a">
                   <div className="row g-0 justify-content-between tendencias-hover p-2">
                     <div className="col-3 d-lg-none d-xl-block">
                       <span className="TweetAuthor-avatar">
@@ -80,7 +80,7 @@ function RightSideBar() {
                       <p>{randomUser.fullname}</p>
                       <p className="userName">@{randomUser.username}</p>
                     </div>
-                    <div className="col-6 col-xl-3 align-self-center">
+                    <div className="col-6 col-xl-3 align-self-center" id="div-button-random-users">
                       <ButtonFlwUnf userId={randomUser._id} />
                     </div>
                   </div>

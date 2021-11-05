@@ -11,7 +11,7 @@ function Welcome() {
         {" "}
         <h6 className="text-black">Sorry! &#128546;</h6>{" "}
       </Popover.Header>
-      <Popover.Body>This functionallity was not required for this proyect.</Popover.Body>
+      <Popover.Body>This functionallity wasn't required when building this proyect.</Popover.Body>
     </Popover>
   );
 

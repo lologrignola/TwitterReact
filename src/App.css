@@ -605,3 +605,9 @@ body.modal-open .supreme-container {
 .likeHeartRed {
   color: rgb(250, 110, 145);
 }
+
+@media (max-width: 1200px) {
+  #div-button-random-users {
+    margin-right: -50px;
+  }
+}
