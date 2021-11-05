@@ -1,8 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { useStore } from "react-redux";
 import ButtonFlwUnf from "../components/BtnFlwUnf";
 import LeftSideBar from "../components/LeftSideBar";
 import ModalEditUser from "../components/ModalEditUser";
