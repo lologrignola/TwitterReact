@@ -105,7 +105,10 @@ function SearchModal() {
                     <div className="d-flex ms-3 mt-3 mb-3"></div>
                   </div>
                 </div>
-                <ButtonFlwUnf userId={user._id} />
+                <span className="mt-4">
+                  {" "}
+                  <ButtonFlwUnf userId={user._id} />
+                </span>
               </div>
             ))}
           </Modal.Body>
