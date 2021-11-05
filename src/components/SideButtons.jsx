@@ -15,9 +15,9 @@ function SideButtons({ icon, text, link, working }) {
   return (
     <>
       {working === "functionallityNotWorking" ? (
-        <OverlayTrigger trigger="click" rootClose placement="right" overlay={popover}>
-          <li className="nav-item mt-2">
-            <Link to={link} style={{ textDecoration: "inherit" }}>
+        <li className="nav-item mt-2">
+          <Link to={link} style={{ textDecoration: "inherit" }}>
+            <OverlayTrigger trigger="click" rootClose placement="right" overlay={popover}>
               <div role="button" className={`links-leftSide ${working}`}>
                 <div className="row">
                   <div className="col-12 col-lg-2">
@@ -26,9 +26,9 @@ function SideButtons({ icon, text, link, working }) {
                   <div className="col-10 collapsable-sidebarleft">{text}</div>
                 </div>
               </div>
-            </Link>
-          </li>
-        </OverlayTrigger>
+            </OverlayTrigger>
+          </Link>
+        </li>
       ) : (
         <li className="nav-item mt-2">
           <Link to={link} style={{ textDecoration: "inherit" }}>
