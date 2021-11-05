@@ -12,7 +12,7 @@ function SearchUser() {
   const [searchValue, setSearchValue] = useState("");
   const [users, setUsers] = useState([]);
   useEffect( () => {
-    const fetchData = () =>{
+    const fetchData = async() =>{
       try {
         const response = await axios.get(
           `${process.env.REACT_APP_URL_BACKEND}/users/${searchValue}`,
