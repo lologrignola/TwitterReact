@@ -78,18 +78,24 @@ function SearchModal() {
                 <div className="d-flex p-2">
                   <span className="TweetAuthor-avatar search-responsive">
                     <div className="Avatar ms-2 mt-2">
-                      <img
-                        className="rounded-circle"
-                        width="55rem"
-                        src={user.avatar}
-                        alt="testUserAvatar"
-                      />
+                      <Link
+                        onClick={() => setShow(false)}
+                        to={user._id === user.id ? "/profile" : `/profile/${user._id}`}
+                      >
+                        <img
+                          className="rounded-circle"
+                          width="55rem"
+                          src={user.avatar}
+                          alt="testUserAvatar"
+                        />
+                      </Link>
                     </div>
                   </span>
                   <div className="d-flex flex-column">
                     <div className="flex-row w-100 ms-3 mt-2" style={{ height: 2 + "em" }}>
                       <p className="d-inline-flex userFullName search-responsive-smaller text-white">
                         <Link
+                          onClick={() => setShow(false)}
                           to={`/profile/${user._id}`}
                           className="text-decoration-none text-white"
                         >

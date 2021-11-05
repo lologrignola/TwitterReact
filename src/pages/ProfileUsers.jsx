@@ -152,12 +152,18 @@ function ProfileUsers() {
                       <div className="d-flex">
                         {" "}
                         <div className="rounded-circle me-3">
-                          <img
-                            src={randomUser.avatar}
-                            alt={`foto de ${randomUser.fullname}`}
-                            width="50px"
-                            className="rounded-circle"
-                          />
+                          <Link
+                            to={
+                              randomUser._id === user.id ? "/profile" : `/profile/${randomUser._id}`
+                            }
+                          >
+                            <img
+                              src={randomUser.avatar}
+                              alt={`foto de ${randomUser.fullname}`}
+                              width="50px"
+                              className="rounded-circle"
+                            />
+                          </Link>
                         </div>
                         <div>
                           <div className="w-100">

@@ -22,7 +22,10 @@ function Tweet({ tweet }) {
           {/* <!--tweet author--> */}
           <div className="timeline-Tweet-author">
             <div className="TweetAuthor">
-              <Link className="TweetAuthor-link" to="#channel">
+              <Link
+                className="TweetAuthor-link"
+                to={tweet.author._id === user.id ? "/profile" : `/profile/${tweet.author._id}`}
+              >
                 <div className="d-inline-block">
                   <span className="TweetAuthor-avatar">
                     <div className="Avatar d-inline-block">

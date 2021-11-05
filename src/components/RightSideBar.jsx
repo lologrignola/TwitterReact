@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 function RightSideBar() {
   const token = useSelector((state) => state.user.token);
+  const user = useSelector((state) => state.user);
   const [randomUsers, setRandomUsers] = useState([]);
   useEffect(async () => {
     try {
@@ -68,12 +69,18 @@ function RightSideBar() {
                     <div className="col-3 d-lg-none d-xl-block">
                       <span className="TweetAuthor-avatar">
                         <div className="Avatar d-inline-block">
-                          <img
-                            className="rounded-circle"
-                            width="55rem"
-                            src={randomUser.avatar}
-                            alt="testUserAvatar"
-                          />
+                          <Link
+                            to={
+                              randomUser._id === user.id ? "/profile" : `/profile/${randomUser._id}`
+                            }
+                          >
+                            <img
+                              className="rounded-circle"
+                              width="55rem"
+                              src={randomUser.avatar}
+                              alt="testUserAvatar"
+                            />
+                          </Link>
                         </div>
                       </span>
                     </div>

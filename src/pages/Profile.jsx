@@ -9,6 +9,7 @@ import ModalEditUser from "../components/ModalEditUser";
 import RightSideBar from "../components/RightSideBar";
 import Spinner from "react-bootstrap/Spinner";
 import TopNavbar from "../components/TopNavbar";
+import { Link } from "react-router-dom";
 
 function Profile() {
   const token = useSelector((state) => state.user.token);
@@ -157,12 +158,18 @@ function Profile() {
                       <div className="d-flex">
                         {" "}
                         <div className="rounded-circle me-3">
-                          <img
-                            src={randomUser.avatar}
-                            alt={`foto de ${randomUser.fullname}`}
-                            width="50px"
-                            className="rounded-circle"
-                          />
+                          <Link
+                            to={
+                              randomUser._id === user.id ? "/profile" : `/profile/${randomUser._id}`
+                            }
+                          >
+                            <img
+                              src={randomUser.avatar}
+                              alt={`foto de ${randomUser.fullname}`}
+                              width="50px"
+                              className="rounded-circle"
+                            />
+                          </Link>
                         </div>
                         <div>
                           <div className="w-100">
