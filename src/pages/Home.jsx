@@ -130,17 +130,24 @@ function Home() {
               </div>
             </div>
           </form>
-          <InfiniteScroll
-            dataLength={dataLength}
-            next={() => setPage((prev) => prev + 1)}
-            hasMore={true}
-          >
-            <div id="tweetsContainer">
-              {tweets.map((tweet) => (
-                <Tweet tweet={tweet} />
-              ))}
-            </div>
-          </InfiniteScroll>
+
+          {tweets == false ? (
+            <h3 className="text-white text-center mt-5">
+              Welcome to Twitter HA!!<br></br> Start following people!! &#128588;&#127995;
+            </h3>
+          ) : (
+            <InfiniteScroll
+              dataLength={dataLength}
+              next={() => setPage((prev) => prev + 1)}
+              hasMore={true}
+            >
+              <div id="tweetsContainer">
+                {tweets.map((tweet) => (
+                  <Tweet tweet={tweet} />
+                ))}
+              </div>
+            </InfiniteScroll>
+          )}
         </div>
 
         <div id="rightSidebarContainer" className="col-4">
