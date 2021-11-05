@@ -7,6 +7,7 @@ import axios from "axios";
 function ModalEditUser() {
 
   const token = useSelector((state) => state.user.token);
+  const userId = useSelector((state) => state.user.id);
 
   const [show, setShow] = useState(false);
   const [formValues, setFormValues] = useState({
@@ -14,7 +15,6 @@ function ModalEditUser() {
     email:'', 
     username:'',
     bio:'', 
-    avatar:'',
     password:'',
   });
 
@@ -36,12 +36,28 @@ function ModalEditUser() {
 
   const handleSubmit = e =>{
     e.preventDefault();
-    const data = new FormData();
-    data.append("file", file);
-  
-      axios.post(`${process.env.REACT_APP_URL_BACKEND}/user/edit-user`, data)
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
+    const formData = new FormData();
+    formData.append('id', userId);
+    for ( const key in formValues ) {
+      formData.append(key, formValues[key]);
+    }
+    formData.append('img',file);
+    const config = {
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
+    };
+
+    const uploadFile = async() =>{
+      try {
+        const data = await axios.post(`${process.env.REACT_APP_URL_BACKEND}/user/editUser`,formData,config);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    uploadFile();
   }
 
   return (
