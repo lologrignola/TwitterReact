@@ -117,7 +117,7 @@ function Welcome() {
           </div>
         </div>
       </div>
-      <div className="welFooter">
+      <div className="welFooter bg-white">
         <hr id="welcome-hr" />
         <footer className="d-flex bg-white justify-content-evenly align-items-center flex-wrap px-5 py-2">
           <span className="a-footer-welcome mx-1 pointer" href="#">
