@@ -10,16 +10,22 @@ function RightSideBar() {
   const token = useSelector((state) => state.user.token);
   const user = useSelector((state) => state.user);
   const [randomUsers, setRandomUsers] = useState([]);
-  useEffect(async () => {
-    try {
-      const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/users/random-users`, {
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-      });
-      console.log(response);
-      setRandomUsers([...response.data]);
-    } catch (error) {
-      console.log(error);
-    }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_URL_BACKEND}/users/random-users`,
+          {
+            headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+          },
+        );
+        console.log(response);
+        setRandomUsers([...response.data]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
   }, []);
   return (
     <>

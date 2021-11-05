@@ -11,19 +11,22 @@ function SearchUser() {
   const token = useSelector((state) => state.user.token);
   const [searchValue, setSearchValue] = useState("");
   const [users, setUsers] = useState([]);
-  useEffect(async () => {
-    try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_URL_BACKEND}/users/${searchValue}`,
-        {
-          headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-        },
-      );
-      console.log(response);
-      setUsers([...response.data]);
-    } catch (error) {
-      console.log(error);
-    }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_URL_BACKEND}/users/${searchValue}`,
+          {
+            headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+          },
+        );
+        console.log(response);
+        setUsers([...response.data]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
   }, [searchValue]);
   return (
     <div className="container">
