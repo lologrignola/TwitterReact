@@ -545,20 +545,6 @@ body.modal-open .supreme-container {
   filter: invert(1) hue-rotate(180deg);
 }
 
-.functionallityNotWorking {
-  position: relative;
-}
-.functionallityNotWorking:active:after {
-  content: "Not working";
-  color: black;
-  text-decoration: none;
-  font-size: 10px;
-  padding: 5px;
-  top: 5px;
-  right: 10%;
-  background: #ffa1a1;
-}
-
 .list-group-item {
   background-color: black;
   color: white;
