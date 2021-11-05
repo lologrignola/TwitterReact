@@ -8,6 +8,7 @@ import LeftSideBar from "../components/LeftSideBar";
 import ModalEditUser from "../components/ModalEditUser";
 import RightSideBar from "../components/RightSideBar";
 import Spinner from "react-bootstrap/Spinner";
+import TopNavbar from "../components/TopNavbar";
 
 function Profile() {
   const token = useSelector((state) => state.user.token);
@@ -67,11 +68,13 @@ function Profile() {
           <div className="col col-lg-2 me-0">
             <LeftSideBar />
           </div>
+
           <div
             id=""
             className="col bg-black col-lg-6 min-vh-100 profile_main mx-auto ms-0"
             style={{ color: "white" }}
           >
+            <TopNavbar text="Profile" />
             <div className="w-100 h-20 bg-image bg-black m-0 d-flex align-items-end">
               <div id="" className="profile_pic bg-black rounded-circle p-1 ms-3">
                 {user.avatar == null ? (
