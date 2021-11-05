@@ -12,6 +12,7 @@ import TopNavbar from "../components/TopNavbar";
 import { Link } from "react-router-dom";
 
 function Profile() {
+  const [show, setShow] = useState(false);
   const token = useSelector((state) => state.user.token);
   const userId = useSelector((state) => state.user.id);
 
@@ -60,7 +61,7 @@ function Profile() {
       }
     };
     fetchRandomUsers();
-  }, [token, userId]);
+  }, [token, userId, show]);
 
   return (
     <div>
@@ -123,7 +124,7 @@ function Profile() {
                 data-bs-target="#editUserModal"
               >
                 {/* <span className="mx-auto">Set up profile</span> */}
-                <ModalEditUser user={user} />
+                <ModalEditUser setShow={setShow} show={show} user={user} />
               </div>
             </div>
 

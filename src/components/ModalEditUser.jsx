@@ -3,62 +3,67 @@ import { useSelector } from "react-redux";
 import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import axios from "axios";
+import { useHistory } from "react-router";
 
-function ModalEditUser() {
-
+function ModalEditUser({ setShow, show }) {
+  const history = useHistory();
   const token = useSelector((state) => state.user.token);
   const userId = useSelector((state) => state.user.id);
 
-  const [show, setShow] = useState(false);
   const [formValues, setFormValues] = useState({
-    fullname:'', 
-    email:'', 
-    username:'',
-    bio:'', 
-    password:'',
+    fullname: "",
+    email: "",
+    username: "",
+    bio: "",
+    password: "",
   });
 
-  const [file, setFile] = useState('');
+  const [file, setFile] = useState("");
   const handleShow = () => setShow(!show);
 
-  const {fullname, email, username, bio, avatar,password} = formValues;
+  const { fullname, email, username, bio, avatar, password } = formValues;
 
-  const hadleChange = ({target}) =>{
+  const hadleChange = ({ target }) => {
     setFormValues({
       ...formValues,
-      [target.name]: target.value
-    })
-  }
+      [target.name]: target.value,
+    });
+  };
 
-  const handleImage = ({target}) =>{
-    setFile(target.files[0])
-  }
+  const handleImage = ({ target }) => {
+    setFile(target.files[0]);
+  };
 
-  const handleSubmit = e =>{
+  const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('id', userId);
-    for ( const key in formValues ) {
+    formData.append("id", userId);
+    for (const key in formValues) {
       formData.append(key, formValues[key]);
     }
-    formData.append('img',file);
+    formData.append("img", file);
     const config = {
-        headers: {
-            'content-type': 'multipart/form-data'
-        }
+      headers: {
+        "content-type": "multipart/form-data",
+      },
     };
 
-    const uploadFile = async() =>{
+    const uploadFile = async () => {
       try {
-        const data = await axios.post(`${process.env.REACT_APP_URL_BACKEND}/user/editUser`,formData,config);
+        const data = await axios.post(
+          `${process.env.REACT_APP_URL_BACKEND}/user/editUser`,
+          formData,
+          config,
+        );
         console.log(data);
       } catch (error) {
         console.log(error);
       }
-    }
+    };
 
     uploadFile();
-  }
+    setShow(false);
+  };
 
   return (
     <>
@@ -71,32 +76,72 @@ function ModalEditUser() {
           <Modal.Header closeButton className="d-flex justify-content-between">
             <Modal.Title style={{ color: "" }}>Update your info:</Modal.Title>
           </Modal.Header>
-          <form  
-            onSubmit={handleSubmit}
-          >
+          <form onSubmit={handleSubmit}>
             <Modal.Body>
               <label for="name" class="form-label mt-3">
                 Full Name
               </label>
-              <input type="text" id="name" name="fullname" class="form-control" value={fullname} onChange={hadleChange}/>
+              <input
+                type="text"
+                id="name"
+                name="fullname"
+                class="form-control"
+                value={fullname}
+                onChange={hadleChange}
+              />
               <label for="username" class="form-label mt-3">
                 Create a Username (must be unique)
               </label>
-              <input type="text" id="username" name="username" class="form-control" value={username} onChange={hadleChange}/>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                class="form-control"
+                value={username}
+                onChange={hadleChange}
+              />
               <label for="email" class="form-label">
                 Enter your email
               </label>
-              <input type="email" id="email" name="email" class="form-control" value={email} onChange={hadleChange}/>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                value={email}
+                onChange={hadleChange}
+              />
               <label for="password" class="form-label">
                 Create a password
               </label>
-              <input type="text" id="password" name="password" class="form-control" value={password} onChange={hadleChange}/>
+              <input
+                type="text"
+                id="password"
+                name="password"
+                class="form-control"
+                value={password}
+                onChange={hadleChange}
+              />
               <label for="bio">Tell us about yourself:</label>
-              <textarea class="form-control" name="bio" id="bio" cols="60" rows="5" value={bio} onChange={hadleChange}></textarea>
+              <textarea
+                class="form-control"
+                name="bio"
+                id="bio"
+                cols="60"
+                rows="5"
+                value={bio}
+                onChange={hadleChange}
+              ></textarea>
               <label for="img" class="form-label">
                 Upload image
               </label>
-              <input id="image" name="img" type="file" class="form-control" onChange={handleImage}/>
+              <input
+                id="image"
+                name="img"
+                type="file"
+                class="form-control"
+                onChange={handleImage}
+              />
               <div class="form-text">Accepted formats: .jpg, .jpeg, .svg, .png</div>
             </Modal.Body>
             <Modal.Footer>
