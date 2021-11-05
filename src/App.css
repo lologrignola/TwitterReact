@@ -606,7 +606,7 @@ body.modal-open .supreme-container {
   color: rgb(250, 110, 145);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1199px) {
   #div-button-random-users {
     margin-right: -50px;
   }
