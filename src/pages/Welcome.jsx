@@ -17,7 +17,7 @@ function Welcome() {
 
   return (
     <div style={{ backgroundColor: "white" }} id="welcome-container">
-      <div className="row vw-100">
+      <div className="row vw-100 bg-white">
         <div id="welcome-img" className="col">
           <img src={welcomePicture} alt="" />
         </div>
@@ -119,7 +119,7 @@ function Welcome() {
       </div>
       <div className="welFooter">
         <hr id="welcome-hr" />
-        <footer className="d-flex justify-content-evenly align-items-center flex-wrap px-5 py-2">
+        <footer className="d-flex bg-white justify-content-evenly align-items-center flex-wrap px-5 py-2">
           <span className="a-footer-welcome mx-1 pointer" href="#">
             About
           </span>
