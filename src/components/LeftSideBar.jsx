@@ -64,7 +64,8 @@ function LeftSideBar() {
         <div id="bigLogout">
           <button
             type="button"
-            className="btn btn-danger rounded-pill"
+            style={{ backgroundColor: "rgb(235, 235, 235)", color: "black", width: "90px" }}
+            className="align-self-center btn rounded-pill btn-twittear me-3 mb-2"
             onClick={() => dispatch({ type: "REMOVE_TOKEN" })}
           >
             Logout
@@ -72,6 +73,7 @@ function LeftSideBar() {
         </div>
         <div id="smallLogout">
           <i
+            style={{ backgroundColor: "black", color: "rgb(235, 235, 235)" }}
             className="fas fa-times-circle pointer"
             onClick={() => dispatch({ type: "REMOVE_TOKEN" })}
           ></i>
