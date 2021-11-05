@@ -12,7 +12,6 @@ function Tweet({ tweet }) {
     fechaNueva.getMonth() + 1
   }-${fechaNueva.getFullYear()}`;
 
-  const handleOnClick = () => {};
   return (
     <div className="tw-block-parent p-4">
       <div className="timeline-TweetList-tweet">

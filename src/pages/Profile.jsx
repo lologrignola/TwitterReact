@@ -7,6 +7,7 @@ import ButtonFlwUnf from "../components/BtnFlwUnf";
 import LeftSideBar from "../components/LeftSideBar";
 import ModalEditUser from "../components/ModalEditUser";
 import RightSideBar from "../components/RightSideBar";
+import Spinner from "react-bootstrap/Spinner";
 
 function Profile() {
   const token = useSelector((state) => state.user.token);
@@ -16,17 +17,33 @@ function Profile() {
 
   const [randomUsers, setRandomUsers] = useState([]);
   useEffect(() => {
-    const months = ['January', 'February','March','April','May','June','July','August','September','October','November','December'];
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
 
-    const fetchRandomUsers = async() =>{
+    const fetchRandomUsers = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/users/random-users`, {
-          headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-        });
+        const response = await axios.get(
+          `${process.env.REACT_APP_URL_BACKEND}/users/random-users`,
+          {
+            headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+          },
+        );
 
         const user = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/user/${userId}`, {
           headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-        }); 
+        });
 
         const date = new Date(user.data.createdAt);
         const month = months[date.getMonth() - 1];
@@ -39,9 +56,9 @@ function Profile() {
       } catch (error) {
         console.log(error);
       }
-    }
+    };
     fetchRandomUsers();
-  }, [token,userId]);
+  }, [token, userId]);
 
   return (
     <div>
@@ -57,12 +74,16 @@ function Profile() {
           >
             <div className="w-100 h-20 bg-image bg-black m-0 d-flex align-items-end">
               <div id="" className="profile_pic bg-black rounded-circle p-1 ms-3">
-                <img
-                  className="rounded-circle"
-                  src={`${user.avatar}`}
-                  alt=""
-                  style={{ width: "100%", height: "100%" }}
-                />
+                {user.avatar == null ? (
+                  <Spinner animation="grow" variant="light" />
+                ) : (
+                  <img
+                    className="rounded-circle"
+                    src={`${user.avatar}`}
+                    alt=""
+                    style={{ width: "100%", height: "100%" }}
+                  />
+                )}
               </div>
             </div>
             <div
@@ -98,7 +119,7 @@ function Profile() {
                 data-bs-target="#editUserModal"
               >
                 {/* <span className="mx-auto">Set up profile</span> */}
-                <ModalEditUser user={user}/>
+                <ModalEditUser user={user} />
               </div>
             </div>
 

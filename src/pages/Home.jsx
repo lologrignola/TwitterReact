@@ -6,7 +6,7 @@ import TopNavbar from "../components/TopNavbar";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import Tweet from "../components/Tweet";
-
+import Spinner from "react-bootstrap/Spinner";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 function Home() {
@@ -81,18 +81,23 @@ function Home() {
             hasMore={true}
           >
             <TopNavbar text="Home" />
+
             <form action="/tweetear" onSubmit={(ev) => handleSubmit(ev)} method="POST">
               <div className="top-input-tweet">
                 <div className="d-flex p-2" style={{ height: "100%" }}>
                   <span className="TweetAuthor-avatar">
                     <div className="Avatar ms-2 mt-2">
-                      <img
-                        className="rounded-circle"
-                        width="55rem"
-                        height="55rem"
-                        src={userAvatar}
-                        alt="testUserAvatar"
-                      />
+                      {userAvatar === "" ? (
+                        <Spinner animation="grow" variant="light" />
+                      ) : (
+                        <img
+                          className="rounded-circle"
+                          width="55rem"
+                          height="55rem"
+                          src={userAvatar}
+                          alt="testUserAvatar"
+                        />
+                      )}
                     </div>
                   </span>
                   <div className="d-flex flex-column" style={{ width: "100%" }}>
