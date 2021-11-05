@@ -69,7 +69,7 @@ function ButtonFlwUnf({ userId }) {
           {follow === false ? (
             <form class="align-self-center">
               <button
-                style={{ backgroundColor: "rgb(204, 204, 204)", color: "black", width: "90px" }}
+                style={{ backgroundColor: "rgb(235, 235, 235)", color: "black", width: "90px" }}
                 type="submit"
                 class="align-self-center btn rounded-pill btn-twittear me-3 mb-2"
                 onClick={(ev) => {
@@ -83,7 +83,7 @@ function ButtonFlwUnf({ userId }) {
           ) : (
             <form class="align-self-center">
               <button
-                style={{ backgroundColor: "rgb(204, 204, 204)", color: "black", width: "90px" }}
+                style={{ backgroundColor: "rgb(190, 190, 190)", color: "black", width: "90px" }}
                 type="submit"
                 class="align-self-center btn rounded-pill btn-twittear me-3 mb-2"
                 onClick={(ev) => {

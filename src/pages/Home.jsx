@@ -82,7 +82,14 @@ function Home() {
           >
             <TopNavbar text="Home" />
 
-            <form action="/tweetear" onSubmit={(ev) => handleSubmit(ev)} method="POST">
+            <form
+              action="/tweetear"
+              onSubmit={(ev) => {
+                ev.preventDefault();
+                setTweetContent("");
+                handleSubmit(ev);
+              }}
+            >
               <div className="top-input-tweet">
                 <div className="d-flex p-2" style={{ height: "100%" }}>
                   <span className="TweetAuthor-avatar">
@@ -115,6 +122,7 @@ function Home() {
                         onChange={(ev) => setTweetContent(ev.target.value)}
                       />
                     </div>
+
                     <button
                       type="submit"
                       className="align-self-end btn rounded-pill btn-twittear me-2 mb-2 mt-2"
