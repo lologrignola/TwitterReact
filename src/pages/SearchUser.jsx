@@ -83,11 +83,11 @@ function SearchUser() {
                 <div className="d-flex flex-column">
                   <div className="flex-row w-100 ms-3 mt-2" style={{ height: 2 + "em" }}>
                     <p className="d-inline-flex userFullName search-responsive-smaller text-white">
-                      <Link to={`/user/${user._id}`} className="text-decoration-none text-white">
+                      <Link to={`/profile/${user._id}`} className="text-decoration-none text-white">
                         {user.fullname}
                       </Link>
                     </p>
-                    <Link to={`/user/${user._id}`} className="text-decoration-none">
+                    <Link to={`/profile/${user._id}`} className="text-decoration-none">
                       <p className="d-inline-flex arroba">@{user.username}</p>
                     </Link>
                   </div>

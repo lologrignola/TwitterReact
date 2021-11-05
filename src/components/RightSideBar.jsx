@@ -4,6 +4,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import ButtonFlwUnf from "./BtnFlwUnf";
 import SearchModal from "./SearchModal";
+import { Link } from "react-router-dom";
 
 function RightSideBar() {
   const token = useSelector((state) => state.user.token);
@@ -77,9 +78,12 @@ function RightSideBar() {
                       </span>
                     </div>
                     <div className="col-6 d-flex flex-column">
-                      <p>{randomUser.fullname}</p>
-                      <p className="userName">@{randomUser.username}</p>
+                      <Link className="links-rightSidebar" to={`/profile/${randomUser._id}`}>
+                        <p>{randomUser.fullname}</p>
+                        <p className="userName">@{randomUser.username}</p>
+                      </Link>
                     </div>
+
                     <div className="col-6 col-xl-3 align-self-center" id="div-button-random-users">
                       <ButtonFlwUnf userId={randomUser._id} />
                     </div>

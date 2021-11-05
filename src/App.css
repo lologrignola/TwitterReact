@@ -37,6 +37,16 @@ body {
   color: white;
 }
 
+.links-rightSidebar {
+  text-decoration: none;
+  color: inherit;
+}
+
+.links-rightSidebar:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
 @media (max-width: 1070px) {
   .collapsable-sidebarleft {
     display: none;

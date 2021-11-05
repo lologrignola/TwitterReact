@@ -61,7 +61,7 @@ function ProfileUsers() {
       }
     };
     fetchRandomUsers();
-  }, [token, userId]);
+  }, [token, userId, params.id]);
 
   return (
     <div>
