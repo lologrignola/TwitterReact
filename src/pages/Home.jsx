@@ -75,64 +75,64 @@ function Home() {
         </div>
 
         <div className="col-10 col-lg-6">
+          <TopNavbar text="Home" />
+
+          <form
+            action="/tweetear"
+            onSubmit={(ev) => {
+              ev.preventDefault();
+              setTweetContent("");
+              handleSubmit(ev);
+            }}
+          >
+            <div className="top-input-tweet">
+              <div className="d-flex p-2" style={{ height: "100%" }}>
+                <span className="TweetAuthor-avatar">
+                  <div className="Avatar ms-2 mt-2">
+                    {userAvatar === "" ? (
+                      <Spinner animation="grow" variant="light" />
+                    ) : (
+                      <img
+                        className="rounded-circle"
+                        width="55rem"
+                        height="55rem"
+                        src={userAvatar}
+                        alt="testUserAvatar"
+                      />
+                    )}
+                  </div>
+                </span>
+                <div className="d-flex flex-column" style={{ width: "100%" }}>
+                  <div className="ps-3 mt-4" style={{ width: "100%" }}>
+                    <input
+                      style={{ color: "white" }}
+                      type="text"
+                      name="tweetText"
+                      className="form-control input-tweet-up inputNoborder"
+                      placeholder="What's happening?"
+                      maxlength="140"
+                      aria-label="Recipient's username"
+                      aria-describedby="button-addon2"
+                      value={tweetContent}
+                      onChange={(ev) => setTweetContent(ev.target.value)}
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="align-self-end btn rounded-pill btn-twittear me-2 mb-2 mt-2"
+                  >
+                    Tweet
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
           <InfiniteScroll
             dataLength={dataLength}
             next={() => setPage((prev) => prev + 1)}
             hasMore={true}
           >
-            <TopNavbar text="Home" />
-
-            <form
-              action="/tweetear"
-              onSubmit={(ev) => {
-                ev.preventDefault();
-                setTweetContent("");
-                handleSubmit(ev);
-              }}
-            >
-              <div className="top-input-tweet">
-                <div className="d-flex p-2" style={{ height: "100%" }}>
-                  <span className="TweetAuthor-avatar">
-                    <div className="Avatar ms-2 mt-2">
-                      {userAvatar === "" ? (
-                        <Spinner animation="grow" variant="light" />
-                      ) : (
-                        <img
-                          className="rounded-circle"
-                          width="55rem"
-                          height="55rem"
-                          src={userAvatar}
-                          alt="testUserAvatar"
-                        />
-                      )}
-                    </div>
-                  </span>
-                  <div className="d-flex flex-column" style={{ width: "100%" }}>
-                    <div className="ps-3 mt-4" style={{ width: "100%" }}>
-                      <input
-                        style={{ color: "white" }}
-                        type="text"
-                        name="tweetText"
-                        className="form-control input-tweet-up inputNoborder"
-                        placeholder="What's happening?"
-                        maxlength="140"
-                        aria-label="Recipient's username"
-                        aria-describedby="button-addon2"
-                        value={tweetContent}
-                        onChange={(ev) => setTweetContent(ev.target.value)}
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="align-self-end btn rounded-pill btn-twittear me-2 mb-2 mt-2"
-                    >
-                      Tweet
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </form>
             <div id="tweetsContainer">
               {tweets.map((tweet) => (
                 <Tweet tweet={tweet} />

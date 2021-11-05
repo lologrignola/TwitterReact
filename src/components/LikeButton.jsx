@@ -32,7 +32,7 @@ function LikeButton({ likes, tweetId }) {
         data: { tweetId },
         headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
       });
-      console.log("RESPUESTA ", user.id);
+
       if (response.data) {
         dispatch({ type: "ADD_NEW_LIKED", payload: { userId: user.id, tweetId } });
       }
@@ -49,7 +49,7 @@ function LikeButton({ likes, tweetId }) {
         data: { tweetId },
         headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
       });
-      console.log("RESPUESTA ", user.id);
+
       if (response.data) {
         dispatch({ type: "DELETE_LIKED", payload: { userId: user.id, tweetId } });
       }

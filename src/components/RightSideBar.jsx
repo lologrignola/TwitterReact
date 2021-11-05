@@ -126,7 +126,9 @@ function RightSideBar() {
               </div>
             </div>
             <div className="col mb-3">
-              <p id="a-footer-welcome functionallityNotWorking">Twitter, Inc.</p>
+              <p id="a-footer-welcome functionallityNotWorking">
+                &copy; {new Date().getFullYear()} Twitter, Inc.
+              </p>
             </div>
           </div>
         </div>
