@@ -6,12 +6,16 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 
 function ModalRegister() {
+  const [errorRegister, setErrorRegister] = useState("");
   const dispatch = useDispatch();
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    setErrorRegister("");
+  };
   const handleShow = () => setShow(true);
   let history = useHistory();
 
@@ -24,12 +28,13 @@ function ModalRegister() {
         headers: { "Content-Type": "application/json" } /**Authorization: "bearer " + token */,
       });
       console.log(response.data);
-      if (response.data) {
+      if (response.data.token) {
         dispatch({ type: "ADD_TOKEN", payload: response.data });
         history.push("/");
+      } else if (response.data.error) {
+        setErrorRegister(response.data.error);
       }
     } catch (error) {
-      //handle error
       console.log(error);
     }
   };
@@ -98,6 +103,7 @@ function ModalRegister() {
                 name="password"
                 className="form-control mb-3"
               />
+              {errorRegister && <p className="text-danger bg-warning p-2">{errorRegister}</p>}
               <hr />
               <Modal.Footer>
                 {" "}

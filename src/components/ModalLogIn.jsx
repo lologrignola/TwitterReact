@@ -7,10 +7,14 @@ import { useHistory } from "react-router";
 
 function ModalLogin() {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    setErrorLogin(false);
+  };
   const handleShow = () => setShow(true);
   const dispatch = useDispatch();
   let history = useHistory();
+  const [errorLogin, setErrorLogin] = useState(false);
 
   const [usernameOrEmail, setUsernameOrEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,15 +26,17 @@ function ModalLogin() {
         data: { usernameOrEmail, password },
         headers: { "Content-Type": "application/json" },
       });
-
-      if (response.data) {
+      console.log("este es el log ", response.data);
+      if (response.data.token) {
         console.log(response);
         dispatch({ type: "ADD_TOKEN", payload: response.data });
         history.push("/");
+      } else if (response.data.error) {
+        setErrorLogin(true);
       }
     } catch (error) {
       //handle error
-      console.log(error);
+      console.log("error ", error);
     }
   };
 
@@ -86,6 +92,9 @@ function ModalLogin() {
                 onChange={(ev) => setPassword(ev.target.value)}
                 className="form-control mb-3"
               />
+              {errorLogin && (
+                <p className="text-danger bg-warning p-2">Credentials do not match!</p>
+              )}
               <Modal.Footer>
                 {" "}
                 <button type="submit" class="btn btn-primary">
