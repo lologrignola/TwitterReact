@@ -59,7 +59,9 @@ function Home() {
         console.log("DATA");
         console.log(response.data);
         setdataLength(dataLength + response.data.length);
-        dispatch({ type: "ADD_MORE_TWEETS", payload: response.data });
+        page < 2
+          ? dispatch({ type: "ADD_TWEETS", payload: response.data })
+          : dispatch({ type: "ADD_MORE_TWEETS", payload: response.data });
       } catch (error) {
         console.log(error);
       }

@@ -1,7 +1,7 @@
 function tweetsReducer(tweets = [], action) {
   switch (action.type) {
     case "ADD_TWEETS":
-      return [...action.payload];
+      return action.payload;
 
     case "DELETE_TWEET":
       return tweets.filter((tweet) => tweet._id !== action.payload);
