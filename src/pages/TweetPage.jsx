@@ -1,6 +1,5 @@
 import { useParams } from "react-router";
 import LeftSideBar from "../components/LeftSideBar";
-import ModalTweet from "../components/ModalTweet";
 import RightSideBar from "../components/RightSideBar";
 import TopNavbar from "../components/TopNavbar";
 import Tweet from "../components/Tweet";

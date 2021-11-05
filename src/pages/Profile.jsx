@@ -47,7 +47,7 @@ function Profile() {
         });
 
         const date = new Date(user.data.createdAt);
-        const month = months[date.getMonth() - 1];
+        const month = months[date.getMonth()];
         const year = date.getFullYear();
 
         user.data.createdAt = `Joined ${month} ${year}`;

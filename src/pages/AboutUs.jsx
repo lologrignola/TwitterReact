@@ -1,9 +1,8 @@
 import AboutUsItem from "../components/AboutUsItem";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 function AboutUs() {
   return (
-    <div>
+    <div className="mainAboutUs">
       <Link to="/">
         <div className="mt-2 ms-2">Back</div>
       </Link>

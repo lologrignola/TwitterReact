@@ -11,8 +11,8 @@ function SearchUser() {
   const token = useSelector((state) => state.user.token);
   const [searchValue, setSearchValue] = useState("");
   const [users, setUsers] = useState([]);
-  useEffect( () => {
-    const fetchData = () =>{
+  useEffect(() => {
+    const fetchData = async () => {
       try {
         const response = await axios.get(
           `${process.env.REACT_APP_URL_BACKEND}/users/${searchValue}`,
@@ -25,7 +25,7 @@ function SearchUser() {
       } catch (error) {
         console.log(error);
       }
-    }
+    };
     fetchData();
   }, [searchValue]);
   return (
