@@ -12,12 +12,13 @@ function Profile() {
   const token = useSelector((state) => state.user.token);
   const userId = useSelector((state) => state.user.id);
 
-  const months = ['January', 'February','March','April','May','June','July','August','September','October','November','December'];
-
   const [user, setUser] = useState({});
 
   const [randomUsers, setRandomUsers] = useState([]);
   useEffect(() => {
+    const months = ['January', 'February','March','April','May','June','July','August','September','October','November','December'];
+
+
     const fetchRandomUsers = async() =>{
       try {
         const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/users/random-users`, {
@@ -43,11 +44,7 @@ function Profile() {
       }
     }
     fetchRandomUsers();
-  }, [token]);
-
-
-  console.log(user.followers);
-  console.log(user.following);
+  }, [token,userId]);
 
   return (
     <div>
