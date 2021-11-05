@@ -8,10 +8,12 @@ import AboutUs from "./pages/AboutUs";
 import SearchUser from "./pages/SearchUser";
 import PublicRoute from "./components/PublicRoute";
 import PrivateRoute from "./components/PrivateRoute";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Switch>
         <PublicRoute restricted={true} component={Welcome} path="/welcome" />
         <PrivateRoute component={Home} path="/" exact />
