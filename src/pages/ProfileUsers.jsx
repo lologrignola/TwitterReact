@@ -10,6 +10,7 @@ import RightSideBar from "../components/RightSideBar";
 import Spinner from "react-bootstrap/Spinner";
 import TopNavbar from "../components/TopNavbar";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 function ProfileUsers() {
   const params = useParams();
@@ -160,8 +161,10 @@ function ProfileUsers() {
                         </div>
                         <div>
                           <div className="w-100">
-                            <h5 className="mb-0">{randomUser.fullname}</h5>
-                            <small className="">{randomUser.username}</small>
+                            <Link className="links-rightSidebar" to={`/profile/${randomUser._id}`}>
+                              <h5 className="mb-0">{randomUser.fullname}</h5>
+                              <small className="">{randomUser.username}</small>
+                            </Link>
                           </div>
                           <p className="mb-1">{randomUser.bio}</p>
                         </div>
