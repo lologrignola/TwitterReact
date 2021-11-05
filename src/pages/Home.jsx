@@ -11,6 +11,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 function Home() {
   const [tweetContent, setTweetContent] = useState("");
+  const userId = useSelector((state) => state.user.id)
   const token = useSelector((state) => state.user.token);
   const tweets = useSelector((state) => state.tweets);
   const dispatch = useDispatch();
@@ -44,11 +45,11 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/tweets/${page}`, {
+        const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/tweets/${page}/${userId}`, {
           headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
         });
         console.log("DATA");
-        console.log(response);
+        console.log(response.data);
         setdataLength(dataLength + response.data.length);
         dispatch({ type: "ADD_MORE_TWEETS", payload: response.data });
       } catch (error) {

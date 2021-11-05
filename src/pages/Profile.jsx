@@ -18,7 +18,6 @@ function Profile() {
   useEffect(() => {
     const months = ['January', 'February','March','April','May','June','July','August','September','October','November','December'];
 
-
     const fetchRandomUsers = async() =>{
       try {
         const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/users/random-users`, {
@@ -27,9 +26,7 @@ function Profile() {
 
         const user = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/user/${userId}`, {
           headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-        });
-
-        console.log(user.data);
+        }); 
 
         const date = new Date(user.data.createdAt);
         const month = months[date.getMonth() - 1];
@@ -101,7 +98,7 @@ function Profile() {
                 data-bs-target="#editUserModal"
               >
                 {/* <span className="mx-auto">Set up profile</span> */}
-                <ModalEditUser />
+                <ModalEditUser user={user}/>
               </div>
             </div>
 
