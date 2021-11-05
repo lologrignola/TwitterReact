@@ -1,9 +1,13 @@
 import AboutUsItem from "../components/AboutUsItem";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 function AboutUs() {
   return (
     <div>
-      <div className="mt-2 ms-2">Back</div>
+      <Link to="/">
+        <div className="mt-2 ms-2">Back</div>
+      </Link>
+
       <div className="text-center pb-5 pt-5">
         <h1>Who we are</h1>
         <p className="fs-5 pt-2">
@@ -19,8 +23,8 @@ function AboutUs() {
         />
         <AboutUsItem
           nombre="Felipe Cabrera"
-          git="https://github.com/lologrignola"
-          linkedin="https://www.linkedin.com/in/lorenzo-grignola-a34028216/"
+          git="https://github.com/FelipeCabreraB/"
+          linkedin="https://www.linkedin.com/in/felipe-cabrera-bonino/"
         />
         <AboutUsItem
           nombre="Franco Bianchi"
@@ -29,8 +33,8 @@ function AboutUs() {
         />
         <AboutUsItem
           nombre="Lucas Gonzalez"
-          git="https://github.com/lologrignola"
-          linkedin="https://www.linkedin.com/in/lorenzo-grignola-a34028216/"
+          git="https://github.com/LucasGonzalezCarrau"
+          linkedin="https://www.linkedin.com/in/lucas-gonzalez-carrau/"
         />
       </div>
     </div>

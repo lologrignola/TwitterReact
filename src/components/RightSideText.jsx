@@ -1,7 +1,6 @@
 import React from "react";
 
-function RightSideText({ text }) {
-  var random_number = Math.floor(Math.random() * 100);
+function RightSideText({ text, number }) {
   return (
     <div role="button" className="tendencias-a functionallityNotWorking" href="#">
       <div className="tendencias-hover mt-2 p-2">
@@ -12,7 +11,7 @@ function RightSideText({ text }) {
           </div>
         </div>
         <p className="tendencias-a">{text}</p>
-        <p className="left-nav-text">{random_number}K Tweets</p>
+        <p className="left-nav-text">{number}K Tweets</p>
       </div>
     </div>
   );

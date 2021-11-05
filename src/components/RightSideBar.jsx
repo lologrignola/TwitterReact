@@ -32,11 +32,11 @@ function RightSideBar() {
               </div>
             </div>
           </div>
-          <RightSideText text="Tabarez" />
-          <RightSideText text="AUF" />
-          <RightSideText text="DT de Uruguay" />
-          <RightSideText text="Diego Aguirre" />
-          <RightSideText text="Complejo Celeste" />
+          <RightSideText text="Tabarez" number="70" />
+          <RightSideText text="AUF" number="33" />
+          <RightSideText text="DT de Uruguay" number="30" />
+          <RightSideText text="Diego Aguirre" number="25" />
+          <RightSideText text="Complejo Celeste" number="15" />
           <div role="button" href="" className="links-leftSide functionallityNotWorking">
             <p className="showMore mt-4">Show more</p>
           </div>

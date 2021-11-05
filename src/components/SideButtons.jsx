@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function SideButtons({ icon, text, link }) {
+function SideButtons({ icon, text, link, working }) {
   return (
     <li className="nav-item mt-2">
       <Link to={link} style={{ textDecoration: "inherit" }}>
-        <div role="button" className="links-leftSide functionallityNotWorking">
+        <div role="button" className={`links-leftSide ${working}`}>
           <div className="row">
             <div className="col-12 col-lg-2">
               <i className={icon}></i>

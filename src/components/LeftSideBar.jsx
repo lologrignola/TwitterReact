@@ -17,33 +17,43 @@ function LeftSideBar() {
           </div>
         </Link>
         <ul id="left-sidebar-list" className="nav flex-column mt-3">
-          <SideButtons text="Home" link="/" icon="icons-left fas fa-home" />
+          <SideButtons text="Home" link="/" icon="icons-left fas fa-home" working="" />
           <SideButtons
             text="Explore"
             link={window.location.pathname}
             icon="icons-left fas fa-hashtag"
+            working="functionallityNotWorking"
           />
           <SideButtons
             text="Notifications"
             link={window.location.pathname}
             icon="icons-left fas fa-bell"
+            working="functionallityNotWorking"
           />
           <SideButtons
             text="Messages"
             link={window.location.pathname}
             icon="icons-left fas fa-envelope"
+            working="functionallityNotWorking"
           />
           <SideButtons
             text="Bookmarks"
             link={window.location.pathname}
             icon="icons-left far fa-bookmark"
+            working="functionallityNotWorking"
           />
-          <SideButtons text="About Us" link="/about-us" icon="icons-left far fa-list-alt" />
-          <SideButtons text="Perfil" link="/profile" icon="icons-left far fa-user" />
+          <SideButtons
+            text="About Us"
+            link="/about-us"
+            icon="icons-left far fa-list-alt"
+            working=""
+          />
+          <SideButtons text="Perfil" link="/profile" icon="icons-left far fa-user" working="" />
           <SideButtons
             text="More"
             link={window.location.pathname}
             icon="icons-left fas fa-ellipsis-h"
+            working="functionallityNotWorking"
           />
           <li className="nav-item mt-4">
             <ModalTweet />
