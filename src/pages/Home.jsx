@@ -6,16 +6,17 @@ import TopNavbar from "../components/TopNavbar";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import Tweet from "../components/Tweet";
-import { useHistory } from "react-router";
+
 import InfiniteScroll from "react-infinite-scroll-component";
 
 function Home() {
   const [tweetContent, setTweetContent] = useState("");
-  const userId = useSelector((state) => state.user.id)
+  const userId = useSelector((state) => state.user.id);
   const token = useSelector((state) => state.user.token);
   const tweets = useSelector((state) => state.tweets);
+  const [userAvatar, setUserAvatar] = useState("");
   const dispatch = useDispatch();
-  const history = useHistory();
+
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     try {
@@ -45,9 +46,16 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/tweets/${page}/${userId}`, {
-          headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+        const response = await axios.get(
+          `${process.env.REACT_APP_URL_BACKEND}/tweets/${page}/${userId}`,
+          {
+            headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+          },
+        );
+        const user = await axios.get(`${process.env.REACT_APP_URL_BACKEND}/user/${userId}`, {
+          headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         });
+        setUserAvatar(user.data.avatar);
         console.log("DATA");
         console.log(response.data);
         setdataLength(dataLength + response.data.length);
@@ -82,7 +90,7 @@ function Home() {
                         className="rounded-circle"
                         width="55rem"
                         height="55rem"
-                        src="https://i.pinimg.com/originals/0d/36/e7/0d36e7a476b06333d9fe9960572b66b9.jpg"
+                        src={userAvatar}
                         alt="testUserAvatar"
                       />
                     </div>

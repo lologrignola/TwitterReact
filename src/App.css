@@ -615,3 +615,7 @@ body.modal-open .supreme-container {
   margin: -2px;
   border-radius: 10px;
 }
+
+.likeHeartRed {
+  color: rgb(250, 110, 145);
+}
