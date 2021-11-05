@@ -3,6 +3,7 @@ import RightSideText from "./RightSideText";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import ButtonFlwUnf from "./BtnFlwUnf";
+import SearchModal from "./SearchModal";
 
 function RightSideBar() {
   const token = useSelector((state) => state.user.token);
@@ -20,22 +21,7 @@ function RightSideBar() {
   }, []);
   return (
     <>
-      <div style={{ backgroundColor: "black" }} className="sticky-top pb-3">
-        <div className="pt-3">
-          <form action="/search-one" method="POST">
-            <input
-              type="text"
-              className="form-control rounded-pill"
-              name="username"
-              placeholder="Buscar en Twitter"
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-            />
-            <input type="submit" style={{ display: "none" }} />
-          </form>
-        </div>
-      </div>
-
+      <SearchModal />
       <div className="tendencias rounded">
         <div className="inside-tendencias">
           <div className="row">
